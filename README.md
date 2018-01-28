@@ -16,7 +16,7 @@
 
 
 
-<table border="0" cellspacing="0" cellpadding="0" style="width:100%" >
+<table border="0" style="width:100%;border:0px;" >
   <tr>
     <th>Joao Maia</th>
     <th>Diogo</th> 
