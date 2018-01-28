@@ -1,9 +1,10 @@
-# C++ Game Quiz RETRO
+# C++ Game Text Adventure RETRO-MODE
 
 ### TO DO LIST
 
 - [x] Simple Front-End
 - [ ] Connection to DB
+- [ ] DB Options SCRUD or CRUD (Search Create Read Update Delete) 
 - [ ] Game 
 
 
@@ -15,7 +16,7 @@
 
 
 
-<table style="width:100%" border=0>
+<table style="width:100%,border:none" >
   <tr>
     <th>Joao Maia</th>
     <th>Diogo</th> 
