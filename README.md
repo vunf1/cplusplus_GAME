@@ -7,6 +7,7 @@
 - [ ] DB Options SCRUD or CRUD (Search Create Read Update Delete) 
 - [ ] Game 
 
+- [ ] Improve Design 
 
 
 

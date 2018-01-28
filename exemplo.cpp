@@ -1,5 +1,4 @@
 #include <iostream>
-#include "libsqlite.hpp"
 #include <string> // String Library
 #include <climits> // for INT_MAX limits that why can fix possible bugs from User Input
 using namespace std;
@@ -12,9 +11,11 @@ void clearCon()// Joao
     cout << string( 100, '\n' );
     }
 
-void moreOpction(){
+void moreOpction(){//Joao
 
-	cout<<"	    More Opctions - Charater Creation"<<endl;
+
+	cout<<endl;
+	cout<<"	   More Opctions - Charater Creation"<<endl;
 	cout<<"		 ________________"<<endl;
 	cout<<"		!                !"<<endl;
 	cout<<"		!                !"<<endl;
@@ -77,9 +78,8 @@ int main() //Joao
 {
 	int op;
 	cout<<endl;
-	cout<<"		      QUIZ"<<endl;
-	cout<<"	      Computer Architecture"<<endl;
-
+	cout<<"		   Text Adventure "<<endl;
+	
 	cout<<"		 ________________"<<endl;
 	cout<<"		!                !"<<endl;
 	cout<<"		!                !"<<endl;
