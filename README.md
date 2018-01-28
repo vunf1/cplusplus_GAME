@@ -1,8 +1,8 @@
-# cplusplus_GAME
+# C++ Game Quiz RETRO
 
 ### TO DO LIST
 
-- [x] #Simple Front-End
+- [x] Simple Front-End
 - [ ] Connection to DB
 - [ ] Game 
 
@@ -13,12 +13,29 @@
 
 ### Author
 
-| [<img src="https://pbs.twimg.com/profile_images/723596755514867712/TTGTLJ0l_400x400.jpg" width="100">](https://twitter.com/wannabevunf1 "Follow @wannabevunf1 on Twitter") |
-|---|
-| [@wannabevunf1](https://twitter.com/wannabevunf1) |
 
 
-| [<img src="WHOIS.jpg">)(https://twitter.com/????? "Follow @NoOne on Twitter") |
-|---|
-| [@?????](https://twitter.com/?????????) |
+<table style="width:100%,border:0">
+  <tr>
+    <th>Joao Maia</th>
+    <th>Diogo<</th> 
+    <th>Mariya<</th>
+    <th>Someone 1<</th>
+    <th>Someone 1<</th>
+  </tr>
+  <tr>
+    <td><img src="joao_maia.jpg" width="100"></td>
+    <td><img src="diogo.jpg" width="100"></td>
+    <td><img src="mariya.jpg" width="100"></td>
+    <td><img src="WHOIS.jpg" width="100"></td>
+    <td><img src="WHOIS.jpg" width="100"></td>
+  </tr>
+  <tr>
+    <td>Follow</td>
+    <td>Follow</td>
+    <td>Follow</td>
+    <td>Follow</td>
+    <td>Follow</td>
+  </tr>
+</table>
 
