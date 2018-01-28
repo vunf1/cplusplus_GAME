@@ -15,13 +15,13 @@
 
 
 
-<table style="width:100%,border:0,align:center">
+<table style="width:100%" border=0>
   <tr>
     <th>Joao Maia</th>
     <th>Diogo</th> 
     <th>Mariya</th>
     <th>Someone 1</th>
-    <th>Someone 1</th>
+    <th>Someone 2</th>
   </tr>
   <tr>
     <td><img src="joao_maia.jpg" width="100"></td>
@@ -30,12 +30,6 @@
     <td><img src="WHOIS.jpg" width="100"></td>
     <td><img src="WHOIS.jpg" width="100"></td>
   </tr>
-  <tr align="center">
-    <td>Follow</td>
-    <td>Follow</td>
-    <td>Follow</td>
-    <td>Follow</td>
-    <td>Follow</td>
-  </tr>
+
 </table>
 
