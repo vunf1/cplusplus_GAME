@@ -25,7 +25,7 @@
     <th>Someone 2</th>
   </tr>
   <tr>
-    <td><img src="joao_maia.jpg" width="100"></td>
+    <td><a href="https://twitter.com/wannabevunf1"><img src="joao_maia.jpg" width="100"></a></td>
     <td><img src="diogo.jpg" width="100"></td>
     <td><img src="mariya.jpg" width="100"></td>
     <td><img src="WHOIS.jpg" width="100"></td>
