@@ -15,9 +15,16 @@
 
 ### Author
 
+<style>
+  
+  #tabI{
+    border: none
+  }
 
 
-<table border="0" style="width:100%;border:0px;" >
+</style>
+
+<table id='tabI' border="0" style="width:100%;border:0px;" >
   <tr>
     <th>Joao Maia</th>
     <th>Diogo</th> 
