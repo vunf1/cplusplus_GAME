@@ -1,10 +1,64 @@
 #include <iostream>
+#include "libsqlitepp/libsqlite.hpp"
+
 #include <string> // String Library
-#include <climits> // for INT_MAX limits that why can fix possible bugs from User Input
+#include <climits> // for INT_MAX limits that can fix possible bugs from User Input
+
 using namespace std;
 
 char user[50],password[50];
 int op;
+
+
+
+
+char checkDB(){
+
+
+
+
+    try
+    {
+	    sqlite::sqlite db( "dbPlayer.sqlite" );    // open database
+
+        string userInput;
+        getline( cin, userInput );
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player; ");
+        cur->prepare();
+    
+        while( cur->step() )
+            cout << cur->get_text(0) << ", "<<cur->get_text(1) << ", "<<cur->get_text(2) << ", "<<cur->get_text(3) << endl;
+        cout << endl;
+
+    }
+    catch( sqlite::exception e )      // catch all sql issues
+    {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+int createCharater(){
+
+	cout<<"Input Username and password (split by space)\t";
+	cin>>user>>password;
+	cout<<"User: "<<user<<" password :"<<password<<endl;
+
+}
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
@@ -45,9 +99,7 @@ void moreOpction(){//Joao
 				moreOpction();
 				break;
 			case 1:
-				cout<<"Input Username and password (split by space)"<<endl;
-				cin>>user>>password;
-				cout<<"User: "<<user<<" password :"<<password<<endl;
+				createCharater();
 				break;
 			case 2:
 				cout<<"Input Username and password (split by space)"<<endl;
@@ -74,12 +126,19 @@ void moreOpction(){//Joao
 
 }
 
+
+
+
+
+
+
+
 int main() //Joao
 {
 	int op;
 	cout<<endl;
 	cout<<"		   Text Adventure "<<endl;
-	
+
 	cout<<"		 ________________"<<endl;
 	cout<<"		!                !"<<endl;
 	cout<<"		!                !"<<endl;
@@ -92,6 +151,13 @@ int main() //Joao
 	cout<<endl;
 	cout<<"Choose a number \t";
 	cin>>op;
+
+
+
+
+
+
+
 	 while (cin.fail()) //Joao
     {
         cin.clear(); // clear input buffer to restore cin to a usable state
@@ -119,6 +185,9 @@ int main() //Joao
 				break;
 			case 4:
 				moreOpction();
+				break;
+			case 5://TEST REMOVE
+				checkDB();
 				break;
 			default:
 				cout<<endl;
