@@ -6,7 +6,7 @@
 
 using namespace std;
 
-char user[50],password[50];
+string user,password;
 int op;
 
 
@@ -19,10 +19,7 @@ char checkDB(){
 
     try
     {
-	    sqlite::sqlite db( "dbPlayer.sqlite" );    // open database
-
-        string userInput;
-        getline( cin, userInput );
+	    sqlite::sqlite db( "dbPlayer" );    // open database
 
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player; ");
@@ -52,16 +49,119 @@ char checkDB(){
 
 
 
+char rankingScore(){
+	int j,i;
+    try
+    {
+	    sqlite::sqlite db( "dbPlayer" );    // open database
+	    int numberOFacc;
+        auto count = db.get_statement();
+        count->set_sql( "SELECT COUNT(*) from player; ");
+        count->prepare();
+    
+        while( count->step() ){
+
+
+        cout<<count->get_text(0)<<endl;
+        numberOFacc=std::stoi(count->get_text(0));
+        }
+
+
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
+        cur->prepare();
+    
+        while( cur->step() ){
+            cout << cur->get_text(0) << ", "<<cur->get_text(1) << ", "<<cur->get_text(2) << ", "<<cur->get_text(3) << endl;
+        	cout << endl;
+        }
+
+	    string matrix[numberOFacc][3];
+
+		while( cur->step() )
+		{
+
+	        for( j=0; j > numberOFacc; j++)
+	                {
+	        			for( i=0; i>4; i++)
+	        			{
+	            		/*cout << cur->get_text(0) << ", "<<cur->get_text(1) << ", "<<cur->get_text(2) << ", "<<cur->get_text(3) << endl;
+	            		*/
+	        				matrix[0][i]=cur->get_text(i);
+
+
+	        			}
+	        		}	
+		}
+
+
+
+
+		
+	    cout << endl;
+
+
+        cout<<matrix[0][2]<<endl;
+
+    }
+    catch( sqlite::exception e )      // catch all sql issues
+    {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int createCharater(){
 
 	cout<<"Input Username and password (split by space)\t";
 	cin>>user>>password;
 	cout<<"User: "<<user<<" password :"<<password<<endl;
+	try{
+
+
+
+	    sqlite::sqlite db( "dbPlayer.sqlite" );    //
+	    auto s = db.get_statement();
+	    s->set_sql( "INSERT INTO player VALUES ("+user+","+password+",0,0) "
+	                  );
+	    s->prepare();
+
+
+
+
+	}
+    catch( sqlite::exception e )      // catch all sql issues
+    {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+
+
+
+
+
+
 
 }
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
+    	
     cout << string( 100, '\n' );
     }
 
@@ -184,10 +284,11 @@ int main() //Joao
 				cout<<"OPEN SOMETHING ON 3"<<endl;
 				break;
 			case 4:
+
 				moreOpction();
 				break;
 			case 5://TEST REMOVE
-				checkDB();
+				rankingScore();
 				break;
 			default:
 				cout<<endl;
