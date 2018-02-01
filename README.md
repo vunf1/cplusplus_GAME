@@ -1,12 +1,21 @@
-# C++ Game Text Adventure RETRO-MODE
+# C++ Game Text Adventure CONSOLE-MODE
+
+REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
+commands:
+to compile -> "g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
+execute -> "sudo ./game"
+
 
 ### TO DO LIST
 
 - [x] Simple Front-End
 - [x] DB Creaction
 - [x] Connection to DB
-- [ ] DB Options SCRUD or CRUD (Search Create Read Update Delete) 
+- [ ] DB Options SCRUD or CRUD (Search Create Read Update Delete)
+- [x] Ranking  
 - [ ] Game 
+
+### EXTRA 
 
 - [ ] Improve Design 
 
@@ -22,7 +31,7 @@
     <th>Joao Maia</th>
     <th>Diogo</th> 
     <th>Mariya</th>
-    <th>Someone 1</th>
+    <th>Bartek</th>
     <th>Someone 2</th>
   </tr>
   <tr>

@@ -1,18 +1,43 @@
 #include <iostream>
-#include "libsqlitepp/libsqlite.hpp"
+#include "libsqlitepp/libsqlite.hpp" //DB Library SQLite3
 
 #include <string> // String Library
+#include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
 
 using namespace std;
 
-string user,password;
+char user[30];
+char password[20];
 int op;
 
 
 
 
-char checkDB(){
+
+void removeCharater(){
+
+
+	    sqlite::sqlite db( "dbPlayer" );    // open database
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player; ");
+        cur->prepare();
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+char checkDB(){//Testes
 
 
 
@@ -49,60 +74,46 @@ char checkDB(){
 
 
 
-char rankingScore(){
+char rankingScore(){//Joao
 	int j,i;
+	string matrix[2][3];
     try
     {
 	    sqlite::sqlite db( "dbPlayer" );    // open database
 	    int numberOFacc;
+
+	    /* COUNT NUMBER OS ACC IN DB*/
         auto count = db.get_statement();
-        count->set_sql( "SELECT COUNT(*) from player; ");
+        count->set_sql( "SELECT COUNT(*) "
+        	"from player");
         count->prepare();
-    
-        while( count->step() ){
-
-
-        cout<<count->get_text(0)<<endl;
-        numberOFacc=std::stoi(count->get_text(0));
-        }
+        count->step();
+        numberOFacc=count->get_int(0);
+        cout<<numberOFacc<<endl;
 
 
 
+    	int counts=0;
+	    string matrix[numberOFacc][3];
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
         cur->prepare();
-    
-        while( cur->step() ){
-            cout << cur->get_text(0) << ", "<<cur->get_text(1) << ", "<<cur->get_text(2) << ", "<<cur->get_text(3) << endl;
-        	cout << endl;
+        cout<<"************************"<<endl;
+
+        cout<<"	Ranking "<<endl;
+        cout<<"NICKNAME   	SCORE "<<endl;
+
+        while(cur->step()){
+
+        	cout <<" "<< cur->get_text(0) << "		"<<cur->get_text(3) << endl;
+        cout << endl;
+
+
+
         }
 
-	    string matrix[numberOFacc][3];
+        cout<<"************************"<<endl;
 
-		while( cur->step() )
-		{
-
-	        for( j=0; j > numberOFacc; j++)
-	                {
-	        			for( i=0; i>4; i++)
-	        			{
-	            		/*cout << cur->get_text(0) << ", "<<cur->get_text(1) << ", "<<cur->get_text(2) << ", "<<cur->get_text(3) << endl;
-	            		*/
-	        				matrix[0][i]=cur->get_text(i);
-
-
-	        			}
-	        		}	
-		}
-
-
-
-
-		
-	    cout << endl;
-
-
-        cout<<matrix[0][2]<<endl;
 
     }
     catch( sqlite::exception e )      // catch all sql issues
@@ -124,22 +135,90 @@ char rankingScore(){
 
 
 
+int checkUser(string user){
 
 
-int createCharater(){
+	 	sqlite::sqlite db( "dbPlayer" );    
+	    auto checkQ = db.get_statement();
+	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?");
+	    checkQ->prepare();
+		checkQ->bind( 1, user);
+	    checkQ->step();
+	    if(checkQ->get_int(0)==1){
+	    	return 1;
+	    }else{
+	    	return 0;
+	    }
 
-	cout<<"Input Username and password (split by space)\t";
-	cin>>user>>password;
-	cout<<"User: "<<user<<" password :"<<password<<endl;
+
+}
+
+
+string transformToQuote( const string& var ) { // Joao
+	/*Transform variables into quotes to SQL Query*/
+	return string("'") + var + string("'");
+}
+
+
+char createCharater(){//Joao
+
+	bool check;
 	try{
 
+	 	sqlite::sqlite db( "dbPlayer" ); 
+
+		cout<<" ###  Let's create your account  ###"<<endl;
+
+		cout<<"Input Username you wish if not exist already	\t";
+		cin>>user;
+
+	    //cout<<checkQ->get_int(0)<<endl;
+	    check=checkUser(user);
+
+	    while(check==1)
+	    {
+
+				cout<<"**************************"<<endl;
+				cout<<"*	ERROR            *"<<endl;
+				cout<<"*  ------------------    *"<<endl;
+				cout<<"* Nickname in use        *"<<endl;
+				cout<<"*        SORRY           *"<<endl;
+				cout<<"**************************"<<endl;
+
+				cout<<"Input Username if not exist already	\t";
+				cin>>user;
+				check=checkUser(user);
+
+	    }
 
 
-	    sqlite::sqlite db( "dbPlayer.sqlite" );    //
-	    auto s = db.get_statement();
-	    s->set_sql( "INSERT INTO player VALUES ("+user+","+password+",0,0) "
-	                  );
-	    s->prepare();
+		while(strlen(password)<8)
+		{
+
+			cout<<"Password at least 8 digits\t"<<endl;
+			cin>>password;
+
+		}
+
+		//cout<<"User: "<<user<<" password : "<<password<<endl;
+
+
+	   
+ 
+
+	    auto insertQ = db.get_statement();
+			insertQ->set_sql( "INSERT INTO player VALUES ("+transformToQuote(user)+", "+transformToQuote(password)+", 0, 0)" );
+			insertQ->prepare();
+			/*insertQ->bind( 1, user );
+			insertQ->bind( 2, password );
+			*/	
+			if(insertQ->step()== SQLITE_OK ){
+				cout<<"********************************"<<endl;
+				cout<<"* Account created successfully *"<<endl;
+				cout<<"********************************"<<endl;
+				
+			}
+			
 
 
 
@@ -158,12 +237,15 @@ int createCharater(){
 
 
 }
+
+
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
     	
     cout << string( 100, '\n' );
     }
+
 
 void moreOpction(){//Joao
 
@@ -202,16 +284,13 @@ void moreOpction(){//Joao
 				createCharater();
 				break;
 			case 2:
-				cout<<"Input Username and password (split by space)"<<endl;
-				cin>>user>>password;
+
 				break;
 			case 3:
-				cout<<"Input Username and password (split by space)"<<endl;
-				cin>>user>>password;
+
 				break;
 			case 4:
-				cout<<"Input Username"<<endl;
-				cin>>user;
+
 				break;
 			default:
 				clearCon();
@@ -244,8 +323,8 @@ int main() //Joao
 	cout<<"		!                !"<<endl;
 	cout<<"		!   1- Start     !"<<endl;
 	cout<<"		!   2- Score     !"<<endl;
-	cout<<"		!   3- Reset     !"<<endl;
-	cout<<"		!   4- More      !"<<endl;
+	cout<<"		!   3- More      !"<<endl;
+	cout<<"		!   4- Quit      !"<<endl;
 	cout<<"		!                !"<<endl;
 	cout<<"		!________________!"<<endl;
 	cout<<endl;
@@ -278,17 +357,16 @@ int main() //Joao
 				cout<<"OPEN SOMETHING ON 1"<<endl;
 				break;
 			case 2:
-				cout<<"OPEN SOMETHING ON 2"<<endl;
+				rankingScore();
 				break;
 			case 3:
-				cout<<"OPEN SOMETHING ON 3"<<endl;
-				break;
-			case 4:
 
 				moreOpction();
 				break;
+			case 4:
+				break;
 			case 5://TEST REMOVE
-				rankingScore();
+				createCharater();
 				break;
 			default:
 				cout<<endl;
