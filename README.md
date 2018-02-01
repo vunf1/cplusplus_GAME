@@ -1,9 +1,9 @@
 # C++ Game Text Adventure CONSOLE-MODE
 
-REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
-commands:
-to compile -> "g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
-execute -> "sudo ./game"
+##REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
+###commands:
+###to compile -> "g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
+###execute -> "sudo ./game"
 
 
 ### TO DO LIST
