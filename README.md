@@ -1,18 +1,21 @@
 # C++ Game Text Adventure CONSOLE-MODE
 
-## REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
+## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ### commands:
-### to compile -> "g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
-### execute -> "sudo ./game"
+### to compile -> 
+"g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
+### execute -> 
+"sudo ./game"
 
 
 ### TO DO LIST
 
-- [x] Simple Front-End
+- [x] Simple Design
 - [x] DB Creaction
 - [x] Connection to DB
-- [ ] DB Options SCRUD or CRUD (Search Create Read Update Delete)
-- [x] Ranking  
+- [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
+- [x] Ranking
+- [ ] Organize functions , create routine 
 - [ ] Game 
 
 ### EXTRA 
