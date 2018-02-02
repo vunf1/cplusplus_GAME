@@ -10,7 +10,8 @@ using namespace std;
 char user[30];
 char password[20];
 int op;
-sqlite::sqlite db( "dbPlayer" ); 
+sqlite::sqlite db( "dbPlayer" );
+char loginUser[50];
 
 
 
@@ -18,15 +19,30 @@ sqlite::sqlite db( "dbPlayer" );
 
 
 
+void pressAnyToContinue(){//Joao
+	cout << "Press any key to continue.";
+	cin.ignore();
+	cin.get();
+}
 
-char checkDB(){//Testes
+
+
+void clearCon()// Joao
+    {
+    /*Create 100 lines in the console giving the ideia of clean*/
+    	
+    cout << string( 100, '\n' );
+    }
+
+
+char checkDB(){//Joao
 
 
 
 
     try
     {
-	    sqlite::sqlite db( "dbPlayer" );    // open database
+	        // open database
 
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player; ");
@@ -43,15 +59,6 @@ char checkDB(){//Testes
         return 1;
     }
 
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -61,7 +68,7 @@ char rankingScore(){//Joao
 
     try
     {
-	    sqlite::sqlite db( "dbPlayer" );    // open database
+	        // open database
 	    int numberOFacc;
 
 	    /* COUNT NUMBER OS ACC IN DB*/
@@ -71,18 +78,18 @@ char rankingScore(){//Joao
         count->prepare();
         count->step();
         numberOFacc=count->get_int(0);
-        cout<<numberOFacc<<endl;
+        //cout<<numberOFacc<<endl;
         /*For create a table with 1 2 3 4 5 as place for players ideia to improve*/
 
 
-
-        auto cur = db.get_statement();
-        cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
-        cur->prepare();
         cout<<"************************"<<endl;
 
         cout<<"	Ranking "<<endl;
         cout<<"NICKNAME   	SCORE "<<endl;
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
+        cur->prepare();
 
         while(cur->step()){
 
@@ -106,20 +113,10 @@ char rankingScore(){//Joao
 
 
 
+int checkUser(string user){//Joao
 
 
-
-
-
-
-
-
-
-
-int checkUser(string user){
-
-
-	 	sqlite::sqlite db( "dbPlayer" );    
+	 	    
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?");
 	    checkQ->prepare();
@@ -149,12 +146,13 @@ char createCharacter(){//Joao
 	bool check;
 	try{
 
-	 	sqlite::sqlite db( "dbPlayer" ); 
+	 	 
 
 		cout<<" ###  Let's create your account  ###"<<endl;
 
 		cout<<"Input Username 	\t";
 		cin>>user;
+		/*
 		if(user=="quit"||"Quit"||"QUit"||"QUIt"||"QUIT"||"quiT"||"quIT"||"qUIT"){
 			cout<<"That word is reserved for quit the game"<<endl;
 			cout<<"If you want to exit from this, type again 'quit'"<<endl;
@@ -167,7 +165,7 @@ char createCharacter(){//Joao
 				}
 
 
-		}
+		}*/
 
 	    //cout<<checkQ->get_int(0)<<endl;
 	    check=checkUser(user);
@@ -231,27 +229,7 @@ char createCharacter(){//Joao
     }
 
 
-
-
-
-
-
 }
-
-
-void clearCon()// Joao
-    {
-    /*Create 100 lines in the console giving the ideia of clean*/
-    	
-    cout << string( 100, '\n' );
-    }
-
-
-
-
-
-
-
 
 
 
@@ -260,7 +238,7 @@ int checkUP(string user,string password){//Joao
 	/*check if username and password exist on db*/
 
 
-	 	sqlite::sqlite db( "dbPlayer" );    
+	 	    
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where id=? and password=?");
 	    checkQ->prepare();
@@ -279,26 +257,16 @@ int checkUP(string user,string password){//Joao
 
 
 
-int removeCharacter(){
+int removeCharacter(){//Joao
 
 		bool OK;
 		cout<<"Username \t";
 		cin>>user;
-
-				if(user=="quit"||"Quit"||"QUit"||"QUIt"||"QUIT"||"quiT"||"quIT"||"qUIT"){
-					return 0;
-				}
-
 		cout<<"Password \t";
 		cin>>password;
-
-				if(password=="quit"||"Quit"||"QUit"||"QUIt"||"QUIT"||"quiT"||"quIT"||"qUIT"){
-					return 0;
-				}
 		OK=checkUP(user,password);
 		if (OK==true){
-
-			sqlite::sqlite db( "dbPlayer" );    
+   
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("Delete from player Where id=?");
 		    checkQ->prepare();
@@ -327,11 +295,10 @@ int removeCharacter(){
 
 
 
- void alterUser(string user,string username){
+ void alterUser(string user,string username){//Joao
 
 
-
-			sqlite::sqlite db( "dbPlayer" );    
+   
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET id = ? WHERE id=?;");
 		    checkQ->prepare();
@@ -404,8 +371,7 @@ void alterPass(string password,string user){
 
 
 
-
-			sqlite::sqlite db( "dbPlayer" );    
+   
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET password = ? WHERE id=?;");
 		    checkQ->prepare();
@@ -542,9 +508,6 @@ int modifyAccount()
 		}
 
 
-
-
-
 }
 
 
@@ -630,15 +593,23 @@ void moreOpction(){//Joao
 				break;
 			case 1:
 				createCharacter();
+				pressAnyToContinue();
+				moreOpction();
 				break;
 			case 2:
-
+				modifyAccount();
+				pressAnyToContinue();
+				moreOpction();
 				break;
 			case 3:
 				removeCharacter();
+				pressAnyToContinue();
+				moreOpction();
 				break;
 			case 4:
-
+				findPlayer();
+				pressAnyToContinue();
+				moreOpction();
 				break;
 			default:
 				clearCon();
@@ -655,14 +626,10 @@ void moreOpction(){//Joao
 
 
 
+int openMenu(){
 
 
 
-
-
-int main() //Joao
-{
-	int op;
 	cout<<endl;
 	cout<<"		   Text Adventure "<<endl;
 
@@ -693,6 +660,17 @@ int main() //Joao
         cout << "Enter a number."<<endl;
         cin >> op;
     }
+    return op;
+
+}
+
+
+
+
+int main() //Joao
+{
+		op=openMenu();
+
 		switch(op) //Joao
 		{
 			case 0:
@@ -706,6 +684,8 @@ int main() //Joao
 				break;
 			case 2:
 				rankingScore();
+				pressAnyToContinue();
+				main();
 				break;
 			case 3:
 
