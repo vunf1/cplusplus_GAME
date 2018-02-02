@@ -17,7 +17,12 @@ after -o put the name you want to give the executable, my case i choose 'game'
 - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 - [x] Ranking
 - [ ] Organize functions , create routine 
-- [ ] Game 
+- [ ] Game - Children 
+- [ ] Game - Surgery
+- [ ] Game - Psychiatric
+- [ ] Game - Lobby
+- [ ] Game - Basement 
+- [ ] Game - Review all stuff
 
 ### EXTRA 
 
