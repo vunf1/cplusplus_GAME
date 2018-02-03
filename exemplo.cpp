@@ -1,6 +1,5 @@
 #include <iostream>
 #include "libsqlitepp/libsqlite.hpp" //DB Library SQLite3
-
 #include <string> // String Library
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
@@ -10,13 +9,13 @@ using namespace std;
 char user[30];
 char password[20];
 int op;
-sqlite::sqlite db( "dbPlayer" );
 char loginUser[50];
+sqlite::sqlite db("dbPlayer");
 
 
 
 
-
+#include "functions.h"
 
 
 void pressAnyToContinue(){//Joao
@@ -694,7 +693,7 @@ int main() //Joao
 			case 4:
 				break;
 			case 5://TEST REMOVE
-				findPlayer();
+				grabItensfloor(2);
 				break;
 			default:
 				cout<<endl;

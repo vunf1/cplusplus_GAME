@@ -3,7 +3,7 @@
 ## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ### commands:
 ### to compile 
-"g++ -srd=c++14 exemplo.cpp -o game -lsqlite3"
+"g++ -std=c++14 exemplo.cpp -o game -lsqlite3"
 after -o put the name you want to give the executable, my case i choose 'game'
 ### execute -> 
 "sudo ./game"
