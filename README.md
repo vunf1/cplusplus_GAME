@@ -1,17 +1,19 @@
 # C++ Game Text Adventure CONSOLE-MODE
-# Manual c++ -> https://github.com/fffaraz/awesome-cpp
-#Need TO install on linux:
+### Manual c++ -> https://github.com/fffaraz/awesome-cpp
+## Need TO install on linux:
 sudo apt install ncurses-dev
 sudo apt install sqlite3-dev
 
 ## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
-### commands:
-### to compile 
-"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"
+### Useful Commands:
+### to compile :
+---
+"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"<br>
 after -o put the name you want to give the executable, my case i choose 'game'
 -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ### execute -> 
-"sudo ./<name give after -o>"
+---
+"sudo ./<name inputed after -o>"
 
 
 ### TO DO LIST
@@ -26,7 +28,7 @@ after -o put the name you want to give the executable, my case i choose 'game'
 > - [x] Organize functions , create routes, kinda of MVC design 
 > - [x] addScore
 > - [x] upLevel
-> - [x] Player info travel 
+> - [x] Player info travel between cpp's 
 > - [ ] Game - Children     (Floor 3)
 > - [ ] Game - Surgery      (Floor 2)
 > - [ ] Game - Psychiatric  (Floor 1)
@@ -35,7 +37,6 @@ after -o put the name you want to give the executable, my case i choose 'game'
 > - [ ] Game - Basement     (Floor -1)
 > - [ ] Game - Review all stuff
 
-'''
 
 ### EXTRA 
 
@@ -50,7 +51,7 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 <table>
   <tr>
-    <th>Joao Maia<br>(Leader)</th>
+    <th>(Leader)<br>Joao Maia</th>
     <th>Diogo</th> 
     <th>Mariya</th>
     <th>Bartiek</th>
