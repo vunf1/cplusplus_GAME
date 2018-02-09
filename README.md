@@ -7,13 +7,12 @@ sudo apt install sqlite3-dev
 ## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ---
 ### Useful Commands:
-## to compile ->
-
+to compile -><br>
 __ "g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses" __ 
 after -o put the name you want to give the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ---
-## execute -> 
-"sudo ./<name inputed after -o>"
+execute -> <br>
+__ "sudo ./<name inputed after -o>" __
 
 
 ### TO DO LIST
