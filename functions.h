@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "libsqlitepp/libsqlite.hpp" //DB Library SQLite3
+#include "libsqlite3/libsqlite.hpp" //DB Library SQLite3
 
 #include <string> // String Library
 #include <string.h>// string functions
