@@ -8,9 +8,10 @@ sudo apt install sqlite3-dev
 ---
 ### Useful Commands:
 ## to compile :
-#####__"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"<br>
+
+__"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"__<br>
 after -o put the name you want to give the executable, my case i choose 'game'
--l means library to load sqlite3 (database) ncurses( is for "canvas" on console)__
+-l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ---
 ## execute -> 
 "sudo ./<name inputed after -o>"
@@ -25,7 +26,7 @@ after -o put the name you want to give the executable, my case i choose 'game'
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
-> - [x] Organize functions , create routes, kinda of MVC design 
+> - [x] Organize functions , create better algorithm, kinda like MVC design 
 > - [x] addScore
 > - [x] upLevel
 > - [x] Player info travel between cpp's 
@@ -51,12 +52,12 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 <table>
   <tr>
-    <th style="color:green;">(Leader)<br>Joao Maia</th>
-    <th style="color:red;">Diogo</th> 
-    <th style="color:blue;">Mariya</th>
-    <th style="color:blue;">Bartiek</th>
-    <th style="color:blue;">Iqra</th>
-    <th style="color:blue;">Luke</th>
+    <th bgcolor="#069c00">(Leader)<br>Joao Maia</th>
+    <th bgcolor="red">Diogo</th> 
+    <th bgcolor="blue">Mariya</th>
+    <th bgcolor="blue">Bartiek</th>
+    <th bgcolor="blue">Iqra</th>
+    <th bgcolor="blue">Luke</th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
