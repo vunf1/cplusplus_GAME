@@ -5,14 +5,14 @@ sudo apt install ncurses-dev
 sudo apt install sqlite3-dev
 
 ## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
-### Useful Commands:
-### to compile :
 ---
+### Useful Commands:
+## to compile :
 "g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"<br>
 after -o put the name you want to give the executable, my case i choose 'game'
 -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
-### execute -> 
 ---
+## execute -> 
 "sudo ./<name inputed after -o>"
 
 
@@ -51,12 +51,12 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 <table>
   <tr>
-    <th>(Leader)<br>Joao Maia</th>
-    <th>Diogo</th> 
-    <th>Mariya</th>
-    <th>Bartiek</th>
-    <th>Iqra</th>
-    <th>Luke</th>
+    <th style="color:green;">(Leader)<br>Joao Maia</th>
+    <th style="color:red;">Diogo</th> 
+    <th style="color:blue;">Mariya</th>
+    <th style="color:blue;">Bartiek</th>
+    <th style="color:blue;">Iqra</th>
+    <th style="color:blue;">Luke</th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
