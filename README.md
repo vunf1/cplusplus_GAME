@@ -48,12 +48,12 @@ __"sudo ./<name inputed after -o>"__
 ### Author
 
 
-| Joao Maia                            | Diogo          | Mariya         | Bartiek       | Iqra          | Luke          |
-| :---:                                |     :---:      |     :---:      |         :---: |         :---: |    :---:      |
-| Leader                               |                |                |               |               |               |
-| <img src="authorsIMG/joao_maia.jpg" width="100">|                |                |               |               |               |
+| > Joao Maia<br>(Leader)                           | Diogo                                         | Mariya         | Bartiek       | Iqra          | Luke          |
+| :---:                                           |     :---:                                    |     :---:      |         :---: |         :---: |    :---:      |
+|                                                 |                                              |                |               |               |               |
+| <a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a>| <a href="https://www.instagram.com/diogo.avm/"><img src="authorsIMG/diogo.jpg" width="100"></a> |<a href="https://www.instagram.com/mariya_lok/"><img src="authorsIMG/mariya.jpg" width="100"></a>                | <a href="https://www.instagram.com/everlasting_sleep/"><img src="authorsIMG/bartek.jpg" width="100"></a>    | <a href="https://www.instagram.com/_iqrakhxn/"><img src="authorsIMG/iqra.jpg" width="100"></a> | <a href="https://www.instagram.com/lukeromp/"><img src="authorsIMG/luke.jpg" width="100"></a>              |
 
-
+<!--
 <table>
   <tr style="background-color:yellowgreen;color:white;">
     <th ></th>
@@ -69,7 +69,8 @@ __"sudo ./<name inputed after -o>"__
     <td><a href="https://www.instagram.com/mariya_lok/"><img src="authorsIMG/mariya.jpg" width="100"></a></td>
     <td><a href="https://www.instagram.com/everlasting_sleep/"><img src="authorsIMG/bartek.jpg" width="100"></a></td>
     <td><a href="https://www.instagram.com/_iqrakhxn/"><img src="authorsIMG/iqra.jpg" width="100"></a></td>
-    <td><a href="https://www.instagram.com/lukeromp/"><img src="authorsIMG/luke.jpg" width="100"></td>
+    <td><a href="https://www.instagram.com/lukeromp/"><img src="authorsIMG/luke.jpg" width="100"></a></td>
   </tr>
 
 </table>
+-->
