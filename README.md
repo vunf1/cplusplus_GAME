@@ -16,24 +16,24 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 ### TO DO LIST
 
-'''
 
-- [x] Simple Design
-- [x] DB Creaction
-- [x] Connection to DB
-- [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
-- [x] Ranking
-- [x] Organize functions , create routes, kinda of MVC design 
-- [x] addScore
-- [x] upLevel
-- [x] Player info travel 
-- [ ] Game - Children     (Floor 3)
-- [ ] Game - Surgery      (Floor 2)
-- [ ] Game - Psychiatric  (Floor 1)
-- [ ] Game - Lobby        (Floor 0)
-- [ ] Game - After found key do the maze to finish the game 
-- [ ] Game - Basement     (Floor -1)
-- [ ] Game - Review all stuff
+
+> - [x] Simple Design
+> - [x] DB Creaction
+> - [x] Connection to DB
+> - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
+> - [x] Ranking
+> - [x] Organize functions , create routes, kinda of MVC design 
+> - [x] addScore
+> - [x] upLevel
+> - [x] Player info travel 
+> - [ ] Game - Children     (Floor 3)
+> - [ ] Game - Surgery      (Floor 2)
+> - [ ] Game - Psychiatric  (Floor 1)
+> - [ ] Game - Lobby        (Floor 0)
+> - [ ] Game - After found key do the maze to finish the game 
+> - [ ] Game - Basement     (Floor -1)
+> - [ ] Game - Review all stuff
 
 '''
 
@@ -50,7 +50,7 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 <table>
   <tr>
-    <th>Joao Maia (Leader)</th>
+    <th>Joao Maia<br>(Leader)</th>
     <th>Diogo</th> 
     <th>Mariya</th>
     <th>Bartiek</th>
