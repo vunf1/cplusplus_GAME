@@ -48,14 +48,20 @@ __"sudo ./<name inputed after -o>"__
 ### Author
 
 
+| Joao Maia    | Diogo          | Mariya         | Bartiek       | Iqra          | Luke          |
+| :---:        |     :---:      |     :---:      |         :---: |         :---: |    :---:      |
+| Leader       |                |                |               |               |               |
+|              |                |                |               |               |               |
+
+
 <table>
   <tr style="background-color:yellowgreen;color:white;">
-    <th >(Leader)<br>Joao Maia</th>
-    <th >Diogo</th> 
-    <th >Mariya</th>
-    <th >Bartiek</th>
-    <th >Iqra</th>
-    <th >Luke</th>
+    <th ></th>
+    <th ></th> 
+    <th ></th>
+    <th ></th>
+    <th ></th>
+    <th ></th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
@@ -67,4 +73,3 @@ __"sudo ./<name inputed after -o>"__
   </tr>
 
 </table>
-
