@@ -51,7 +51,7 @@ __"sudo ./<name inputed after -o>"__
 | Joao Maia                            | Diogo          | Mariya         | Bartiek       | Iqra          | Luke          |
 | :---:                                |     :---:      |     :---:      |         :---: |         :---: |    :---:      |
 | Leader                               |                |                |               |               |               |
-| ![alt text][authorsIMG/joao_maia.jpg]|                |                |               |               |               |
+| <img src="authorsIMG/joao_maia.jpg" width="100">|                |                |               |               |               |
 
 
 <table>
