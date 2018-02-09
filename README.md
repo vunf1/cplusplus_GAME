@@ -1,5 +1,5 @@
 # C++ Game Text Adventure CONSOLE-MODE
-
+# Manual c++ -> https://github.com/fffaraz/awesome-cpp
 #Need TO install on linux:
 sudo apt install ncurses-dev
 sudo apt install sqlite3-dev
@@ -7,7 +7,7 @@ sudo apt install sqlite3-dev
 ## - [x] REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ### commands:
 ### to compile 
-"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"
+"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"
 after -o put the name you want to give the executable, my case i choose 'game'
 -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ### execute -> 
@@ -23,7 +23,10 @@ after -o put the name you want to give the executable, my case i choose 'game'
 - [x] Connection to DB
 - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 - [x] Ranking
-- [ ] Organize functions , create routes, kinda of MVC design 
+- [x] Organize functions , create routes, kinda of MVC design 
+- [x] addScore
+- [x] upLevel
+- [x] Player info travel 
 - [ ] Game - Children     (Floor 3)
 - [ ] Game - Surgery      (Floor 2)
 - [ ] Game - Psychiatric  (Floor 1)
@@ -47,8 +50,8 @@ after -o put the name you want to give the executable, my case i choose 'game'
 
 <table>
   <tr>
-    <th>Joao Maia(Leader)</th>
-    <th>Diogo(CO-Leader)</th> 
+    <th>Joao Maia (Leader)</th>
+    <th>Diogo</th> 
     <th>Mariya</th>
     <th>Bartiek</th>
     <th>Iqra</th>

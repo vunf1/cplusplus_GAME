@@ -35,10 +35,66 @@ void clearCon()// Joao
     }
 
 
-#include "functions.h"
+
+
+
+string transformToQuote( const string& var ) { // Joao
+    /*Transform variables into quotes to SQL Query
+
+    To pass a string by reference, you use the data type string&.
+
+    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.*/
+    return string("'") + var + string("'");
+}
+
+
+
+
+
+vector<string> detailInfo;
+
+
+char playerInfo2vector(string user){
+
+
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player  where id=? ");
+        cur->prepare();
+        cur->bind(1,user);
+
+        while(cur->step()){
+
+        	detailInfo.emplace_back(cur->get_text(0)) ;
+        	detailInfo.emplace_back(cur->get_text(2)) ;
+        	detailInfo.emplace_back(cur->get_text(3)) ;
+
+
+
+        }/*
+for(auto& m : detailInfo){
+	    cout<<m<<endl;
+
+}*/
+
+/*
+    cout<<"Nick: "<<detailInfo[0]<<endl;
+    cout<<"level: "<<detailInfo[1]<<endl;
+    cout<<"Score: "<<detailInfo[2]<<endl;
+    */
+
+
+
+}
+
+
 #include "model.h"
 
 
+
+
+
+#include "functions.h"
 
 
 
@@ -279,33 +335,6 @@ int modifyAccount()
 
 
 
-char playerInfo(string user){
-
-
-
-        auto cur = db.get_statement();
-        cur->set_sql( "SELECT * from player  where id=? ");
-        cur->prepare();
-        cur->bind(1,user);
-        cout<<"************************"<<endl;
-
-        cout<<"NICKNAME    LEVEL    SCORE "<<endl;
-
-        while(cur->step()){
-
-        	cout <<" "<< cur->get_text(0) << "		"<<cur->get_text(2)<< "	"<<cur->get_text(3) << endl;
-        cout << endl;
-
-
-
-        }
-
-        cout<<"************************"<<endl;
-
-
-
-}
-
 char findPlayer(){
 	string nick;
 
@@ -340,14 +369,14 @@ void moreOpction(){//Joao
 	cout<<"		!                !"<<endl;
 	cout<<"		!________________!"<<endl;
 	cout<<endl;
-	cout<<"Choose a number \t";
+	cout<<"Choose an option \t";
 	cin>>op;
 	 while (cin.fail()) //Joao
     {
         cin.clear(); // clear input buffer to restore cin to a usable state
         cin.ignore(INT_MAX, '\n'); // ignore last input
         cout<<"You can only enter numbers."<<endl;
-        cout<<"Enter a number."<<endl;
+        cout<<"Choose an option."<<endl;
         cin>>op;
     }
     switch(op) //Joao
@@ -410,7 +439,7 @@ int openMenu(){
 	cout<<"		!                !"<<endl;
 	cout<<"		!________________!"<<endl;
 	cout<<endl;
-	cout<<"Choose a number \t";
+	cout<<"Choose an option. \t";
 	cin>>op;
 
 
@@ -424,7 +453,7 @@ int openMenu(){
         cin.clear(); // clear input buffer to restore cin to a usable state
         cin.ignore(INT_MAX, '\n'); // ignore last input
         cout << "You can only enter numbers."<<endl;
-        cout << "Enter a number."<<endl;
+        cout << "Choose an option"<<endl;
         cin >> op;
     }
     return op;
@@ -440,13 +469,14 @@ int main() //Joao
 		op=openMenu();
 		string us;
 		string pw;
+		string ans;
 
 		switch(op) //Joao
 		{
 			case 0:
 				clearCon();
 				cout<<endl;
-				cout<<"Wrong Number! Try Again"<<endl;
+				cout<<"Invalid Number! Try Again"<<endl;
 				main();
 				break;
 			case 1:
@@ -454,16 +484,24 @@ int main() //Joao
 				cin>>us;
 				cout<<"Password\t";
 				cin>>pw;
-				while(login(us,pw)!=true){
+				while(checkUP(us,pw)!=true){
 
 					cout<<"Wrong credentials"<<endl;
+					cout<<"Wish go back (y/n)?"<<endl;
+					cin>>ans;
+					if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
+						main();
+					}
+
 					cout<<"Username\t";
 					cin>>us;
 					cout<<"Password\t";
 					cin>>pw;
-					login(us,pw);
+					checkUP(us,pw);	
+					
 				}
-					Game(us);	
+					playerInfo2vector(us);
+					Game(detailInfo);	
 				break;
 			case 2:
 				rankingScore();
@@ -477,14 +515,13 @@ int main() //Joao
 			case 4:
 				break;
 			case 5://TEST REMOVE
-
 				cout<<"Username\t";
 				cin>>us;
-				addScore(us,10);
+				playerInfo2vector(us);
 				break;
 			default:
 				cout<<endl;
-				cout<<"Wrong Number! Try Again"<<endl;
+				cout<<"Invalid Number! Try Again"<<endl;
 				main();
 				break;
 		}

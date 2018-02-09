@@ -11,16 +11,6 @@ using namespace std;
 /* FUTURE USE : ORGANIZE FUNCTION IN IT*/
 #include <ncurses.h>
 
-//#include "maze.h"
-
-string transformToQuote( const string& var ) { // Joao
-    /*Transform variables into quotes to SQL Query
-
-    To pass a string by reference, you use the data type string&.
-
-    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.*/
-    return string("'") + var + string("'");
-}
 
 
 
@@ -33,7 +23,7 @@ void keycode(){//Joao
     raw(); //instead of wait he direct inject (teory), good for arrow keys,TRUE arrow keys shutdown the program
     int key;
     //27 is the keycode for ESC 
-    printw("Press any key to knnow the keycode ");
+    printw("Press any key to know the keycode ");
     while((key=getch())!=27){
         move(2,3);
         printw("Keycode %d and the character inputed is %c",key,key);//%d for decimal keycode and %c for character key
@@ -126,26 +116,24 @@ void Game(){
 
 }*/
 
-string loGinUser;
 bool running = true;
 short int playerX = 2; // sets player starting position
 short int playerY = 2; // sets player starting position
 short int x,y;
-char map[12][13] =  //draws a  map with an array in order to create the maze
+char map[12][41] =  //draws a  map with an array in order to create the maze
 {
-    "            ",
-    " 1111111111 ",
-    " 1x       1 ",
-    " 111    1 1 ",
-    " 1  1 1   1 ",
-    " 1  1  1  1 ",
-    " 1  1  1  1 ",
-    " 1 1  1   1 ",
-    " 1   1    1 ",
-    " 1  1     1 ",
-    " 1  1    11 ",
-    " 1  1111111 "
-
+    "                                        ",
+    " ______________________________________ ",
+    "| x                                   1|",
+    "|111                                1 1|",
+    "|1  1 1                               1|",
+    "|1  1  1                              1|",
+    "|1  1  1                              1|",
+    "|1 1  1                               1|",
+    "|1   1                                1|",
+    "|1  1                                 1|",
+    "|  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|",
+    "                                        "
 };
 // Draw Map
 // 
@@ -158,7 +146,7 @@ void drawMap()//Joao
   for (int i = 0; i < 12; i++) {
     // addstr is nCurses equiv
     // of cout or print
-
+    move(i+2,x/5);
     addstr(map[i]);
     addstr("\n");
     }
@@ -219,14 +207,14 @@ void update()//Joao
   refresh();
   clear();
 }
-void endGame(){//Joao
+void endGame(auto& info){//Joao
 
     mvprintw(0,x/4," ======================================");
-    mvprintw(1,x/4,"|         YOU  FINISH  THE             |");
-    mvprintw(2,x/4,"|               GAME                   |");
-    mvprintw(3,x/4,"|            %d                        |",loGinUser);
-    mvprintw(4,x/4,"|                                      |");
-    mvprintw(5,x/4,"|                                      |");
+    mvprintw(1,x/4," @         YOU  FINISH  THE           @");
+    mvprintw(2,x/4," @              GAME                  @");
+    mvprintw(3,x/4,"    CONGRATULATIONS %s                 ",info[0].c_str());
+    mvprintw(4,x/4," @    YOU WILL RECEIVE 100 POINTS     @");
+    mvprintw(5,x/4," @         AND LEVEL UP               @");
     mvprintw(6,x/4," ======================================");
     getch();
 
@@ -243,27 +231,28 @@ if(map[playerY][playerX]==map[3][13]){
         mvprintw(15,3,"Congratz");
     }
 */ 
-void Game(const string& user) //Joao
+void Game(auto& vector) //Joao
 {
   // Initate nCurses display
-    loGinUser=user;
-    bool check=true;
+
+
   initscr();
-  while( check== true ) {
+
+  while( running== true ) {
 
     update();
 
-    if((playerY==11&&playerX==3)||(playerY==11&&playerX==2)){
+    if((playerY==10&&playerX==3)||(playerY==10&&playerX==2)){
         
         
-        endGame();
-        check=false;
+        endGame(vector);
+        running=false;
     }
 
   //mvprintw(15,0," X:%d Y:%d", playerX, playerY);
   }
-  pressAnyToContinue();
-  getch();
+    addScore(vector[0],100);
+    upLevel(vector[0],1);
   // End nCurses display
   endwin();
 }

@@ -3,18 +3,34 @@
 #include <string> // String Library
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
-
+#include <vector> 
 using namespace std;
 
 
 
-bool login(string user,string password){
-	/*ckeck credicials if correct send true*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+bool checkUP(string user,string password){//Joao
+	/*check if username and password exist on db*/
+
+
+	 	    
 	    auto checkQ = db.get_statement();
-	    checkQ->set_sql("SELECT COUNT(*) from player Where id="+transformToQuote(user)+" AND password="+transformToQuote(password)+"");
+	    checkQ->set_sql("SELECT COUNT(*) from player Where id="+transformToQuote(user)+" and password="+transformToQuote(password)+"");
 	    checkQ->prepare();
 	    checkQ->step();
 	    if(checkQ->get_int(0)==1){
@@ -24,11 +40,8 @@ bool login(string user,string password){
 	    }
 
 
-
-
-
-
 }
+
 
 
 bool addScore(string user,int score){//Joao
@@ -300,25 +313,34 @@ char createCharacter(){//Joao
 
 
 
-bool checkUP(string user,string password){//Joao
-	/*check if username and password exist on db*/
 
 
-	 	    
-	    auto checkQ = db.get_statement();
-	    checkQ->set_sql("SELECT COUNT(*) from player Where id="+transformToQuote(user)+" and password="+transformToQuote(password)+"");
-	    checkQ->prepare();
-	    checkQ->step();
-	    if(checkQ->get_int(0)==1){
-	    	return 1;
-	    }else{
-	    	return 0;
-	    }
+char playerInfo(string user){
+
+
+
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from player  where id=? ");
+        cur->prepare();
+        cur->bind(1,user);
+        cout<<"************************"<<endl;
+
+        cout<<"NICKNAME    LEVEL    SCORE "<<endl;
+
+        while(cur->step()){
+
+        	cout <<" "<< cur->get_text(0) << "		"<<cur->get_text(2)<< "	"<<cur->get_text(3) << endl;
+        cout << endl;
+
+
+
+        }
+
+        cout<<"************************"<<endl;
+
 
 
 }
-
-
 
 void alterPass(string password,string user){//Joao
 
