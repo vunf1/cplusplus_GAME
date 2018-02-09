@@ -7,7 +7,7 @@
 ## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ---
 ### :thumbsup: Useful Commands:
-#### to compile -><br>
+#### :kissing_heart: to compile -><br>
 __"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"__ <br>
 ###### after -o put the name you want to give the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ---
@@ -50,12 +50,12 @@ __"sudo ./<name inputed after -o>"__
 
 <table>
   <tr>
-    <th bgcolor="#069c00">(Leader)<br>Joao Maia</th>
-    <th bgcolor="red">Diogo</th> 
-    <th bgcolor="blue">Mariya</th>
-    <th bgcolor="blue">Bartiek</th>
-    <th bgcolor="blue">Iqra</th>
-    <th bgcolor="blue">Luke</th>
+    <th style="background-color:#069c00;">(Leader)<br>Joao Maia</th>
+    <th style="background-color:red">Diogo</th> 
+    <th style="background-color:blue">Mariya</th>
+    <th style="background-color:blue">Bartiek</th>
+    <th style="background-color:blue">Iqra</th>
+    <th style="background-color:blue">Luke</th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
