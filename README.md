@@ -50,12 +50,12 @@ __"sudo ./<name inputed after -o>"__
 
 <table>
   <tr>
-    <th style="background-color:#069c00;">(Leader)<br>Joao Maia</th>
-    <th style="background-color:red">Diogo</th> 
-    <th style="background-color:blue">Mariya</th>
-    <th style="background-color:blue">Bartiek</th>
-    <th style="background-color:blue">Iqra</th>
-    <th style="background-color:blue">Luke</th>
+    <th style="color:green;">(Leader)<br>Joao Maia</th>
+    <th style="color:red;">Diogo</th> 
+    <th style="color:blue;">Mariya</th>
+    <th style="color:blue;">Bartiek</th>
+    <th style="color:blue;">Iqra</th>
+    <th style="color:blue;">Luke</th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
