@@ -1,17 +1,17 @@
-# C++ Game Text Adventure CONSOLE-MODE
+# C++ :sunny: Game Text Adventure CONSOLE-MODE
 ### Manual c++ -> https://github.com/fffaraz/awesome-cpp
 ## Need TO install on linux:
-sudo apt install ncurses-dev
-sudo apt install sqlite3-dev
+:cop: sudo apt install ncurses-dev
+:cop: sudo apt install sqlite3-dev
 
-## REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
+## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ---
-### Useful Commands:
-# to compile -><br> __"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"__ 
+### :thumbsup: Useful Commands:
+###### to compile -><br> __"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"__ 
 after -o put the name you want to give the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
 ---
-execute -> <br>
-__ "sudo ./<name inputed after -o>" __
+:sleepy: execute -> <br>
+__"sudo ./<name inputed after -o>"__
 
 
 ### TO DO LIST
