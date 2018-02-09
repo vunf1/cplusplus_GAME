@@ -48,7 +48,7 @@ __"sudo ./<name inputed after -o>"__
 ### Author
 
 
-| > Joao Maia<br>(Leader)                           | Diogo                                         | Mariya         | Bartiek       | Iqra          | Luke          |
+| [Joao Maia <br> (Leader)](https://github.coventry.ac.uk/deoiveij/)                           | [Diogo](https://github.coventry.ac.uk/vicented)                                        | [Mariya](https://github.coventry.ac.uk/deoiveij/)         | [Bartiek]()       | [Iqra](https://github.coventry.ac.uk/khani54)         | [Luke](https://github.coventry.ac.uk/rompls)          |
 | :---:                                           |     :---:                                    |     :---:      |         :---: |         :---: |    :---:      |
 |                                                 |                                              |                |               |               |               |
 | <a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a>| <a href="https://www.instagram.com/diogo.avm/"><img src="authorsIMG/diogo.jpg" width="100"></a> |<a href="https://www.instagram.com/mariya_lok/"><img src="authorsIMG/mariya.jpg" width="100"></a>                | <a href="https://www.instagram.com/everlasting_sleep/"><img src="authorsIMG/bartek.jpg" width="100"></a>    | <a href="https://www.instagram.com/_iqrakhxn/"><img src="authorsIMG/iqra.jpg" width="100"></a> | <a href="https://www.instagram.com/lukeromp/"><img src="authorsIMG/luke.jpg" width="100"></a>              |
