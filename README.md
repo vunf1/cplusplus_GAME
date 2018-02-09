@@ -49,7 +49,7 @@ __"sudo ./<name inputed after -o>"__
 
 
 <table>
-  <tr style="background-color:green;">
+  <tr style="background-color:yellowgreen;color:white;">
     <th >(Leader)<br>Joao Maia</th>
     <th >Diogo</th> 
     <th >Mariya</th>
