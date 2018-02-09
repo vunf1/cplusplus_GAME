@@ -49,13 +49,13 @@ __"sudo ./<name inputed after -o>"__
 
 
 <table>
-  <tr style="color:green;">
-    <th style="color:green;">(Leader)<br>Joao Maia</th>
-    <th style="color:red;">Diogo</th> 
-    <th style="color:blue;">Mariya</th>
-    <th style="color:blue;">Bartiek</th>
-    <th style="color:blue;">Iqra</th>
-    <th style="color:blue;">Luke</th>
+  <tr style="background-color:green;">
+    <th >(Leader)<br>Joao Maia</th>
+    <th >Diogo</th> 
+    <th >Mariya</th>
+    <th >Bartiek</th>
+    <th >Iqra</th>
+    <th >Luke</th>
   </tr>
   <tr>
     <td><a href="https://twitter.com/wannabevunf1"><img src="authorsIMG/joao_maia.jpg" width="100"></a></td>
