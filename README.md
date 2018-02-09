@@ -48,10 +48,10 @@ __"sudo ./<name inputed after -o>"__
 ### Author
 
 
-| Joao Maia    | Diogo          | Mariya         | Bartiek       | Iqra          | Luke          |
-| :---:        |     :---:      |     :---:      |         :---: |         :---: |    :---:      |
-| Leader       |                |                |               |               |               |
-|              |                |                |               |               |               |
+| Joao Maia                            | Diogo          | Mariya         | Bartiek       | Iqra          | Luke          |
+| :---:                                |     :---:      |     :---:      |         :---: |         :---: |    :---:      |
+| Leader                               |                |                |               |               |               |
+| ![alt text][authorsIMG/joao_maia.jpg]|                |                |               |               |               |
 
 
 <table>
