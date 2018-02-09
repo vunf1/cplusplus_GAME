@@ -8,7 +8,7 @@ sudo apt install sqlite3-dev
 ---
 ### Useful Commands:
 ## to compile :
-__"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"<br>
+#####__"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"<br>
 after -o put the name you want to give the executable, my case i choose 'game'
 -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)__
 ---
