@@ -1,8 +1,13 @@
 # C++ :sunny: Game Text Adventure CONSOLE-MODE
 ### Manual c++ -> https://github.com/fffaraz/awesome-cpp 
 ## Need TO install on linux:
-:cop: sudo apt install ncurses-dev
-:cop: sudo apt install sqlite3-dev
+
+
+###### Running random scripts off the internet is generally a bad idea!
+ __Install C++ compiler/librarys on linux using a script__ Script provided by David Croft (Coventry University Tutor)
+ >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script)
+:cop: __sudo apt install ncurses-dev__  (Curses Library)
+:cop: __sudo apt install sqlite3-dev__   (SQLite Library)
 
 ## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
 ---
@@ -40,8 +45,12 @@ __"sudo ./<name inputed after -o>"__
 > - [x] Game - Congratz after finish maze with Player Info 
 > - [ ] Game - Basement     (Floor -1)
 > - [ ] Game - Credit area
-> - [ ] Game - Review all stuff
+> - [ ] Game - Review all stuff(Check comments on code)
 
+:exclamation: :exclamation: Important for IPP/Viva
+> - [ ] Flow Diagram(Code)
+> - [ ] ER Diagram(DB)
+> - [ ] Screenshots of runtime game
 
 ### EXTRA 
 
