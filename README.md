@@ -5,11 +5,11 @@
 
 ###### Running random scripts off the internet is generally a bad idea!
  __Install C++ compiler/librarys on linux using a script__ Script provided by David Croft (Coventry University Tutor)
- >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script)
-:cop: __sudo apt install ncurses-dev__  (Curses Library)
+ >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script) <br>
+:cop: __sudo apt install ncurses-dev__  (Curses Library) <br>
 :cop: __sudo apt install sqlite3-dev__   (SQLite Library)
 
-## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST;
+## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST :stuck_out_tongue_winking_eye:
 ---
 ### :thumbsup: Useful Commands:
 #### :kissing_heart: to compile -><br>
