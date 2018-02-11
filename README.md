@@ -1,5 +1,5 @@
 # C++ :sunny: Game Text Adventure CONSOLE-MODE
-### Manual c++ -> https://github.com/fffaraz/awesome-cpp
+### Manual c++ -> https://github.com/fffaraz/awesome-cpp 
 ## Need TO install on linux:
 :cop: sudo apt install ncurses-dev
 :cop: sudo apt install sqlite3-dev
@@ -8,8 +8,8 @@
 ---
 ### :thumbsup: Useful Commands:
 #### :kissing_heart: to compile -><br>
-__"g++ -std=c++14 main.cpp -o game -lsqlite3 -lncurses"__ <br>
-###### after -o put the name you want to give the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas" on console)
+__"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
+###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas"(pointers) on console)
 ---
 #### :sleepy: execute -> <br>
 __"sudo ./<name inputed after -o>"__
@@ -19,21 +19,27 @@ __"sudo ./<name inputed after -o>"__
 
 
 
+> - [ ] Game History
 > - [x] Simple Design
 > - [x] DB Creaction
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
 > - [x] Organize functions , create better algorithm, kinda like MVC design 
-> - [x] addScore
-> - [x] upLevel
-> - [x] Player info travel between cpp's 
+> - [x] addScore()
+> - [x] upLevel()
+> - [ ] Item_on_floor(x)
+> - [ ] Go back if want(Struct algorithm)
+> - [x] Player info travel between cpp/headers 
 > - [ ] Game - Children     (Floor 3)
 > - [ ] Game - Surgery      (Floor 2)
 > - [ ] Game - Psychiatric  (Floor 1)
 > - [ ] Game - Lobby        (Floor 0)
-> - [ ] Game - After found key do the maze to finish the game 
+> - [x] Game - After found key do the maze to finish the game
+> - [ ] Game - Algorithm for maze creation (MAYBE, to be diferent each time start a game) 
+> - [x] Game - Congratz after finish maze with Player Info 
 > - [ ] Game - Basement     (Floor -1)
+> - [ ] Game - Credit area
 > - [ ] Game - Review all stuff
 
 

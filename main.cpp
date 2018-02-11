@@ -101,28 +101,6 @@ for(auto& m : detailInfo){
 
 
 
- void alterUser(string user,string username){//Joao
-
-
-   
-		    auto checkQ = db.get_statement();
-		    checkQ->set_sql("UPDATE player SET id = "+transformToQuote(username)+" WHERE id="+transformToQuote(user)+";");
-		    checkQ->prepare();
-
-			if(checkQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Account update  successfully *"<<endl;
-				cout<<"********************************"<<endl;
-				
-			}
-
-
-
- }
-
-
-
-
 
 void removeCharacter(){//Joao
 
@@ -422,7 +400,7 @@ void moreOpction(){//Joao
 
 
 
-int openMenu(){
+int openMenu(bool choose){
 
 
 
@@ -456,8 +434,72 @@ int openMenu(){
         cout << "Choose an option"<<endl;
         cin >> op;
     }
-    return op;
+    if (choose==true){
 
+		string us;
+		string pw;
+		string ans;
+
+		switch(op) //Joao
+		{
+			case 0:
+				clearCon();
+				cout<<endl;
+				cout<<"Invalid Number! Try Again"<<endl;
+				openMenu(1);
+				break;
+			case 1:
+				cout<<"Username\t";
+				cin>>us;
+				cout<<"Password\t";
+				cin>>pw;
+				while(checkUP(us,pw)!=true){
+
+					cout<<"Wrong credentials"<<endl;
+					cout<<"Wish go back (y/n)?"<<endl;
+					cin>>ans;
+					if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
+						openMenu(1);
+					}
+
+					cout<<"Username\t";
+					cin>>us;
+					cout<<"Password\t";
+					cin>>pw;
+					checkUP(us,pw);	
+					
+				}
+					playerInfo2vector(us);
+					Game(detailInfo);//To be loaded after found the key  	
+				break;
+			case 2:
+				rankingScore();
+				pressAnyToContinue();
+				openMenu(1);
+				break;
+			case 3:
+
+				moreOpction();
+				break;
+			case 4:
+				break;
+			case 5://TEST REMOVE
+				cout<<"Username\t";
+				cin>>us;
+				playerInfo2vector(us);
+				break;
+			default:
+				cout<<endl;
+				cout<<"Invalid Number! Try Again"<<endl;
+				openMenu(1);
+				break;
+		}	
+
+    }else{
+
+    	return op;
+	
+    }
 }
 
 
@@ -466,7 +508,7 @@ int openMenu(){
 int main() //Joao
 {
 	
-		op=openMenu();
+		op=openMenu(0);
 		string us;
 		string pw;
 		string ans;
@@ -501,7 +543,7 @@ int main() //Joao
 					
 				}
 					playerInfo2vector(us);
-					Game(detailInfo);	
+					Game(detailInfo);//To be loaded after found the key  	
 				break;
 			case 2:
 				rankingScore();
@@ -517,7 +559,7 @@ int main() //Joao
 			case 5://TEST REMOVE
 				cout<<"Username\t";
 				cin>>us;
-				playerInfo2vector(us);
+				//playerInfo2vector(us);
 				break;
 			default:
 				cout<<endl;

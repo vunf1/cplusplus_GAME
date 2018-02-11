@@ -4,21 +4,8 @@
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
 #include <vector> 
+#include <iomanip>
 using namespace std;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -168,22 +155,25 @@ char rankingScore(){//Joao
         cout<<"************************"<<endl;
 
         cout<<"	Ranking "<<endl;
-        cout<<"NICKNAME   	SCORE "<<endl;
+        cout<<"| NICKNAME | SCORE | LEVEL |"<<endl;
+
 
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
         cur->prepare();
 
+        cout<<"----------------------- "<<endl;
         while(cur->step()){
 
-        	cout <<" "<< cur->get_text(0) << "		"<<cur->get_text(3) << endl;
-        cout << endl;
+        	cout << cur->get_text(0) <<setfill(' ')<< setw(5) <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        
 
+        	cout<<setfill('-')<<setw(28)<<"-"<<endl;
 
 
         }
 
-        cout<<"************************"<<endl;
+        cout<<"************************"<<endl; 
 
 
     }
@@ -363,4 +353,26 @@ void alterPass(string password,string user){//Joao
 
 
 }
+
+
+
+
+ void alterUser(string user,string username){//Joao
+
+
+   
+		    auto checkQ = db.get_statement();
+		    checkQ->set_sql("UPDATE player SET id = "+transformToQuote(username)+" WHERE id="+transformToQuote(user)+";");
+		    checkQ->prepare();
+
+			if(checkQ->step()== SQLITE_OK ){
+				cout<<"********************************"<<endl;
+				cout<<"* Account update  successfully *"<<endl;
+				cout<<"********************************"<<endl;
+				
+			}
+
+
+
+ }
 
