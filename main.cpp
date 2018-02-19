@@ -47,9 +47,10 @@ string transformToQuote( const string& var ) { // Joao
 }
 
 
-int checkInput(auto& inputed) { // Joao
-
-	cout<<inputed<<endl;
+bool checkInput(auto& inputed) { // Joao
+//Check if exist space
+	//Can be use to prevent sql injection 
+	//Since i try to fix the bind() problem with tutor David Croft and we didnt figure out the bind() problem in same function dont work
   string str (inputed);
   string str2 (" ");
 
@@ -57,7 +58,9 @@ int checkInput(auto& inputed) { // Joao
   size_t found = str.find(str2);
 	  if (found!=string::npos)
 	  {
-	      cout << "found at: " << found << '\n';
+	    return 1;
+	  }else{
+	  	return 0;
 	  }
 }
 
@@ -70,9 +73,9 @@ vector<string> detailInfo;
 
 char playerInfo2vector(string user){
 /*SAVE PLAYER INFO INTO VECTOR:
-NICKNAME
-LEVEL
-SCORE*/
+[0]NICKNAME
+[1]LEVEL
+[2]SCORE*/
 
 
         auto cur = db.get_statement();
@@ -88,17 +91,7 @@ SCORE*/
 
 
 
-        }/*
-for(auto& m : detailInfo){
-	    cout<<m<<endl;
-
-}*/
-
-/*
-    cout<<"Nick: "<<detailInfo[0]<<endl;
-    cout<<"level: "<<detailInfo[1]<<endl;
-    cout<<"Score: "<<detailInfo[2]<<endl;
-    */
+        }
 
 
 
@@ -217,6 +210,10 @@ void modifyPassword(string pass,string user){//Joao
 	string password;
 	cout<<"What is your new password ?\t";
 	cin>>password;
+	if(password.length()<8){
+		cout<<"Password need to have ar least 8 digits";
+		modifyPassword(pass,user);
+	}
 	if(password==pass){
 		cout<<endl;
 		cout<<"The new password you input is the actual"<<endl;
@@ -539,12 +536,18 @@ bool itemHave(){
 
 int main() //Joao
 {
-	
-		op=openMenu(0);
-		char us[30];
-		char pw[30];
+		string us;
+		string pw;
 		string ans;
+				cout<<"Username\t";
+				cin>>us;
+				cout<<"Password\t";
+				cin>>pw;
+				checkUP(us,pw);
 
+
+				return 0;
+		op=openMenu(0);
 		switch(op) //Joao
 		{
 			case 0:
@@ -558,7 +561,9 @@ int main() //Joao
 				cin>>us;
 				cout<<"Password\t";
 				cin>>pw;
-				while(checkUP(us,pw)!=true){
+				cout<<checkUser(us)<<"<"<<checkPW(pw)<<endl;
+				/*
+				while((checkUser(us)!=true)&&(checkPW(pw)!=true)){
 
 					cout<<"Wrong credentials"<<endl;
 					cout<<"Wish go back (y/n)?"<<endl;
@@ -571,11 +576,13 @@ int main() //Joao
 					cin>>us;
 					cout<<"Password\t";
 					cin>>pw;
-					checkUP(us,pw);	
+					checkUser(us);
+					checkPW(pw);
 					
 				}
 					playerInfo2vector(us);
-					Game(detailInfo);//To be loaded after found the key  	
+					Game(detailInfo);//To be loaded after found the key  
+					*/	
 				break;
 			case 2:
 				rankingScore();
@@ -598,12 +605,14 @@ int main() //Joao
 				break;
 			case 6://TEST REMOVE
 			{	
-				string str;
+				string usern;
+				string passw;
+				cout<<"Username ";
+				cin>>usern;
+				cout<<"Username ";
+				cin>>passw;
+				checkUP(usern,passw);
 
-					cout<<"Username";
-			    cin.getline(cin, str);
-			    cout<<"You entered: '"<<str<<"'"<<endl;
-				  // checkInput(inputed);
 				break;
 			}
 			default:

@@ -14,40 +14,29 @@ using namespace std;
 
 
 
-
+#include <typeinfo>
 
 
 bool checkUP(auto& user,auto& password){//Joao
 	/*check if username and password exist on db*/
 
 
-	 	    
-	    /*auto checkQ = db.get_statement();
-	    checkQ->set_sql("SELECT COUNT(*) from player Where id="+transformToQuote(user)+" and password="+transformToQuote(password)+"");
-	    checkQ->prepare();
-	    checkQ->bind(1,gg);
-	    checkQ->step();
-	    if(checkQ->get_int(0)==1){
-	    	return 1;
-	    }else{
-	    	return 0;
-	    }*/
+			cout<< decltype(user) <<">"<< typeid(password).name()<<endl;
+		    /*
+		    auto checkQ = db.get_statement();
+		    checkQ->set_sql("SELECT count(*) FROM player WHERE id=? and password=? ;");
+		    checkQ->prepare();
+			checkQ->bind( 1, user);
+			checkQ->bind( 2, to_string(password));
 
-	auto checkQ = db.get_statement();
+			checkQ->step();
+				
+			cout<< checkQ->get_int(0)<<endl;
+				
+			
+*/
 
-	checkQ = db.get_statement();
-	checkQ->set_sql("SELECT COUNT(*) "
-					"FROM player "
-					"WHERE id=? AND password=?;");
-	checkQ->prepare();
-	checkQ->bind(1, user);
-	checkQ->bind(2, password);
-	while(checkQ->step()){
 
-		cout<<checkQ->get_int(0)<<endl;
-
-		
-	}
 
 }
 
@@ -58,21 +47,28 @@ bool addScore(string user,int score){//Joao
 		int addPoints;
 
 		auto cur = db.get_statement();
-        cur->set_sql( "SELECT score from player where id="+transformToQuote(user)+"; ");
+        cur->set_sql( "SELECT score from player where id=?; ");
         cur->prepare();
+        cur->bind(1,user);
         while( cur->step() ){
         	//listItens.push_back(cur->get_text(0));
 
           addPoints=cur->get_int(0); 
         
         }
+
+
         addPoints=addPoints+score;
+        
+
+
         //cout<<addPoints<<endl;
 
 		auto add = db.get_statement();
-        add->set_sql( "UPDATE player SET score=? WHERE id="+transformToQuote(user)+" ;");
+        add->set_sql( "UPDATE player SET score=?1 WHERE id=?2 ;");
         add->prepare();
         add->bind(1,addPoints);
+        add->bind(2,user);
         add->step();
 
 }
@@ -87,8 +83,9 @@ bool upLevel(string user,int levelUP){//Joao
 		int plusLevel;
 
 		auto cur = db.get_statement();
-        cur->set_sql( "SELECT level from player where id="+transformToQuote(user)+"; ");
+        cur->set_sql( "SELECT level from player where id=?; ");
         cur->prepare();
+        cur->bind(1,user);
         while( cur->step() ){
         	//listItens.push_back(cur->get_text(0));
 
@@ -98,9 +95,10 @@ bool upLevel(string user,int levelUP){//Joao
         plusLevel=plusLevel+levelUP;
 
 		auto add = db.get_statement();
-        add->set_sql( "UPDATE player SET level=? WHERE id="+transformToQuote(user)+" ;");
+        add->set_sql( "UPDATE player SET level=?1 WHERE id=?2 ;");
         add->prepare();
         add->bind(1,plusLevel);
+        add->bind(2,user);
         add->step();
 
 }
@@ -165,7 +163,7 @@ char rankingScore(){//Joao
 	    /* COUNT NUMBER OS ACC IN DB*/
         auto count = db.get_statement();
         count->set_sql( "SELECT COUNT(*) "
-        	"from player");
+        	"from player ;");
         count->prepare();
         count->step();
         numberOFacc=count->get_int(0);
@@ -208,15 +206,32 @@ char rankingScore(){//Joao
 
 
 
-
-int checkUser(string user){//Joao
+bool checkUser(string user){//Joao
 
 
 	 	    
 	    auto checkQ = db.get_statement();
-	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?");
+	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?;");
 	    checkQ->prepare();
 		checkQ->bind( 1, user);
+	    checkQ->step();
+	    if(checkQ->get_int(0)==1){
+	    	return 1;
+	    }else{
+	    	return 0;
+	    }
+
+
+}
+
+bool checkPW(string password){//Joao
+
+
+	 	    
+	    auto checkQ = db.get_statement();
+	    checkQ->set_sql("SELECT COUNT(*) from player Where password=?;");
+	    checkQ->prepare();
+		checkQ->bind( 1, password);
 	    checkQ->step();
 	    if(checkQ->get_int(0)==1){
 	    	return 1;
@@ -293,7 +308,7 @@ char createCharacter(){//Joao
  
 
 	    auto insertQ = db.get_statement();
-			insertQ->set_sql( "INSERT INTO player VALUES ("+transformToQuote(user)+", "+transformToQuote(password)+", 0, 0)" );
+			insertQ->set_sql( "INSERT INTO player VALUES ("+transformToQuote(user)+", "+transformToQuote(password)+", 0, 0) ;" );
 			insertQ->prepare();
 			/*insertQ->bind( 1, user );
 			insertQ->bind( 2, password );
@@ -331,7 +346,7 @@ char playerInfo(string user){
 
 
         auto cur = db.get_statement();
-        cur->set_sql( "SELECT * from player  where id=? ");
+        cur->set_sql( "SELECT * from player  where id=? ;");
         cur->prepare();
         cur->bind(1,user);
         cout<<"************************"<<endl;

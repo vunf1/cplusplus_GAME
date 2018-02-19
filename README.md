@@ -35,6 +35,8 @@ __"sudo chmod -R 755"__
 
 > - [x] Some function don't accept bind()
 > - [x] bind() bug Fixed with transformToQuote funcion (Temporary fix), need to fix
+> - [x] REAL BUG FROM bind() -> CONDITIONS like AND OR dont work
+> - [x] SOLUTION -> check individualy
 
 
 
