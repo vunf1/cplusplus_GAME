@@ -11,24 +11,45 @@ using namespace std;
 
 
 
-bool checkUP(string user,string password){//Joao
+
+
+
+
+
+
+bool checkUP(auto& user,auto& password){//Joao
 	/*check if username and password exist on db*/
 
 
 	 	    
-	    auto checkQ = db.get_statement();
+	    /*auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where id="+transformToQuote(user)+" and password="+transformToQuote(password)+"");
 	    checkQ->prepare();
+	    checkQ->bind(1,gg);
 	    checkQ->step();
 	    if(checkQ->get_int(0)==1){
 	    	return 1;
 	    }else{
 	    	return 0;
-	    }
+	    }*/
 
+	auto checkQ = db.get_statement();
+
+	checkQ = db.get_statement();
+	checkQ->set_sql("SELECT COUNT(*) "
+					"FROM player "
+					"WHERE id=? AND password=?;");
+	checkQ->prepare();
+	checkQ->bind(1, user);
+	checkQ->bind(2, password);
+	while(checkQ->step()){
+
+		cout<<checkQ->get_int(0)<<endl;
+
+		
+	}
 
 }
-
 
 
 bool addScore(string user,int score){//Joao
@@ -256,7 +277,7 @@ char createCharacter(){//Joao
 
 		cout<<"Password (at least 8 digits)\t";
 		cin>>password;
-		while(strlen(password)<8)
+		while(password.length()<8)
 		{
 			cout<<"Need to have at least 8 digits\t"<<endl;
 

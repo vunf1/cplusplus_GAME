@@ -6,17 +6,15 @@
 
 
 
+#include <stdio.h>
+#include <ctype.h>
 
 using namespace std;
 //GLOBAL Variables
-char user[30];
-char password[255];
+string user;
+string password;
 int op;
-char loginUser[100];
 sqlite::sqlite db("dbPlayer");
-
-
-
 
 void pressAnyToContinue(){//Joao
 	cout << "Press ENTER to continue.";
@@ -28,12 +26,13 @@ void pressAnyToContinue(){//Joao
 }
 
 
+
+
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
     cout << string( 100, '\n' );
     }
-
 
 
 
@@ -48,6 +47,21 @@ string transformToQuote( const string& var ) { // Joao
 }
 
 
+int checkInput(auto& inputed) { // Joao
+
+	cout<<inputed<<endl;
+  string str (inputed);
+  string str2 (" ");
+
+  // different member versions of find in the same order as above:
+  size_t found = str.find(str2);
+	  if (found!=string::npos)
+	  {
+	      cout << "found at: " << found << '\n';
+	  }
+}
+
+
 
 
 
@@ -55,7 +69,10 @@ vector<string> detailInfo;
 
 
 char playerInfo2vector(string user){
-
+/*SAVE PLAYER INFO INTO VECTOR:
+NICKNAME
+LEVEL
+SCORE*/
 
 
         auto cur = db.get_statement();
@@ -462,7 +479,7 @@ int openMenu(bool choose){
 						openMenu(1);
 					}
 
-					cout<<"Username\t";
+					cout<<"Username \t";
 					cin>>us;
 					cout<<"Password\t";
 					cin>>pw;
@@ -504,13 +521,28 @@ int openMenu(bool choose){
 
 
 
+bool itemHave(){
+//test
+
+	auto itemQ = db.get_statement();
+
+	itemQ->set_sql("SELECT * FROM playerHasitem WHERE playerID=joao ;");
+	itemQ->prepare();
+	//itemQ->bind(1, item);
+	//itemQ->bind(1, user);
+	while(itemQ->step()){
+		cout<<itemQ->get_int(0)<<endl;
+	}
+
+	
+}
 
 int main() //Joao
 {
 	
 		op=openMenu(0);
-		string us;
-		string pw;
+		char us[30];
+		char pw[30];
 		string ans;
 
 		switch(op) //Joao
@@ -557,10 +589,23 @@ int main() //Joao
 			case 4:
 				break;
 			case 5://TEST REMOVE
-				cout<<"Username\t";
-				cin>>us;
-				//playerInfo2vector(us);
+
+					cout<<"Username\t";
+					cin>>us;
+					cout<<"Password\t";
+					cin>>pw;
+					checkUP(us,pw);	
 				break;
+			case 6://TEST REMOVE
+			{	
+				string str;
+
+					cout<<"Username";
+			    cin.getline(cin, str);
+			    cout<<"You entered: '"<<str<<"'"<<endl;
+				  // checkInput(inputed);
+				break;
+			}
 			default:
 				cout<<endl;
 				cout<<"Invalid Number! Try Again"<<endl;

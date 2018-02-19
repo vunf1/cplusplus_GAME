@@ -3,7 +3,7 @@
 ## Need TO install on linux:
 
 
-###### Running random scripts off the internet is generally a bad idea!
+###### :exclamation: Running random scripts off the internet is generally a bad idea!
  __Install C++ compiler/librarys on linux using a script__ Script provided by David Croft (Coventry University Tutor)
  >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script) <br>
 :cop: __sudo apt install ncurses-dev__  (Curses Library) <br>
@@ -15,9 +15,30 @@
 #### :kissing_heart: to compile -><br>
 __"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
 ###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas"(pointers) on console)
+
+#### :sleepy: execute -> <br>  
+__"./<name inputed after -o>"__
+
+
 ---
-#### :sleepy: execute -> <br><  
-__"sudo ./<name inputed after -o>"__
+### If same functions on the game dont work you need to give full permission to the files/folder
+
+__"sudo chmod -R 755"__
+
+
+
+
+
+### BUGS FOUND
+
+
+
+> - [x] Some function don't accept bind()
+> - [x] bind() bug Fixed with transformToQuote funcion (Temporary fix), need to fix
+
+
+
+---
 
 
 ### TO DO LIST
@@ -27,6 +48,7 @@ __"sudo ./<name inputed after -o>"__
 > - [ ] Game History
 > - [x] Simple Design
 > - [x] DB Creaction
+> - [ ] DB Items
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
@@ -54,7 +76,7 @@ __"sudo ./<name inputed after -o>"__
 
 ### EXTRA 
 
-- [ ] Improve Design 
+- [ ] Improve Design (COLORS,etc.)
 
 
 
