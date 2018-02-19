@@ -21,7 +21,7 @@ bool checkUP(auto& user,auto& password){//Joao
 	/*check if username and password exist on db*/
 
 
-			cout<< decltype(user) <<">"<< typeid(password).name()<<endl;
+			//cout<< decltype(user) <<">"<< typeid(password).name()<<endl;
 		    /*
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("SELECT count(*) FROM player WHERE id=? and password=? ;");
@@ -319,6 +319,14 @@ char createCharacter(){//Joao
 				cout<<"********************************"<<endl;
 				
 			}
+
+
+	    auto insertQ2 = db.get_statement();
+			insertQ2->set_sql( "INSERT INTO playerHasitem VALUES (?, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) ;" );
+			insertQ2->prepare();
+			insertQ2->bind(1,user);
+			insertQ2->step();
+
 			
 
 

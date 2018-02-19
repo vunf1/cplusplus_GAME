@@ -539,14 +539,6 @@ int main() //Joao
 		string us;
 		string pw;
 		string ans;
-				cout<<"Username\t";
-				cin>>us;
-				cout<<"Password\t";
-				cin>>pw;
-				checkUP(us,pw);
-
-
-				return 0;
 		op=openMenu(0);
 		switch(op) //Joao
 		{
