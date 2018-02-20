@@ -46,11 +46,15 @@ __"sudo chmod -R 755"__
 ### TO DO LIST
 
 
+###### Ideia for game-dev
+> - [ ] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
+
+
 
 > - [ ] Game History
 > - [x] Simple Design
 > - [x] DB Creaction
-> - [ ] DB Items
+> - [x] DB Items
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
@@ -60,6 +64,9 @@ __"sudo chmod -R 755"__
 > - [ ] Item_on_floor(x)
 > - [ ] Go back if want(Struct algorithm)
 > - [x] Player info travel between cpp/headers 
+
+> - [x] Game - GAME IDEIA  ()
+
 > - [ ] Game - Children     (Floor 3)
 > - [ ] Game - Surgery      (Floor 2)
 > - [ ] Game - Psychiatric  (Floor 1)

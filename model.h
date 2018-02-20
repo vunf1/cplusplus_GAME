@@ -17,24 +17,37 @@ using namespace std;
 #include <typeinfo>
 
 
+
+
+bool haveItem(auto& user,auto& item){
+//test
+
+	auto itemQ = db.get_statement();
+
+	itemQ->set_sql("SELECT "+string(item)+" FROM playerHasitem WHERE playerID=?  ;");
+	itemQ->prepare();
+	itemQ->bind(1, user);
+	//itemQ->bind(1, user);
+	itemQ->step();
+	return itemQ->get_int(0);
+	
+
+	
+}
+
+
 bool checkUP(auto& user,auto& password){//Joao
 	/*check if username and password exist on db*/
 
 
-			//cout<< decltype(user) <<">"<< typeid(password).name()<<endl;
-		    /*
 		    auto checkQ = db.get_statement();
-		    checkQ->set_sql("SELECT count(*) FROM player WHERE id=? and password=? ;");
+		    checkQ->set_sql("SELECT count(*) FROM player WHERE id="+transformToQuote(user)+" and password=? ;");
 		    checkQ->prepare();
-			checkQ->bind( 1, user);
-			checkQ->bind( 2, to_string(password));
+			checkQ->bind( 1, password);
 
 			checkQ->step();
 				
-			cout<< checkQ->get_int(0)<<endl;
-				
-			
-*/
+			return checkQ->get_int(0);
 
 
 

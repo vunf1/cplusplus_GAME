@@ -17,9 +17,9 @@ int op;
 sqlite::sqlite db("dbPlayer");
 
 void pressAnyToContinue(){//Joao
+	cout<<endl;
 	cout << "Press ENTER to continue.";
 	cin.clear();
-	cin.sync();
 	cin.ignore();
 	cin.get();	
 
@@ -31,6 +31,7 @@ void pressAnyToContinue(){//Joao
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
+    system("clear");
     cout << string( 100, '\n' );
     }
 
@@ -46,7 +47,7 @@ string transformToQuote( const string& var ) { // Joao
     return string("'") + var + string("'");
 }
 
-
+/*
 bool checkInput(auto& inputed) { // Joao
 //Check if exist space
 	//Can be use to prevent sql injection 
@@ -62,7 +63,7 @@ bool checkInput(auto& inputed) { // Joao
 	  }else{
 	  	return 0;
 	  }
-}
+}*/
 
 
 
@@ -104,10 +105,14 @@ char playerInfo2vector(string user){
 
 
 
+
+
+
 #include "functions.h"
 
 
 
+#include "levels.h"
 
 
 
@@ -123,8 +128,9 @@ void removeCharacter(){//Joao
 		if (checkUP(user,password)==true){
    
 		    auto checkQ = db.get_statement();
-		    checkQ->set_sql("Delete from player Where id="+transformToQuote(user)+"");
+		    checkQ->set_sql("Delete from player Where id=?;");
 		    checkQ->prepare();
+		    checkQ->bind(1,user);
 
 			if(checkQ->step()== SQLITE_OK ){
 				cout<<"********************************"<<endl;
@@ -380,21 +386,28 @@ void moreOpction(){//Joao
 				moreOpction();
 				break;
 			case 1:
+
+				clearCon();
 				createCharacter();
 				pressAnyToContinue();
 				moreOpction();
 				break;
-			case 2:
+			case 2:\
+				clearCon();
 				modifyAccount();
 				pressAnyToContinue();
 				moreOpction();
 				break;
 			case 3:
+
+				clearCon();
 				removeCharacter();
 				pressAnyToContinue();
 				moreOpction();
 				break;
 			case 4:
+
+				clearCon();
 				findPlayer();
 				pressAnyToContinue();
 				moreOpction();
@@ -483,6 +496,8 @@ int openMenu(bool choose){
 					checkUP(us,pw);	
 					
 				}
+
+					clearCon();
 					playerInfo2vector(us);
 					Game(detailInfo);//To be loaded after found the key  	
 				break;
@@ -493,6 +508,7 @@ int openMenu(bool choose){
 				break;
 			case 3:
 
+				clearCon();
 				moreOpction();
 				break;
 			case 4:
@@ -518,27 +534,14 @@ int openMenu(bool choose){
 
 
 
-bool itemHave(){
-//test
-
-	auto itemQ = db.get_statement();
-
-	itemQ->set_sql("SELECT * FROM playerHasitem WHERE playerID=joao ;");
-	itemQ->prepare();
-	//itemQ->bind(1, item);
-	//itemQ->bind(1, user);
-	while(itemQ->step()){
-		cout<<itemQ->get_int(0)<<endl;
-	}
-
-	
-}
 
 int main() //Joao
 {
 		string us;
 		string pw;
 		string ans;
+
+
 		op=openMenu(0);
 		switch(op) //Joao
 		{
@@ -548,44 +551,52 @@ int main() //Joao
 				cout<<"Invalid Number! Try Again"<<endl;
 				main();
 				break;
-			case 1:
-				cout<<"Username\t";
-				cin>>us;
-				cout<<"Password\t";
-				cin>>pw;
-				cout<<checkUser(us)<<"<"<<checkPW(pw)<<endl;
-				/*
-				while((checkUser(us)!=true)&&(checkPW(pw)!=true)){
-
-					cout<<"Wrong credentials"<<endl;
-					cout<<"Wish go back (y/n)?"<<endl;
-					cin>>ans;
-					if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
-						main();
-					}
-
-					cout<<"Username\t";
-					cin>>us;
-					cout<<"Password\t";
-					cin>>pw;
-					checkUser(us);
-					checkPW(pw);
-					
-				}
-					playerInfo2vector(us);
-					Game(detailInfo);//To be loaded after found the key  
-					*/	
-				break;
+			case 1:{
+							cout<<"Username\t";
+							cin>>us;
+							cout<<"Password\t";
+							cin>>pw;
+			
+							
+							while(checkUP(us,pw)!=true)
+								{
+			
+								cout<<"Wrong credentials"<<endl;
+								cout<<"Wish go back (y/n)?"<<endl;
+								cin>>ans;
+								if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
+									main();
+									}
+			
+								cout<<"Username\t";
+								cin>>us;
+								cout<<"Password\t";
+								cin>>pw;
+								checkUP(us,pw);
+							}
+								playerInfo2vector(us);
+			
+							    clearCon();
+								top_floor(detailInfo);
+								//Game(detailforUser);To be loaded after found the key  
+									
+			
+							break;}
 			case 2:
+
+				clearCon();
 				rankingScore();
 				pressAnyToContinue();
 				main();
 				break;
 			case 3:
 
+				clearCon();
 				moreOpction();
 				break;
 			case 4:
+
+				clearCon();
 				break;
 			case 5://TEST REMOVE
 
