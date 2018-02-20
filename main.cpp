@@ -4,10 +4,10 @@
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
 
-
-
 #include <stdio.h>
 #include <ctype.h>
+
+
 
 using namespace std;
 //GLOBAL Variables
@@ -24,6 +24,7 @@ void pressAnyToContinue(){//Joao
 	cin.get();	
 
 }
+
 
 
 
@@ -541,6 +542,17 @@ int main() //Joao
 		string pw;
 		string ans;
 
+
+
+
+/*
+for(auto& m:possiblePath){
+	
+	if(m==ans){
+		cout<<1<<endl;
+	}
+}
+*/
 
 		op=openMenu(0);
 		switch(op) //Joao
