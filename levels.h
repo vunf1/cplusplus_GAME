@@ -22,6 +22,7 @@
 int coorX=0;
 int coorY=0;
 int coorZ=3;
+string correctPath;
 
 
 void playerPosition(){//Joao
@@ -52,11 +53,13 @@ bool checkKeyWord(auto& path2)
 	{
 		if(find(path2G.begin(), path2G.end(), possiblePath[x]) != path2G.end())
 		{
-			return true;
-		
+			correctPath = possiblePath[x].c_str();
+			return possiblePath[x].c_str();
+		}else{
+			return false;
 		}
-		
-	} 
+
+	}
 
 }
 
@@ -94,29 +97,28 @@ void third_floor(auto& user_data){
 
 
 bool top_floor(auto& user_data){//Joao
-	string str;
+	string pathToGo;
 	clearCon();
 
 
-	
+
 	playerPosition();
 	cout<<"Hello "+user_data[0]<<endl;
 	cout<<"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n It h survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedn It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."<<endl;
 		cout<<endl;
 		 cin.ignore(1000, '\n');
-		getline(cin,str);
-		transform(str.begin(),str.end(),str.begin(),::tolower);
-	    
-
- 
-//whiles need receive a right return -> REMINDER FOR TOMORROW
+		getline(cin,pathToGo);
+		transform(pathToGo.begin(),pathToGo.end(),pathToGo.begin(),::tolower);
 
 
-	    if(checkKeyWord(str)!=true){
+ 		checkKeyWord(pathToGo);
+ 		//go2there * = correctPath;
+
+	    if(checkKeyWord(pathToGo)==false){
 
 	    	clearCon();
 	    	cout<<endl;
-	    	cout<<"What you input have no avaiable command for the game "<<endl;
+	    	cout<<"What you input isn't an avaiable command for the game "<<endl;
 	    	top_floor(user_data);
 
 
@@ -124,9 +126,8 @@ bool top_floor(auto& user_data){//Joao
 
 
 
-	    
 
-		
+
 
 					if((coorX<0 ) || (coorY<0) || (coorZ==2) || (coorZ==4))
 					{
@@ -158,7 +159,7 @@ bool top_floor(auto& user_data){//Joao
 						}
 						if(coorX<0  || coorY<0 ){
 
-							cout<<"You hit a Wall, congratz you broke a nose (-10 score)"<<endl;
+							cout<<"You hit a Wall, congratz you broke your nose (-10 score)"<<endl;
 							addScore(user_data[0],-10);
 
 							pressAnyToContinue();
@@ -174,34 +175,30 @@ bool top_floor(auto& user_data){//Joao
 
 
 
-					while(pathToGo=="north"){
+					while(correctPath=="north"){
 						coorY ++;
 
 						pressAnyToContinue();
 						top_floor(user_data);
 					}
-					while(pathToGo=="south"){
+					while(correctPath=="south"){
 						coorY --;
 
 						pressAnyToContinue();
 						top_floor(user_data);
 					}
-					while(pathToGo=="west"){
+					while(correctPath=="west"){
 						coorX --;
 
 						pressAnyToContinue();
 						top_floor(user_data);
 					}
-					while(pathToGo=="east"){
+					while(correctPath=="east"){
 						coorX ++;
-						
 						pressAnyToContinue();
 						top_floor(user_data);
 					}
-		
 	    }
-					
 }
-
 
 

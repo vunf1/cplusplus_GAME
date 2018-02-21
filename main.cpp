@@ -30,9 +30,9 @@ void pressAnyToContinue(){//Joao
 
 void clearCon()// Joao
     {
+    system("reset");// reset log on console
     /*Create 100 lines in the console giving the ideia of clean*/
-    system("reset");
-    cout << string( 100, '\n' );
+    //cout << string( 100, '\n' );
     }
 
 
@@ -108,7 +108,7 @@ char playerInfo2vector(string user){
 
 
 
-#include "functions.h"
+#include "final_level_maze.h"
 
 
 
@@ -118,6 +118,7 @@ char playerInfo2vector(string user){
 
 
 void removeCharacter(){//Joao
+	/*ask for username and password , if axist delete the data from that user */
 
 		cout<<"Username \t";
 		cin>>user;
@@ -156,7 +157,7 @@ void removeCharacter(){//Joao
 
 
 char modifyUser(string user){//Joao
-
+/*Acept the username and ask a new one, check if is the same and if already exist*/
 
 	char ans;
 	string username;
@@ -208,6 +209,7 @@ char modifyUser(string user){//Joao
 void modifyPassword(string pass,string user){//Joao
 
 
+/*Acept the username and password and check if is the same and if not send to the function who will set that pw on that user*/
 
 
 
@@ -334,6 +336,7 @@ int modifyAccount()
 
 
 char findPlayer(){
+	/*ask for the nickname of the player you want to see and ten send to the function who will create a table with that player*/
 	string nick;
 
 	cout<<"Who are you looking for?"<<endl;
