@@ -31,7 +31,7 @@ void pressAnyToContinue(){//Joao
 void clearCon()// Joao
     {
     /*Create 100 lines in the console giving the ideia of clean*/
-    system("clear");
+    system("reset");
     cout << string( 100, '\n' );
     }
 

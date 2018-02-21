@@ -12,15 +12,18 @@
 ## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST :stuck_out_tongue_winking_eye:
 ---
 ### :thumbsup: Useful Commands:
-#### :kissing_heart: to compile -><br>
-__"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
-###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas"(pointers) on console)
 
-###### Easy compile(load makefile):
-__make__
+
+#### :ghost: Easy compile(load script): <br>
+> __"make"__ <br>
+###### this load the makefile on the folder 
+
+#### :kissing_heart: to compile -><br>
+> __"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
+###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is "canvas"(pointers) for console)
 
 #### :sleepy: execute -> <br>  
-__"./<name inputed after -o>"__
+> __"./<name inputed after -o>"__
 
 
 ---
@@ -38,8 +41,9 @@ __"sudo chmod -R 755"__
 
 > - [x] Some function don't accept bind()
 > - [x] bind() bug Fixed with transformToQuote funcion (Temporary fix), need to fix
-> - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds()
-> - [x] SOLUTION -> check individually
+> - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR)
+> - [x] Fast SOLUTION -> check individually
+> - [ ] ERROR MAYBE BECAUSE OF THE WARNING -> Check with tutor
 
 
 
