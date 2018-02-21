@@ -21,8 +21,7 @@ void pressAnyToContinue(){//Joao
 	cout << "Press ENTER to continue.";
 	cin.clear();
 	cin.ignore();
-	cin.get();	
-
+	cin.get();
 }
 
 
@@ -157,7 +156,7 @@ void removeCharacter(){//Joao
 
 
 char modifyUser(string user){//Joao
-	
+
 
 	char ans;
 	string username;

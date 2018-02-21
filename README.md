@@ -16,6 +16,9 @@
 __"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
 ###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is for "canvas"(pointers) on console)
 
+###### Easy compile(load makefile):
+__make__
+
 #### :sleepy: execute -> <br>  
 __"./<name inputed after -o>"__
 
