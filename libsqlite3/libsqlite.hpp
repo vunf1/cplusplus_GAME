@@ -209,7 +209,7 @@ namespace sqlite
     {
         friend statement;
     public:
-        sqlite(std::string filename) throw (exception)
+        sqlite(std::string filename)
         {
             this->_filename = filename;
             int rc = sqlite3_open(filename.c_str(), &this->_db);

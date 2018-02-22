@@ -21,7 +21,6 @@ void pressAnyToContinue(){//Joao
 	cout << "Press ENTER to continue.";
 	cin.clear();
 	cin.ignore();
-	cin.get();
 }
 
 
@@ -30,7 +29,8 @@ void pressAnyToContinue(){//Joao
 
 void clearCon()// Joao
     {
-    system("reset");// reset log on console
+    //system("reset");// reset log console
+    system("clear");// clear actual screen log on console
     /*Create 100 lines in the console giving the ideia of clean*/
     //cout << string( 100, '\n' );
     }
@@ -545,8 +545,6 @@ int main() //Joao
 		string ans;
 
 
-
-
 /*
 for(auto& m:possiblePath){
 	
@@ -592,7 +590,7 @@ for(auto& m:possiblePath){
 			
 							    clearCon();
 								top_floor(detailInfo);
-								//Game(detailforUser);To be loaded after found the key  
+								//Game(detailInfo);//To be loaded after found the key  
 									
 			
 							break;}

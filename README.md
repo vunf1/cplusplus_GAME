@@ -39,11 +39,9 @@ __"sudo chmod -R 755"__
 
 
 
-> - [x] Some function don't accept bind()
-> - [x] bind() bug Fixed with transformToQuote funcion (Temporary fix), need to fix
-> - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR)
-> - [x] Fast SOLUTION -> check individually
-> - [ ] ERROR MAYBE BECAUSE OF THE WARNING -> Check with tutor
+> - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR,BETWEEN,etc)
+> - [x] Fast SOLUTION -> Use transform2Quote function (bad pratice!)
+> - [ ] After input a 'possibleRoute' show at position and did press ENTER again
 
 
 
@@ -54,11 +52,12 @@ __"sudo chmod -R 755"__
 
 
 ###### Ideia for game-dev
-> - [ ] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
+> - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
 
 
 
-> - [ ] Game History
+> - [ ] :exclamation: __Game Name__
+> - [ ] :exclamation:Game History
 > - [x] Simple Design
 > - [x] DB Creaction
 > - [x] DB Items
@@ -66,28 +65,27 @@ __"sudo chmod -R 755"__
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
 > - [x] Organize functions , create better algorithm, kinda like MVC design 
-> - [x] addScore()
-> - [x] upLevel()
-> - [ ] Item_on_floor(x)
-> - [ ] Go back if want(Struct algorithm)
-> - [x] Player info travel between cpp/headers 
+> - [x] addScore(user,score2add)
+> - [x] upLevel(user,xLevels)
+> - [x] haveItem(user,item)
+> - [ ] Go back if wanted(Struct algorithm/Menus)
+> - [x] Player info travel between cpp&&headers 
 
 > - [x] Game - GAME IDEIA  ()
-
 > - [ ] Game - Children     (Floor 3)
 > - [ ] Game - Surgery      (Floor 2)
 > - [ ] Game - Psychiatric  (Floor 1)
 > - [ ] Game - Lobby        (Floor 0)
 > - [x] Game - After found key do the maze to finish the game
-> - [ ] Game - Algorithm for maze creation (MAYBE, to be diferent each time start a game) 
+> - [ ] Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level) 
 > - [x] Game - Congratz after finish maze with Player Info 
 > - [ ] Game - Basement     (Floor -1)
 > - [ ] Game - Credit area
 > - [ ] Game - Review all stuff(Check comments on code)
 
-:exclamation: :exclamation: Important for IPP/Viva
-> - [ ] Flow Diagram(Code)
-> - [ ] ER Diagram(DB)
+:exclamation: :exclamation: Important for IPP/Viva :computer:
+> - [ ] :warning:Flow Diagram(Code)
+> - [ ] :warning:ER Diagram(DB)
 > - [ ] Screenshots of runtime game
 
 ### EXTRA 
