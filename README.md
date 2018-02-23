@@ -53,10 +53,7 @@ __"sudo chmod -R 755"__
 
 ###### Ideia for game-dev
 > - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
-
-
-
-> - [ ] :exclamation: __Game Name__
+> - [ ] :exclamation:__Game Name__
 > - [ ] :exclamation:Game History
 > - [x] Simple Design
 > - [x] DB Creaction
@@ -84,8 +81,8 @@ __"sudo chmod -R 755"__
 > - [ ] Game - Review all stuff(Check comments on code)
 
 :exclamation: :exclamation: Important for IPP/Viva :computer:
-> - [ ] :warning:Flow Diagram(Code)
-> - [ ] :warning:ER Diagram(DB)
+> - [ ] :warning: Flow Diagram(Code)
+> - [ ] :warning: ER Diagram(DB)
 > - [ ] Screenshots of runtime game
 
 ### EXTRA 
