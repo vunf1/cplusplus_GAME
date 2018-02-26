@@ -108,11 +108,12 @@ char playerInfo2vector(string user){
 
 
 
-#include "final_level_maze.h"
+//#include "final_level_maze.h"
 
 
 
 #include "levels.h"
+#include "top_level.h"
 
 
 
@@ -464,6 +465,8 @@ int openMenu(bool choose){
         cout << "Choose an option"<<endl;
         cin >> op;
     }
+    //TEST 
+    /*
     if (choose==true){
 
 		string us;
@@ -502,7 +505,7 @@ int openMenu(bool choose){
 
 					clearCon();
 					playerInfo2vector(us);
-					Game(detailInfo);//To be loaded after found the key  	
+					//Game(detailInfo);//To be loaded after found the key  	
 				break;
 			case 2:
 				rankingScore();
@@ -532,7 +535,7 @@ int openMenu(bool choose){
 
     	return op;
 	
-    }
+    }*/
 }
 
 
@@ -544,9 +547,11 @@ int main() //Joao
 		string pw;
 		string ans;
 
-upLevel("Luke",1);
-return 0;
-/*
+us="bartek";
+playerInfo2vector(us);
+floor_3(detailInfo);
+
+return 0;/*
 for(auto& m:possiblePath){
 	
 	if(m==ans){
@@ -590,8 +595,9 @@ for(auto& m:possiblePath){
 								playerInfo2vector(us);
 			
 							    clearCon();
-								top_floor(detailInfo);
+								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
+								floor_3(detailInfo);
 									
 			
 							break;}
