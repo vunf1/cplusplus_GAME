@@ -20,7 +20,7 @@ using namespace std;
 void keycode(){//Joao
     //initscr();
     noecho(); //dont show on the printw the key pressed
-    raw(); //instead of wait he direct inject (teory), good for arrow keys,TRUE arrow keys shutdown the program
+    raw(); //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
     int key;
     //27 is the keycode for ESC 
     printw("Press any key to know the keycode ");
