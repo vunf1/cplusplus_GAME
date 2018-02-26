@@ -40,12 +40,12 @@ char map[13][43] =
 
 // Draw Map
 // 
-void drawMap()//Joao
+void drawMap()//Joao made a spelling error
 {
   /*Print map on console*/
     getmaxyx(stdscr,y,x);
     noecho();
-    mvprintw(0,x/3,"Welcome to thitd floor");
+    mvprintw(0,x/3,"Welcome to third floor"); //iqra contributed in the spelling changes of this code line
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
