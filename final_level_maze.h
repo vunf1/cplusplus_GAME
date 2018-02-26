@@ -61,7 +61,7 @@ void Game(){
     initscr();//start mini canvas for console
     move(5,10);//move to x position and y
     printw("cout during canvas");//cout while using ncurses
-    mvprintw(6,10,"Something");//move and prinw function together
+    mvprintw(6,10,"Something");//move and print function together
 
     refresh();//for all previous code appear on console
     getch();//for end the program when user press a key
