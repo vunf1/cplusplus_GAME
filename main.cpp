@@ -72,8 +72,9 @@ bool checkInput(auto& inputed) { // Joao
 vector<string> detailInfo;
 
 
-char playerInfo2vector(string user){
+char playerInfo2vector(auto& user){
 /*SAVE PLAYER INFO INTO VECTOR:
+ * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
 [1]LEVEL
 [2]SCORE*/
@@ -547,9 +548,12 @@ int main() //Joao
 		string pw;
 		string ans;
 
-us="bartek";
+
+cout<<"Username\t";
+cin>>us;    
 playerInfo2vector(us);
-floor_3(detailInfo);
+    cout<<detailInfo[0]<<endl;
+    floor_3();
 
 return 0;/*
 for(auto& m:possiblePath){
@@ -597,7 +601,7 @@ for(auto& m:possiblePath){
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
-								floor_3(detailInfo);
+								floor_3();
 									
 			
 							break;}

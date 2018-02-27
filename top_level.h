@@ -40,7 +40,7 @@ char map[13][43] =
 
 // Draw Map
 // 
-void drawMap()//Joao made a spelling error
+void drawMap()//Joao 
 {
   /*Print map on console*/
     getmaxyx(stdscr,y,x);
@@ -135,7 +135,7 @@ void endGame(auto& info){//Joao
     mvprintw(0,x/4," ======================================");
     mvprintw(1,x/4," @         YOU  FINISH  THE           @");
     mvprintw(2,x/4," @              GAME                  @");
-    mvprintw(3,x/4,"    CONGRATULATIONS %s                 ",info[0].c_str());
+    mvprintw(3,x/4,"    CONGRATULATIONS %s                 ",detailInfo[0].c_str());
     mvprintw(4,x/4," @    YOU WILL RECEIVE 100 POINTS     @");
     mvprintw(5,x/4," @         AND LEVEL UP               @");
     mvprintw(6,x/4," ======================================");
@@ -143,8 +143,9 @@ void endGame(auto& info){//Joao
 
 }
 
-void floor_3(auto& vector) //Joao
+void floor_3() //Joao
 {
+    
   // Initate nCurses display
 
 
