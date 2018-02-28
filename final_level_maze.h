@@ -20,7 +20,7 @@ using namespace std;
 void keycode(){//Joao
     //initscr();
     noecho(); //dont show on the printw the key pressed
-    raw(); //instead of wait he direct inject (teory), good for arrow keys,TRUE arrow keys shutdown the program
+    raw(); //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
     int key;
     //27 is the keycode for ESC 
     printw("Press any key to know the keycode ");
@@ -61,7 +61,7 @@ void Game(){
     initscr();//start mini canvas for console
     move(5,10);//move to x position and y
     printw("cout during canvas");//cout while using ncurses
-    mvprintw(6,10,"Something");//move and prinw function together
+    mvprintw(6,10,"Something");//move and print function together
 
     refresh();//for all previous code appear on console
     getch();//for end the program when user press a key

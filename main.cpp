@@ -55,8 +55,9 @@ string transformToQuote( const string& var ) { // Joao
 
 
 
-char playerInfo2vector(string user){
+char playerInfo2vector(auto& user){
 /*SAVE PLAYER INFO INTO VECTOR:
+ * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
 [1]LEVEL
 [2]SCORE*/
@@ -375,6 +376,15 @@ int main() //Joao
 
 
 
+<<<<<<< HEAD
+=======
+
+cout<<"Username\t";
+cin>>us;    
+playerInfo2vector(us);
+    cout<<detailInfo[0]<<endl;
+    floor_3();
+>>>>>>> ef1f17f8069669948d8a04b09c9fd685438a0591
 
 		 while (cin.fail()) //Joao
 	    {
@@ -421,7 +431,7 @@ int main() //Joao
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
-								floor_3(detailInfo);
+								floor_3();
 									
 			
 							break;}
