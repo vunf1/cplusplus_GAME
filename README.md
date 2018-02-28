@@ -19,7 +19,6 @@
 #### :ghost: Easy compile(load script): <br>
 > __"make"__ <br>
 ###### this will load makefile inside folder
-###### this load the makefile on the folder 
 
 #### :kissing_heart: to compile -><br>
 > __"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>

@@ -1,3 +1,18 @@
+/*GAME IDEIA TEST - BETTER IDEIA APPEAR - USING CURSES*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <algorithm>
 
 

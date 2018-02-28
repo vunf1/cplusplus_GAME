@@ -96,7 +96,7 @@ char playerInfo2vector(auto& user){
 
 
 
-#include "levels.h"
+//#include "levels.h"
 #include "top_level.h"
 
 
@@ -350,7 +350,8 @@ int main() //Joao
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
-		top_floor();
+		cout<<detailInfo[0]<<endl;
+		floor_3();
 		return 0;
 
 
@@ -370,21 +371,6 @@ int main() //Joao
 		cout<<endl;
 		cout<<"Choose an option. \t";
 		cin>>op;
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
-cout<<"Username\t";
-cin>>us;    
-playerInfo2vector(us);
-    cout<<detailInfo[0]<<endl;
-    floor_3();
->>>>>>> ef1f17f8069669948d8a04b09c9fd685438a0591
 
 		 while (cin.fail()) //Joao
 	    {

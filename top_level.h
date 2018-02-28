@@ -2,27 +2,32 @@
 
 /* FUTURE USE : ORGANIZE FUNCTION IN IT*/
 #include <ncurses.h>//LOAD ncurses library
-
+#include <iterator>
+#include <algorithm>
+#include <sstream>
 //#INCLUDE "FINAL_LEVEL_MAZE.H" THIS FILE HAVE ALMOST ALL INFO ABOUT NCURSES CODE YOU WILL NEED
 
 bool running = true;
 short int playerX = 2; // sets player starting position
 short int playerY = 2; // sets player starting position
 short int x,y;
-char map[13][43] =
+
+int resizeterm(int lines, int columns);//Create a bug on terminal !DONT WORK , maybe futher use
+char map[13][63] =
 {  //draws a  map with an array in order to create the maze
 
-    "                                       ",
-    " _____________________________________ ",
-    "| x                                   |",
-    "|                                     |",
-    "|                                 ====|",
-    "|                                 ║   |",
-    "|                                 ║   |",
-    "|                                     |",
-    "|                                 ====|",
-    "|                                     |",
-    "|_____________________________________|"};
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "| x                                                          |",
+    "|                                                            |",
+    "|                                                        ====|",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                        ====|",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"};
 
 
 
@@ -49,10 +54,22 @@ void drawMap()//Joao
 
 
 
+void storyONboard(){
+
+  getmaxyx(stdscr,y,x);
+  if(playerX==34 && playerY==7){
+
+  mvprintw(15,0,"You walk over and enter the room across from you, inside you are met with a creepy sight.\n Countless damaged dolls stare back at you with lifeless eyes, all of them in different stages of decay and wear and tear.\n Suppressing a shiver you walk further inside and glance around.");
+  mvprintw(19,x/5,"Y =  What will you do? Search the room more closely or leave?");
+
+
+  }
+}
+
 void keyPosition(){
 
-  mvprintw(6,3,"X = %s ",playerX);
-  mvprintw(7,3,"Y = %s ",playerY);
+  mvprintw(1,0,"X = %i ",playerX);
+  mvprintw(1,8,"Y = %i ",playerY);
 
 }
 
@@ -115,9 +132,7 @@ void update()//Joao
 
 void endGame(){//Joao
 
-    info=detailUser;
 
-    transform(info.begin(),info.end(),info.begin(),::toupper);
     mvprintw(0,x/4," ======================================");
     mvprintw(1,x/4," @         YOU  FINISH  THE           @");
     mvprintw(2,x/4," @              GAME                  @");
@@ -136,11 +151,11 @@ void floor_3() //Joao
 
 
   initscr();
-  keyPosition();
   while( running== true ) {
 
+    keyPosition();
+    storyONboard();
     update();
-
        
       }
   // End nCurses display
