@@ -1,17 +1,9 @@
 
-#include <iostream>
-#include "libsqlite3/libsqlite.hpp" //DB Library SQLite3
-
-#include <string> // String Library
-#include <string.h>// string functions
-#include <climits> // for INT_MAX limits that can fix possible bugs from User Input
-#include <vector>
-using namespace std;
 
 /* FUTURE USE : ORGANIZE FUNCTION IN IT*/
-#include <ncurses.h>
+#include <ncurses.h>//LOAD ncurses library
 
-
+//#INCLUDE "FINAL_LEVEL_MAZE.H" THIS FILE HAVE ALMOST ALL INFO ABOUT NCURSES CODE YOU WILL NEED
 
 bool running = true;
 short int playerX = 2; // sets player starting position
@@ -108,13 +100,6 @@ char userInput = getch();//grab key pressed by user
   }
   ;
 
-   /* if((playerY==6&&playerX==3)||(playerY==10&&playerX==2)){
-        
-        
-        endGame(vector);
-        running=false;
-    }
-*/
 
 }
 
@@ -128,8 +113,9 @@ void update()//Joao
   clear();
 }
 
-void endGame(auto& info){//Joao
+void endGame(){//Joao
 
+    info=detailUser;
 
     transform(info.begin(),info.end(),info.begin(),::toupper);
     mvprintw(0,x/4," ======================================");
@@ -143,7 +129,7 @@ void endGame(auto& info){//Joao
 
 }
 
-void floor_3(auto& vector) //Joao
+void floor_3() //Joao
 {
   // Initate nCurses display
 

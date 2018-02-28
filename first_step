@@ -1,0 +1,9 @@
+all:
+	reset
+	
+	wget https://git.io/vF0E1 -O - | sudo bash && sudo apt install ncurses-dev && sudo apt install libsqlite3-dev\
+	@echo "All instaled now insert make into console and compile the c++ algorithm"
+ 
+.SILENT:
+
+.IGNORE:

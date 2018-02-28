@@ -13,9 +13,12 @@
 ---
 ### :thumbsup: Useful Commands:
 
-
+#### EASY INSTALL:
+> __make -f first_step__
+###### this will load first_step file inside folder as a makefile
 #### :ghost: Easy compile(load script): <br>
 > __"make"__ <br>
+###### this will load makefile inside folder
 ###### this load the makefile on the folder 
 
 #### :kissing_heart: to compile -><br>
@@ -54,7 +57,7 @@ __"sudo chmod -R 755"__
 ###### Ideia for game-dev
 > - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
 > - [ ] :exclamation:__Game Name__
-> - [ ] :exclamation:Game History
+> - [ ] :exclamation:__Game History__
 > - [x] Simple Design
 > - [x] DB Creaction
 > - [x] DB Items
@@ -65,24 +68,24 @@ __"sudo chmod -R 755"__
 > - [x] addScore(user,score2add)
 > - [x] upLevel(user,xLevels)
 > - [x] haveItem(user,item)
-> - [ ] Go back if wanted(Struct algorithm/Menus)
+> - [x] Go back if wanted(Struct algorithm/Menus)
 > - [x] Player info travel between cpp&&headers 
 
 > - [x] Game - GAME IDEIA  ()
-> - [ ] Game - Children     (Floor 3)
-> - [ ] Game - Surgery      (Floor 2)
-> - [ ] Game - Psychiatric  (Floor 1)
-> - [ ] Game - Lobby        (Floor 0)
+> - [ ] __Game - Children     (Floor 3)__
+> - [ ] __Game - Surgery      (Floor 2)__
+> - [ ] __Game - Psychiatric  (Floor 1)__
+> - [ ] __Game - Lobby        (Floor 0)__
 > - [x] Game - After found key do the maze to finish the game
-> - [ ] Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level) 
+> - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ 
 > - [x] Game - Congratz after finish maze with Player Info 
-> - [ ] Game - Basement     (Floor -1)
-> - [ ] Game - Credit area
-> - [ ] Game - Review all stuff(Check comments on code)
+> - [ ] Game - __Basement     (Floor -1)__
+> - [ ] Game - __Credit area__
+> - [ ] Game - __Review all stuff(Check comments on code)__
 
 :exclamation: :exclamation: Important for IPP/Viva :computer:
-> - [ ] :warning: Flow Diagram(Code)
-> - [ ] :warning: ER Diagram(DB)
+> - [ ] :warning: __Flow Diagram(Code)__
+> - [ ] :warning: __ER Diagram(DB)__
 > - [ ] Screenshots of runtime game
 
 ### EXTRA 

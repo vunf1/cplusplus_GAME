@@ -3,7 +3,7 @@
 #include <string> // String Library
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
-
+#include <vector>
 #include <stdio.h>
 #include <ctype.h>
 
@@ -14,13 +14,17 @@ using namespace std;
 string user;
 string password;
 int op;
+int op2;
 sqlite::sqlite db("dbPlayer");
+
+
+vector<string> detailInfo; /*Global vector - user information*/
 
 void pressAnyToContinue(){//Joao
 	cout<<endl;
 	cout << "Press ENTER to continue.";
 	cin.clear();
-	cin.ignore();
+	cin.ignore(INT_MAX, '\n');
 }
 
 
@@ -47,29 +51,8 @@ string transformToQuote( const string& var ) { // Joao
     return string("'") + var + string("'");
 }
 
-/*
-bool checkInput(auto& inputed) { // Joao
-//Check if exist space
-	//Can be use to prevent sql injection 
-	//Since i try to fix the bind() problem with tutor David Croft and we didnt figure out the bind() problem in same function dont work
-  string str (inputed);
-  string str2 (" ");
-
-  // different member versions of find in the same order as above:
-  size_t found = str.find(str2);
-	  if (found!=string::npos)
-	  {
-	    return 1;
-	  }else{
-	  	return 0;
-	  }
-}*/
 
 
-
-
-
-vector<string> detailInfo;
 
 
 char playerInfo2vector(string user){
@@ -356,211 +339,52 @@ char findPlayer(){
 
 
 
-void moreOpction(){//Joao
-
-
-	cout<<endl;
-	cout<<"	   More Options - Character Creation"<<endl;
-	cout<<"		 ________________"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!   1- Create    !"<<endl;
-	cout<<"		!   2- Modify    !"<<endl;
-	cout<<"		!   3- Delete    !"<<endl;
-	cout<<"		!   4- Find      !"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!________________!"<<endl;
-	cout<<endl;
-	cout<<"Choose an option \t";
-	cin>>op;
-	 while (cin.fail()) //Joao
-    {
-        cin.clear(); // clear input buffer to restore cin to a usable state
-        cin.ignore(INT_MAX, '\n'); // ignore last input
-        cout<<"You can only enter numbers."<<endl;
-        cout<<"Choose an option."<<endl;
-        cin>>op;
-    }
-    switch(op) //Joao
-		{
-			case 0:
-				clearCon();
-				cout<<endl;
-				cout<<"Wrong Number! Try Again"<<endl;
-				moreOpction();
-				break;
-			case 1:
-
-				clearCon();
-				createCharacter();
-				pressAnyToContinue();
-				moreOpction();
-				break;
-			case 2:\
-				clearCon();
-				modifyAccount();
-				pressAnyToContinue();
-				moreOpction();
-				break;
-			case 3:
-
-				clearCon();
-				removeCharacter();
-				pressAnyToContinue();
-				moreOpction();
-				break;
-			case 4:
-
-				clearCon();
-				findPlayer();
-				pressAnyToContinue();
-				moreOpction();
-				break;
-			default:
-				clearCon();
-				cout<<endl;
-				cout<<"Wrong Number! Try Again"<<endl;
-				moreOpction();
-				break;
-		}
-
-
-
-
-}
-
-
-
-int openMenu(bool choose){
-
-
-
-	cout<<endl;
-	cout<<"		   Text Adventure "<<endl;
-
-	cout<<"		 ________________"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!   1- Start     !"<<endl;
-	cout<<"		!   2- Score     !"<<endl;
-	cout<<"		!   3- More      !"<<endl;
-	cout<<"		!   4- Quit      !"<<endl;
-	cout<<"		!                !"<<endl;
-	cout<<"		!________________!"<<endl;
-	cout<<endl;
-	cout<<"Choose an option. \t";
-	cin>>op;
-
-
-
-
-
-
-
-	 while (cin.fail()) //Joao
-    {
-        cin.clear(); // clear input buffer to restore cin to a usable state
-        cin.ignore(INT_MAX, '\n'); // ignore last input
-        cout << "You can only enter numbers."<<endl;
-        cout << "Choose an option"<<endl;
-        cin >> op;
-    }
-    //TEST 
-    /*
-    if (choose==true){
-
-		string us;
-		string pw;
-		string ans;
-
-		switch(op) //Joao
-		{
-			case 0:
-				clearCon();
-				cout<<endl;
-				cout<<"Invalid Number! Try Again"<<endl;
-				openMenu(1);
-				break;
-			case 1:
-				cout<<"Username\t";
-				cin>>us;
-				cout<<"Password\t";
-				cin>>pw;
-				while(checkUP(us,pw)!=true){
-
-					cout<<"Wrong credentials"<<endl;
-					cout<<"Wish go back (y/n)?"<<endl;
-					cin>>ans;
-					if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
-						openMenu(1);
-					}
-
-					cout<<"Username \t";
-					cin>>us;
-					cout<<"Password\t";
-					cin>>pw;
-					checkUP(us,pw);	
-					
-				}
-
-					clearCon();
-					playerInfo2vector(us);
-					//Game(detailInfo);//To be loaded after found the key  	
-				break;
-			case 2:
-				rankingScore();
-				pressAnyToContinue();
-				openMenu(1);
-				break;
-			case 3:
-
-				clearCon();
-				moreOpction();
-				break;
-			case 4:
-				break;
-			case 5://TEST REMOVE
-				cout<<"Username\t";
-				cin>>us;
-				playerInfo2vector(us);
-				break;
-			default:
-				cout<<endl;
-				cout<<"Invalid Number! Try Again"<<endl;
-				openMenu(1);
-				break;
-		}	
-
-    }else{
-
-    	return op;
-	
-    }*/
-}
-
-
-
-
 int main() //Joao
 {
+
 		string us;
 		string pw;
 		string ans;
 
-us="bartek";
-playerInfo2vector(us);
-floor_3(detailInfo);
+		cout<<"username"<<endl;
+		cin>>us;
+		playerInfo2vector(us);
+		top_floor();
+		return 0;
 
-return 0;/*
-for(auto& m:possiblePath){
-	
-	if(m==ans){
-		cout<<1<<endl;
-	}
-}
-*/
 
-		op=openMenu(0);
+
+		cout<<endl;
+		cout<<"		   Text Adventure "<<endl;
+
+		cout<<"		 ________________"<<endl;
+		cout<<"		!                !"<<endl;
+		cout<<"		!                !"<<endl;
+		cout<<"		!   1- Start     !"<<endl;
+		cout<<"		!   2- Score     !"<<endl;
+		cout<<"		!   3- More      !"<<endl;
+		cout<<"		!   4- Quit      !"<<endl;
+		cout<<"		!                !"<<endl;
+		cout<<"		!________________!"<<endl;
+		cout<<endl;
+		cout<<"Choose an option. \t";
+		cin>>op;
+
+
+
+
+
+
+
+		 while (cin.fail()) //Joao
+	    {
+	        cin.clear(); // clear input buffer to restore cin to a usable state
+	        cin.ignore(INT_MAX, '\n'); // ignore last input
+	        cout << "You can only enter numbers."<<endl;
+	        cout << "Choose an option"<<endl;
+	        cin >> op;
+	    }
+
 		switch(op) //Joao
 		{
 			case 0:
@@ -608,11 +432,78 @@ for(auto& m:possiblePath){
 				pressAnyToContinue();
 				main();
 				break;
-			case 3:
+			case 3:{
+			
+							clearCon();
+							cout<<endl;
+							cout<<"	   More Options - Character Creation"<<endl;
+							cout<<"		 ________________"<<endl;
+							cout<<"		!                !"<<endl;
+							cout<<"		!                !"<<endl;
+							cout<<"		!   1- Create    !"<<endl;
+							cout<<"		!   2- Modify    !"<<endl;
+							cout<<"		!   3- Delete    !"<<endl;
+							cout<<"		!   4- Find      !"<<endl;
+							cout<<"		!   5- Go Back   !"<<endl;
+							cout<<"		!                !"<<endl;
+							cout<<"		!________________!"<<endl;
+							cout<<endl;
+							cout<<"Choose an option \t";
+							cin>>op2;
+							 while (cin.fail()) //Joao
+						    {
+						        cin.clear(); // clear input buffer to restore cin to a usable state
+						        cin.ignore(INT_MAX, '\n'); // ignore last input
+						        cout<<"You can only enter numbers."<<endl;
+						        cout<<"Choose an option."<<endl;
+						        cin>>op2;
+						    }
+						    switch(op2) //Joao
+								{
+									case 1:
 
-				clearCon();
-				moreOpction();
-				break;
+										clearCon();
+										createCharacter();
+										pressAnyToContinue();
+										
+										break;
+									case 2:
+										clearCon();
+										modifyAccount();
+										pressAnyToContinue();
+										
+										break;
+									case 3:
+
+										clearCon();
+										removeCharacter();
+										pressAnyToContinue();
+										
+										break;
+									case 4:
+
+										clearCon();
+										findPlayer();
+										pressAnyToContinue();
+										
+										break;
+									case 5:
+
+										clearCon();
+										main();
+										pressAnyToContinue();
+										
+										break;
+									default:
+										clearCon();
+										cout<<endl;
+										cout<<"Wrong Number! Try Again"<<endl;
+										
+										break;
+								}
+
+							break;
+						}
 			case 4:
 
 				clearCon();

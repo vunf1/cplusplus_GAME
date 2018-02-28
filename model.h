@@ -186,8 +186,6 @@ char rankingScore(){//Joao
 
         cout<<"************************"<<endl;
 
-        cout<<"	Ranking "<<endl;
-        cout<<"| NICKNAME | SCORE | LEVEL |"<<endl;
 
 
         auto cur = db.get_statement();
@@ -204,6 +202,11 @@ char rankingScore(){//Joao
 
 
         }
+
+        cout<<"| POSITION | NICKNAME "<<endl;
+
+        cout<<"	Ranking "<<endl;
+
 
         cout<<"************************"<<endl; 
 
