@@ -18,9 +18,27 @@ using namespace std;
 
 
 
+bool itemTurnedON(auto& user,auto& item){//Joao
+/* Update Database entity where are the items(attributes) of the players and set that attribute to 1 , means have now that item and cant grab it again */
 
-bool haveItem(auto& user,auto& item){
-//test
+	auto itemQ = db.get_statement();
+
+	itemQ->set_sql("UPDATE playerHasitem set "+string(item)+" = 1 WHERE playerID=?  ;");
+	itemQ->prepare();
+	itemQ->bind(1, user);
+	//itemQ->bind(1, user);
+	if(itemQ->step()== SQLITE_OK){
+		return 1;
+	}else{
+		return 0;
+	}
+	
+
+	
+}
+
+bool haveItem(auto& user,auto& item){//Joao
+/*Will check if user have that item , and return the bool inside record on databse*/
 
 	auto itemQ = db.get_statement();
 

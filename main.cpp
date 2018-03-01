@@ -347,11 +347,13 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		cout<<"username"<<endl;
-		cin>>us;
-		playerInfo2vector(us);
-		cout<<detailInfo[0]<<endl;
-		floor_3();
+		//cout<<"username"<<endl;
+		//cin>>us;
+		//playerInfo2vector(us);
+
+		cout<<char(255)<<endl;
+		cin.ignore();
+		//floor_3();
 		return 0;
 
 
