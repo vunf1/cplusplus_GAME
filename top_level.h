@@ -1,7 +1,7 @@
 
 
 /* FUTURE USE : ORGANIZE FUNCTION IN IT*/
-#include <ncurses.h>//LOAD ncurses library
+#include <ncursesw/ncurses.h>//LOAD ncurses library
 #include <iterator>
 #include <algorithm>
 #include <sstream>
@@ -48,7 +48,7 @@ char map[13][63] =
     "| x                                                          |",
     "|                                                            |",
     "|                                                            |",
-    "|                                                        ====|",
+    "|                                                    \u02E9====|",
     "|                                                            |",
     "|                                                            |",
     "|                                                            |",
@@ -234,19 +234,19 @@ void floor_3() //Joao
 {
     
   // Initate nCurses display
-
+setlocale(LC_ALL, "");
   initscr();
     keypad(stdscr, TRUE);// It enables the reading of function/special keys like F1, F2, arrow keys etc. 
     
     //keycode();
-    /*
+    
   while( running== true ) { 
 
     keyPosition();
     storyONboard();//story
     update();//map load
        
-      }*/
+      }
   endwin();
   // End nCurses display
 }

@@ -1,3 +1,5 @@
+# :exclamation: Major update ncurses new library, now support unicode and ascii code 
+
 # C++ :sunny: Game Text Adventure CONSOLE-MODE
 ### Manual c++ -> https://github.com/fffaraz/awesome-cpp 
 ## Need TO install on linux:
@@ -6,7 +8,7 @@
 ###### :exclamation: Running random scripts off the internet is generally a bad idea!
  __Install C++ compiler/librarys on linux using a script__ Script provided by David Croft (Coventry University Tutor)
  >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script) <br>
-:cop: __sudo apt install ncurses-dev__  (Curses Library) <br>
+:cop: __sudo apt-get install libncursesw5-dev__  :exclamation: (Curses Library with Unicode/ASCII) <br>
 :cop: __sudo apt install libsqlite3-dev__   (SQLite Library)
 
 ## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST :stuck_out_tongue_winking_eye:
@@ -21,7 +23,7 @@
 ###### this will load makefile inside folder
 
 #### :kissing_heart: to compile -><br>
-> __"g++ -std=c++14 main.cpp -lsqlite3 -lncurses -o game"__ <br>
+> __"g++ -std=c++14 main.cpp -lsqlite3 -lncursesw -o game"__ <br>
 ###### after -o put the name you want to give to the executable, my case i choose 'game' -l means library to load sqlite3 (database) ncurses( is "canvas"(pointers) for console)
 
 #### :sleepy: execute -> <br>  

@@ -8,7 +8,6 @@
 #include <ctype.h>
 
 
-
 using namespace std;
 //GLOBAL Variables
 string user;
@@ -347,13 +346,11 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		//cout<<"username"<<endl;
-		//cin>>us;
-		//playerInfo2vector(us);
+		cout<<"username"<<endl;
+		cin>>us;
+		playerInfo2vector(us);
 
-		cout<<char(255)<<endl;
-		cin.ignore();
-		//floor_3();
+		floor_3();
 		return 0;
 
 
