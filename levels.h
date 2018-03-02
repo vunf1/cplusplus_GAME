@@ -1,52 +1,158 @@
 /*GAME IDEIA TEST - BETTER IDEIA APPEAR - USING CURSES*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include <algorithm>
-
-
 #include <sstream>
-#include <algorithm>
 #include <iterator>//for split string into words separelaty to compare with a vector
-
-
 #include <cstring>
 #include <string>
+#include <ncurses.h>
+
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
-
-
-
 // REMEMBER FRIST LEVEL == LAST FUNCTION , and so on, c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
 
+///////////////////////////////////////// VARIABLES /////////////////////////////////////////////////
 
-//Globals variable for this 'header'
 int coorX=0;
 int coorY=0;
 int coorZ=3;
 bool counter;
+bool running=true;
 
-void playerPosition(){//Joao
-	cout<<endl;
-	cout<<"You are at position:"<<endl;
-	cout<<"X ="<<coorX<<endl;
-	cout<<"Y ="<<coorY<<endl;
-	cout<<"Floor ="<<coorZ<<endl;
-	cout<<endl;
+char lobby[13][63] =
+{  //draws a  map with an array in order to create the maze
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "| x                                                          |",
+    "|                                                            |",
+    "|                                                       =====|",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                       =====|",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+  };
+
+
+short int playerX = 2; // sets player starting position
+short int playerY = 2; // sets player starting position
+short int x,y;
+
+void drawMap(auto& map)//Joao 
+{
+  /*Print map on console*/
+    getmaxyx(stdscr,y,x);
+    noecho();
+    mvprintw(0,x/3,"Welcome to third floor"); //iqra contributed in the spelling changes of this code line
+  for (int i = 0; i < 13; i++) {
+    // addstr is nCurses equiv
+      // of cout or printw
+      move(i+2,x/5);
+      addstr(map[i]);
+      addstr("\n");
+    }
 }
 
 
+void storyONboard(){
+
+  getmaxyx(stdscr,y,x);
+  if(playerX==34 && playerY==7){
+
+  mvprintw(15,0,"You walk over and enter the room across from you, inside you are met with a creepy sight.\n Countless damaged dolls stare back at you with lifeless eyes, all of them in different stages of decay and wear and tear.\n Suppressing a shiver you walk further inside and glance around.");
+  mvprintw(19,x/5,"Y =  What will you do? Search the room more closely or leave?");
+
+
+  }
+}
+
+void keyPosition(){
+
+  mvprintw(1,0,"X = %i ",playerX);
+  mvprintw(1,8,"Y = %i ",playerY);
+
+}
+
+bool getUserInput(auto& map)//Joao
+{
+
+char userInput = getch();//grab key pressed by user
+noecho();
+
+  if (userInput == 'w') {
+    if (map[playerY-1][playerX] == ' ') {
+
+      map[playerY][playerX] = ' ';
+      playerY--;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInput == 'a') {
+    if (map[playerY][playerX-1] == ' ') {
+
+      map[playerY][playerX] = ' ';
+      playerX--;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInput == 's') {
+    if (map[playerY+1][playerX] == ' ') {
+
+      map[playerY][playerX] = ' ';
+      playerY++;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInput == 'd') {
+    if (map[playerY][playerX+1] == ' ') {
+
+      map[playerY][playerX] = ' ';
+      playerX++;
+      map[playerY][playerX] = 'x';
+    }
+  }
+}
+
+// Main game update
+void update()//Joao
+{
+  drawMap(lobby);
+  getUserInput(lobby);
+  refresh();
+  clear();
+}
+
+void endGame(){//Joao
+
+    mvprintw(0,x/4," ======================================");
+    mvprintw(1,x/4," @       YOU  FINISHED  THE           @");
+    mvprintw(2,x/4," @              GAME                  @");
+    mvprintw(3,x/4,"           CONGRATULATIONS %s          ",detailInfo[0].c_str());
+    mvprintw(4,x/4," @     YOU WILL RECEIVE 100 POINTS    @");
+    mvprintw(5,x/4," @            AND LEVEL UP            @");
+    mvprintw(6,x/4," ======================================");
+    getch();
+
+}
+
+void floor_3() //Joao
+{ 
+  // Initate nCurses display
+  initscr();
+  while( running== true ) {
+
+    keyPosition();
+    storyONboard();
+    update();
+    }
+  // End nCurses display
+  endwin();
+}
 
 string checkKeyWord(auto& path2)
 {
@@ -75,161 +181,3 @@ string checkKeyWord(auto& path2)
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void third_floor(auto& user_data){
-	cout<<"Welcome to this floor "+user_data[0]<<endl;
-}
-
-
-bool top_floor(auto& user_data){//Joao
-	/*REceive user data (username,score,level)(REMEMBER this data is static if alter on db need to reload the data) -> fast solution when addScore/remove call user_data[2] and do this user_data[2]=user_data[2]-score that way score will be always updated on runtime, the same for level) handle user input by grab keyWord and aply the respective function, if's statement handle user position and perform the task */
-	string str;
-	clearCon();
-
-
-
-	playerPosition();
-
-cin.ignore();
-
-	cout<<"Hello "+user_data[0]<<endl;
-	cout<<"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n ";
-	cout<<"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n ";
-	cout<<"It h survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedn It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."<<endl;
-		getline(cin,str);
-/*
-        while (str.length()==0 ){
-        	cout<<"Insert a command"<<endl;
-			getline(cin,str);
-			cin.ignore(1,'\n');
-        }*/
-
-		transform(str.begin(),str.end(),str.begin(),::tolower);
-
-		cout<<str<<endl;
- 		cout<<checkKeyWord(str)<<endl;
-
- 		pressAnyToContinue();
- 			top_floor(user_data);
-
-//TEST
-
-/*
-	    if(checkKeyWord(pathToGo)==false){
-
-	    	clearCon();
-	    	cout<<endl;
-	    	cout<<"What you input isn't an avaiable command for the game "<<endl;
-	    	top_floor(user_data);
-
-
-	    }else{
-
-
-
-
-
-
-					if((coorX<0 ) || (coorY<0) || (coorZ==2) || (coorZ==4))
-					{
-
-						if(coorZ==4)
-						{
-							cout<<"You can't go that way, nothing in there"<<endl;
-
-							pressAnyToContinue();
-
-							coorZ=3;
-							top_floor(user_data);
-						}
-						if(coorZ==2)
-						{
-							if(haveItem(user_data[0],"Key")==true)
-							{
-								cout<<"Moving into Floor 2 be careful in there"<<endl;
-
-								pressAnyToContinue();
-								clearCon();
-								third_floor(user_data);
-							}else{
-								cout<<"You cant go because you dont have a precious item to go down"<<endl;
-
-								pressAnyToContinue();
-
-								clearCon();
-								top_floor(user_data);
-							}
-						}
-						if(coorX<0  || coorY<0 ){
-
-							cout<<"You hit a Wall, congratz you broke your nose (-10 score)"<<endl;
-							addScore(user_data[0],-10);
-
-							pressAnyToContinue();
-							clearCon();
-							coorY=0;
-							coorX=0;
-							top_floor(user_data);
-
-						}
-					}
-
-
-
-
-
-					while(correctPath=="north"){
-						coorY ++;
-
-						pressAnyToContinue();
-						top_floor(user_data);
-					}
-					while(correctPath=="south"){
-						coorY --;
-
-						pressAnyToContinue();
-						top_floor(user_data);
-					}
-					while(correctPath=="west"){
-						coorX --;
-
-						pressAnyToContinue();
-						top_floor(user_data);
-					}
-					while(correctPath=="east"){
-						coorX ++;
-						pressAnyToContinue();
-						top_floor(user_data);
-					}
-	    }*/
-}
-
-
