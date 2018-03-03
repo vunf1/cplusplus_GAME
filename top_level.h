@@ -48,7 +48,7 @@ char map[13][63] =
     "| x                                                          |",
     "|                                                            |",
     "|                                                            |",
-    "|                                                    \u02E9====|",
+    "|                                                     \u02E9====|",
     "|                                                            |",
     "|                                                            |",
     "|                                                            |",
@@ -113,6 +113,7 @@ int getUserInput()//Joao
 {
 
 char userInput = getch();//grab key pressed by user
+char userInputArrow = wgetch(stdscr);
     /*
 int ch = wgetch(stdscr);
      switch (ch) 
@@ -161,7 +162,7 @@ int ch = wgetch(stdscr);
 
 
 
-
+/*
 
   if (userInput == 'w') {
     short int playerY2 = playerY - 1;
@@ -198,6 +199,67 @@ int ch = wgetch(stdscr);
       map[playerY][playerX] = 'x';
     }
   }
+
+*/
+
+
+
+
+
+
+
+
+
+  if (userInputArrow == KEY_UP) {
+    short int playerY2 = playerY - 1;
+    if (map[playerY2][playerX] == ' ') {
+      map[playerY][playerX] = ' ';
+      playerY--;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInputArrow == KEY_LEFT) {
+    short int playerX2 = playerX - 1;
+    if (map[playerY][playerX2] == ' ') {
+      map[playerY][playerX] = ' ';
+      playerX--;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInputArrow == KEY_DOWN) {
+    short int playerY2 = playerY + 1;
+    if (map[playerY2][playerX] == ' ') {
+      map[playerY][playerX] = ' ';
+      playerY++;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+  if (userInputArrow == KEY_RIGHT ) {
+    short int playerX2 = playerX + 1;
+    if (map[playerY][playerX2] == ' ') {
+      map[playerY][playerX] = ' ';
+      playerX++;
+      map[playerY][playerX] = 'x';
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
   
