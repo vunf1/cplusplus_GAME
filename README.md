@@ -81,13 +81,28 @@ git push
 
 > - [x] Game - GAME IDEIA  ()
 > - [ ] __Game - Children     (Floor 3)__ :boom: *Joao*
+> MAP(ROOMS) - [ ]  
+> STORY - [ ]  
+> STORY MAPPED - [ ]
 > - [ ] __Game - Surgery      (Floor 2)__ :boom: *Diogo*
+> MAP(ROOMS) - [ ]  
+> STORY - [ ]  
+> STORY MAPPED - [ ]
 > - [ ] __Game - Psychiatric  (Floor 1)__ :boom: *Luke*
+> MAP(ROOMS) - [ ]  
+> STORY - [ ]  
+> STORY MAPPED - [ ]
 > - [ ] __Game - Lobby        (Floor 0)__ :boom: *Diogo*
+> MAP(ROOMS) - [ ]  
+> STORY - [ ]  
+> STORY MAPPED - [ ]
 > - [x] Game - After found key do the maze to finish the game
 > - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ :boom: *Bartek*
 > - [x] Game - Congratz after finish maze with Player Info 
 > - [ ] Game - __Basement     (Floor -1)__ :boom: *Mariya*
+> MAP(ROOMS) - [ ]  
+> STORY - [ ]  
+> STORY MAPPED - [ ]
 > - [ ] Game - __Credit area__ :boom: *Iqra*
 > - [ ] Game - __Review all stuff(Check comments on code)__
 
