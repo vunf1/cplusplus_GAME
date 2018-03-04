@@ -6,7 +6,6 @@
 #include <string>
 #include <ncurses.h>
 
-
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
 // REMEMBER FRIST LEVEL == LAST FUNCTION , and so on, c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
 
@@ -19,22 +18,89 @@ bool counter;
 bool running=true;
 
 char lobby[13][63] =
-{  //draws a  map with an array in order to create the maze
+{  //draws a  map with an array in order to create the lobby floor
 
     "                                                              ",
     " ____________________________________________________________ ",
-    "| x                                                          |",
-    "|                                                            |",
-    "|                                                       =====|",
     "|                                                            |",
     "|                                                            |",
+    "|             lobby                                          |",
     "|                                                            |",
-    "|                                                       =====|",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
     "|                                                            |",
     "|                                                            |",
     "|____________________________________________________________|"
-  };
+};
 
+  char childrenWard[13][63] =
+{  //draws a  map with an array in order to create the childrenWard floor
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|         childrenWard                                       |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+};
+
+  char surgery[13][63] =
+{  //draws a  map with an array in order to create the surgery floor
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|            Surgery                                         |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+};
+
+  char psychiatric[13][63] =
+{  //draws a  map with an array in order to create the psychiatric floor
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|            psychiatric                                     |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+};
+
+  char basement[13][63] =
+{  //draws a  map with an array in order to create the basement floor
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|            basement                                        |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+};
 
 short int playerX = 2; // sets player starting position
 short int playerY = 2; // sets player starting position
@@ -63,82 +129,117 @@ void storyONboard(){
 
   mvprintw(15,0,"You walk over and enter the room across from you, inside you are met with a creepy sight.\n Countless damaged dolls stare back at you with lifeless eyes, all of them in different stages of decay and wear and tear.\n Suppressing a shiver you walk further inside and glance around.");
   mvprintw(19,x/5,"Y =  What will you do? Search the room more closely or leave?");
-
-
   }
 }
+
 
 void keyPosition(){
 
   mvprintw(1,0,"X = %i ",playerX);
   mvprintw(1,8,"Y = %i ",playerY);
-
 }
+
 
 bool getUserInput(auto& map)//Joao
 {
+  if(getch() == '\033')
+  {
+    getch();
+    noecho();
+    switch(getch())
+    {
+      case 'A':
+        if (map[playerY-1][playerX] == ' ') 
+        {
+          map[playerY][playerX] = ' ';
+          playerY--;
+          map[playerY][playerX] = 'x';
+        }
+      break;
 
-char userInput = getch();//grab key pressed by user
-noecho();
+      case 'B':
+        if (map[playerY+1][playerX] == ' ') 
+        {
+          map[playerY][playerX] = ' ';
+          playerY++;
+          map[playerY][playerX] = 'x';
+        }
+      break;
 
-  if (userInput == 'w') {
-    if (map[playerY-1][playerX] == ' ') {
+      case 'C':
+        if (map[playerY][playerX+1] == ' ')
+        {
+          map[playerY][playerX] = ' ';
+          playerX++;
+          map[playerY][playerX] = 'x';
+        }
+      break;
 
-      map[playerY][playerX] = ' ';
-      playerY--;
-      map[playerY][playerX] = 'x';
+      case 'D':
+        if (map[playerY][playerX-1] == ' ') 
+        {
+          map[playerY][playerX] = ' ';
+          playerX--;
+          map[playerY][playerX] = 'x';
+        }
+      break;
     }
   }
-
-  if (userInput == 'a') {
-    if (map[playerY][playerX-1] == ' ') {
-
-      map[playerY][playerX] = ' ';
-      playerX--;
-      map[playerY][playerX] = 'x';
-    }
-  }
-
-  if (userInput == 's') {
-    if (map[playerY+1][playerX] == ' ') {
-
-      map[playerY][playerX] = ' ';
-      playerY++;
-      map[playerY][playerX] = 'x';
-    }
-  }
-
-  if (userInput == 'd') {
-    if (map[playerY][playerX+1] == ' ') {
-
-      map[playerY][playerX] = ' ';
-      playerX++;
-      map[playerY][playerX] = 'x';
-    }
+  else
+  {
+    //If the input is not one of the arrows.
+    
   }
 }
 
 // Main game update
 void update()//Joao
 {
-  drawMap(lobby);
-  getUserInput(lobby);
+  switch(coorZ)
+  {
+    case -1:
+      drawMap(basement);
+      getUserInput(basement);
+      break;
+
+    case 0:
+      drawMap(lobby); 
+      getUserInput(lobby);
+      break;
+
+    case 1:
+      drawMap(psychiatric);
+      getUserInput(psychiatric);
+      break;
+
+    case 2:
+      drawMap(surgery);
+      getUserInput(surgery);
+      break;
+
+    case 3:
+      drawMap(childrenWard);
+      getUserInput(childrenWard);
+      break;
+  }
+
   refresh();
   clear();
 }
+
 
 void endGame(){//Joao
 
     mvprintw(0,x/4," ======================================");
     mvprintw(1,x/4," @       YOU  FINISHED  THE           @");
-    mvprintw(2,x/4," @              GAME                  @");
-    mvprintw(3,x/4,"           CONGRATULATIONS %s          ",detailInfo[0].c_str());
+    mvprintw(2,x/4," @                GAME                @");
+    mvprintw(3,x/4,"            CONGRATULATIONS %s         ",detailInfo[0].c_str());
     mvprintw(4,x/4," @     YOU WILL RECEIVE 100 POINTS    @");
-    mvprintw(5,x/4," @            AND LEVEL UP            @");
+    mvprintw(5,x/4," @             AND LEVEL UP           @");
     mvprintw(6,x/4," ======================================");
     getch();
-
 }
+
 
 void floor_3() //Joao
 { 
@@ -153,6 +254,7 @@ void floor_3() //Joao
   // End nCurses display
   endwin();
 }
+
 
 string checkKeyWord(auto& path2)
 {

@@ -5,17 +5,10 @@
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
 #include <vector> 
 #include <iomanip>
+
 using namespace std;
 
-
-
-
-
-
-
-
 #include <typeinfo>
-
 
 
 bool itemTurnedON(auto& user,auto& item){//Joao
@@ -32,9 +25,6 @@ bool itemTurnedON(auto& user,auto& item){//Joao
 	}else{
 		return 0;
 	}
-	
-
-	
 }
 
 bool haveItem(auto& user,auto& item){//Joao
@@ -48,16 +38,12 @@ bool haveItem(auto& user,auto& item){//Joao
 	//itemQ->bind(1, user);
 	itemQ->step();
 	return itemQ->get_int(0);
-	
-
-	
 }
 
 
 bool checkUP(auto& user,auto& password){//Joao
+	
 	/*check if username and password exist on db*/
-
-
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("SELECT count(*) FROM player WHERE id="+transformToQuote(user)+" and password=? ;");
 		    checkQ->prepare();
@@ -66,9 +52,6 @@ bool checkUP(auto& user,auto& password){//Joao
 			checkQ->step();
 				
 			return checkQ->get_int(0);
-
-
-
 }
 
 
@@ -85,27 +68,18 @@ bool addScore(string user,int score){//Joao
         	//listItens.push_back(cur->get_text(0));
 
           addPoints=cur->get_int(0); 
-        
         }
-
 
         addPoints=addPoints+score;
         
-
-
         //cout<<addPoints<<endl;
-
 		auto add = db.get_statement();
         add->set_sql( "UPDATE player SET score=?1 WHERE id=?2 ;");
         add->prepare();
         add->bind(1,addPoints);
         add->bind(2,user);
         add->step();
-
 }
-
-
-
 
 
 bool upLevel(string user,int levelUP){//Joao
@@ -118,8 +92,8 @@ bool upLevel(string user,int levelUP){//Joao
         cur->prepare();
         cur->bind(1,user);
         while( cur->step() ){
-        	//listItens.push_back(cur->get_text(0));
-
+        	
+          //listItens.push_back(cur->get_text(0));
           plusLevel=cur->get_int(0); 
         
         }
@@ -131,15 +105,13 @@ bool upLevel(string user,int levelUP){//Joao
         add->bind(1,plusLevel);
         add->bind(2,user);
         add->step();
-
 }
 
 
 
 char grabItensfloor(int floor){//Joao
 
-//TESTING
-
+		//TESTING
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from itens where floor=?; ");
         cur->prepare();
@@ -150,20 +122,14 @@ char grabItensfloor(int floor){//Joao
           //  cout << cur->get_text(0) << endl;
         
         }
-
-
 }
 
 
 char checkDB(){//Joao
 
-
-
-
     try
     {
-	        // open database
-
+	    // open database
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player; ");
         cur->prepare();
@@ -178,9 +144,7 @@ char checkDB(){//Joao
         std::cerr << e.what() << std::endl;
         return 1;
     }
-
 }
-
 
 
 char rankingScore(){//Joao
@@ -188,7 +152,7 @@ char rankingScore(){//Joao
 
     try
     {
-	        // open database
+	    // open database
 	    int numberOFacc;
 
 	    /* COUNT NUMBER OS ACC IN DB*/
@@ -205,7 +169,6 @@ char rankingScore(){//Joao
         cout<<"************************"<<endl;
 
 
-
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
         cur->prepare();
@@ -214,21 +177,12 @@ char rankingScore(){//Joao
         while(cur->step()){
 
         	cout << cur->get_text(0) <<setfill(' ')<< setw(5) <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
-        
-
-        	cout<<setfill('-')<<setw(28)<<"-"<<endl;
-
-
+           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
         }
 
         cout<<"| POSITION | NICKNAME "<<endl;
-
         cout<<"	Ranking "<<endl;
-
-
         cout<<"************************"<<endl; 
-
-
     }
     catch( sqlite::exception e )      // catch all sql issues
     {
@@ -238,12 +192,8 @@ char rankingScore(){//Joao
 }
 
 
-
-
 bool checkUser(string user){//Joao
 
-
-	 	    
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?;");
 	    checkQ->prepare();
@@ -254,14 +204,10 @@ bool checkUser(string user){//Joao
 	    }else{
 	    	return 0;
 	    }
-
-
 }
 
 bool checkPW(string password){//Joao
-
-
-	 	    
+ 	    
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where password=?;");
 	    checkQ->prepare();
@@ -272,18 +218,13 @@ bool checkPW(string password){//Joao
 	    }else{
 	    	return 0;
 	    }
-
-
 }
-
 
 
 char createCharacter(){//Joao
 
 	bool check;
 	try{
-
-	 	 
 
 		cout<<" ###  Let's create your account  ###"<<endl;
 
@@ -335,12 +276,6 @@ char createCharacter(){//Joao
 
 		}
 
-		//cout<<"User: "<<user<<" password : "<<password<<endl;
-
-
-	   
- 
-
 	    auto insertQ = db.get_statement();
 			insertQ->set_sql( "INSERT INTO player VALUES ("+transformToQuote(user)+", "+transformToQuote(password)+", 0, 0) ;" );
 			insertQ->prepare();
@@ -354,38 +289,21 @@ char createCharacter(){//Joao
 				
 			}
 
-
 	    auto insertQ2 = db.get_statement();
 			insertQ2->set_sql( "INSERT INTO playerHasitem VALUES (?, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) ;" );
 			insertQ2->prepare();
 			insertQ2->bind(1,user);
 			insertQ2->step();
-
-			
-
-
-
-
 	}
     catch( sqlite::exception e )      // catch all sql issues
     {
         std::cerr << e.what() << std::endl;
         return 1;
     }
-
-
 }
 
 
-
-
-
-
-
-
 char playerInfo(string user){
-
-
 
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  where id=? ;");
@@ -399,22 +317,12 @@ char playerInfo(string user){
 
         	cout <<" "<< cur->get_text(0) << "		"<<cur->get_text(2)<< "	"<<cur->get_text(3) << endl;
         cout << endl;
-
-
-
         }
 
         cout<<"************************"<<endl;
-
-
-
 }
 
 void alterPass(string password,string user){//Joao
-
-
-
-
    
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET password = ? WHERE id=?;");
@@ -428,17 +336,11 @@ void alterPass(string password,string user){//Joao
 				cout<<"********************************"<<endl;
 				
 			}
-
-
 }
 
 
-
-
  void alterUser(string user,string username){//Joao
-
-
-   
+  
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET id = "+transformToQuote(username)+" WHERE id="+transformToQuote(user)+";");
 		    checkQ->prepare();
@@ -447,10 +349,5 @@ void alterPass(string password,string user){//Joao
 				cout<<"********************************"<<endl;
 				cout<<"* Account update  successfully *"<<endl;
 				cout<<"********************************"<<endl;
-				
 			}
-
-
-
  }
-

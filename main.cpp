@@ -50,10 +50,6 @@ string transformToQuote( const string& var ) { // Joao
     return string("'") + var + string("'");
 }
 
-
-
-
-
 char playerInfo2vector(auto& user){
 /*SAVE PLAYER INFO INTO VECTOR:
  * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
@@ -72,33 +68,14 @@ char playerInfo2vector(auto& user){
         	detailInfo.emplace_back(cur->get_text(0)) ;
         	detailInfo.emplace_back(cur->get_text(2)) ;
         	detailInfo.emplace_back(cur->get_text(3)) ;
-
-
-
         }
-
-
-
 }
 
 
 #include "model.h"
-
-
-
-
-
-
-
-
 //#include "final_level_maze.h"
-
-
-
-//#include "levels.h"
-#include "top_level.h"
-
-
+#include "levels.h"
+//#include "top_level.h"
 
 
 void removeCharacter(){//Joao
@@ -130,14 +107,7 @@ void removeCharacter(){//Joao
 			cout<<"try again"<<endl;
 			removeCharacter();
 		}
-
-
-
-
-
-
 }
-
 
 
 char modifyUser(string user){//Joao
@@ -164,11 +134,7 @@ char modifyUser(string user){//Joao
 			default:
 				cout<<"Wrong answer try again"<<endl;
 				modifyUser(user);
-
-
 		}
-
-
 	}
 	else if(checkUser(username)==true){
 		cout<<endl;
@@ -178,15 +144,7 @@ char modifyUser(string user){//Joao
 	}else{
 
 		alterUser(user,username);
-
-
-
-
 	}
-
-
-
-
 }
 
 
@@ -194,9 +152,6 @@ void modifyPassword(string pass,string user){//Joao
 
 
 /*Acept the username and password and check if is the same and if not send to the function who will set that pw on that user*/
-
-
-
 
 	char ans;
 	string password;
@@ -224,29 +179,19 @@ void modifyPassword(string pass,string user){//Joao
 			default:
 				cout<<"Wrong answer try again"<<endl;
 				modifyPassword(pass,user);
-
-
 		}
 	}else{
 
 		alterPass(password,user);
-
-
 	}
-
-
-
-
 }
-
-
 
 
 void modifyOptions(string user,string password){
 
 			int op;
 			cout<<endl;
-			cout<<"		   Modify Options"<<endl;
+			cout<<"		   Modify Options"          <<endl;
 
 			cout<<"		 __________________________"<<endl;
 			cout<<"		!                          !"<<endl;
@@ -289,9 +234,6 @@ void modifyOptions(string user,string password){
 						modifyOptions(user,password);
 						break;
 				}
-
-
-
 }
 
 
@@ -313,8 +255,6 @@ int modifyAccount()
 			modifyAccount();
 
 		}
-
-
 }
 
 
@@ -328,15 +268,8 @@ char findPlayer(){
 	cin>>nick;
 	if(checkUser(nick)==1){
 		playerInfo(nick);
-
-
 	}
-
-
-
-
 }
-
 
 
 int main() //Joao
@@ -352,7 +285,6 @@ int main() //Joao
 
 		floor_3();
 		return 0;
-
 
 
 		cout<<endl;
