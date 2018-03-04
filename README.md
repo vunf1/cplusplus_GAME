@@ -1,4 +1,4 @@
-# C++ :sunny: Game Text Adventure CONSOLE-MODE
+# C++ :sunny: Game Text Adventure CONSOLE-MODE :four_leaf_clover:
 ### Manual c++ -> https://github.com/fffaraz/awesome-cpp 
 
 ## Need TO install on linux:
@@ -94,8 +94,8 @@ git push
 > - [ ] STORY MAPPED 
 > - [ ] :herb: __Game - Lobby        (Floor 0)__ :boom: *Diogo*
 > - [ ] MAP(ROOMS)   
-> - [ ]STORY   
-> - [ ]STORY MAPPED 
+> - [ ] STORY   
+> - [ ] STORY MAPPED 
 > - [x] Game - After found key do the maze to finish the game
 > - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ :boom: *Bartek*
 > - [x] Game - Congratz after finish maze with Player Info 
