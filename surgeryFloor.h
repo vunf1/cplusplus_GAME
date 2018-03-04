@@ -1,6 +1,8 @@
 //when you leave a room set currentRoom to -1
 //5 salas
 
+using namespace std;
+
 int currentRoom=-1;
 
 void checkRoom()
@@ -22,6 +24,11 @@ void Room2()
 void Room3()
 {
 
+}
+
+void Story()
+{
+	cout << "ENTRASTE NA STORY" << endl;
 }
 
 void actions()

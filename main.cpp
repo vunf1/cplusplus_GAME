@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#include "surgeryFloor.h"
 
 using namespace std;
 //GLOBAL Variables
@@ -279,6 +280,10 @@ int main() //Joao
 		string pw;
 		string ans;
 
+		story();
+		cout<< "after story"<< endl;
+		cin>>user;
+
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
@@ -321,6 +326,8 @@ int main() //Joao
 				main();
 				break;
 			case 1:{
+
+
 							cout<<"Username\t";
 							cin>>us;
 							cout<<"Password\t";

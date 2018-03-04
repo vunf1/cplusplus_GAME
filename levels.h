@@ -5,6 +5,7 @@
 #include <cstring>
 #include <string>
 #include <ncurses.h>
+//#include "surgeryFloor.h"
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
 // REMEMBER FRIST LEVEL == LAST FUNCTION , and so on, c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
@@ -188,7 +189,7 @@ bool getUserInput(auto& map)//Joao
   else
   {
     //If the input is not one of the arrows.
-    
+
   }
 }
 
@@ -200,31 +201,41 @@ void update()//Joao
     case -1:
       drawMap(basement);
       getUserInput(basement);
+      // checkCoord
+      refresh();
+      clear();
       break;
 
     case 0:
       drawMap(lobby); 
       getUserInput(lobby);
+      refresh();
+      clear();
       break;
 
     case 1:
       drawMap(psychiatric);
       getUserInput(psychiatric);
+      refresh();
+      clear();
       break;
 
     case 2:
       drawMap(surgery);
       getUserInput(surgery);
+      refresh();
+      clear();
       break;
 
     case 3:
       drawMap(childrenWard);
       getUserInput(childrenWard);
+      refresh();
+      clear();
       break;
   }
 
-  refresh();
-  clear();
+  
 }
 
 

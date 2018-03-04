@@ -1,28 +1,21 @@
-
-
 /* FUTURE USE : ORGANIZE FUNCTION IN IT*/
 #include <ncursesw/ncurses.h>//LOAD ncurses library
 #include <iterator>
 #include <algorithm>
 #include <sstream>
 
-
 //IDEAL SIZE
 #define WIDTH 80
 #define HEIGHT 24 
 
-
 //#INCLUDE "FINAL_LEVEL_MAZE.H" THIS FILE HAVE ALMOST ALL INFO ABOUT NCURSES CODE YOU WILL NEED
-
 bool running = true;
 short int playerX = 2; // sets player starting position
 short int playerY = 2; // sets player starting position
 short int x,y;
 
-
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
-
 
     noecho(); //dont show on the printw the key pressed
     raw(); //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
@@ -80,6 +73,10 @@ void drawMap()//Joao
 
 }
 
+void topstory()
+{
+  cout << "IT WORKS" << endl;
+}
 
 
 void storyONboard(){
