@@ -280,9 +280,6 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		story();
-		cout<< "after story"<< endl;
-		cin>>user;
 
 		cout<<"username"<<endl;
 		cin>>us;
@@ -384,7 +381,7 @@ int main() //Joao
 							cout<<endl;
 							cout<<"Choose an option \t";
 							cin>>op2;
-							 while (cin.fail()) //Joao
+							 while (cin.fail()) 
 						    {
 						        cin.clear(); // clear input buffer to restore cin to a usable state
 						        cin.ignore(INT_MAX, '\n'); // ignore last input
@@ -392,7 +389,7 @@ int main() //Joao
 						        cout<<"Choose an option."<<endl;
 						        cin>>op2;
 						    }
-						    switch(op2) //Joao
+						    switch(op2) 
 								{
 									case 1:
 

@@ -8,7 +8,7 @@
 //#include "surgeryFloor.h"
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
-// REMEMBER FRIST LEVEL == LAST FUNCTION , and so on, c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
+// REMEMBER c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
 
 ///////////////////////////////////////// VARIABLES /////////////////////////////////////////////////
 
@@ -112,7 +112,7 @@ void drawMap(auto& map)//Joao
   /*Print map on console*/
     getmaxyx(stdscr,y,x);
     noecho();
-    mvprintw(0,x/3,"Welcome to third floor"); //iqra contributed in the spelling changes of this code line
+    mvprintw(0,x/3,"Welcome to floor %s floor",coorZ.c_str()); //iqra contributed in the spelling changes of this code line
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
@@ -123,7 +123,7 @@ void drawMap(auto& map)//Joao
 }
 
 
-void storyONboard(){
+void storyONboard(){//Joao
 
   getmaxyx(stdscr,y,x);
   if(playerX==34 && playerY==7){
@@ -134,15 +134,16 @@ void storyONboard(){
 }
 
 
-void keyPosition(){
+void keyPosition(){//Joao
 
   mvprintw(1,0,"X = %i ",playerX);
   mvprintw(1,8,"Y = %i ",playerY);
 }
 
 
-bool getUserInput(auto& map)//Joao
+bool getUserInput(auto& map)//Joao && Diogo
 {
+	/*Accept arrow from user as input and move player thorw the map other input grab kwyword and perform same tasks*/
   if(getch() == '\033')
   {
     getch();
@@ -194,7 +195,7 @@ bool getUserInput(auto& map)//Joao
 }
 
 // Main game update
-void update()//Joao
+void update()//Joao && Diogo
 {
   switch(coorZ)
   {
@@ -229,6 +230,7 @@ void update()//Joao
 
     case 3:
       drawMap(childrenWard);
+      storyONboard();
       getUserInput(childrenWard);
       refresh();
       clear();
@@ -242,33 +244,20 @@ void update()//Joao
 void endGame(){//Joao
 
     mvprintw(0,x/4," ======================================");
-    mvprintw(1,x/4," @       YOU  FINISHED  THE           @");
-    mvprintw(2,x/4," @                GAME                @");
-    mvprintw(3,x/4,"            CONGRATULATIONS %s         ",detailInfo[0].c_str());
-    mvprintw(4,x/4," @     YOU WILL RECEIVE 100 POINTS    @");
+    mvprintw(1,x/4," @       YOU  FINISHED  THIS          @");
+    mvprintw(2,x/4," @                LEVEL               @");
+    mvprintw(3,x/4,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
+    mvprintw(4,x/4," @     YOU WILL RECEIVE 20 POINTS    @");
     mvprintw(5,x/4," @             AND LEVEL UP           @");
     mvprintw(6,x/4," ======================================");
     getch();
 }
 
 
-void floor_3() //Joao
-{ 
-  // Initate nCurses display
-  initscr();
-  while( running== true ) {
-
-    keyPosition();
-    storyONboard();
-    update();
-    }
-  // End nCurses display
-  endwin();
-}
-
 
 string checkKeyWord(auto& path2)
-{
+{//Joao
+
 	/*Accept the user input all line and convert into a vector to compare to other vector were are the possible paths/commands to use on the game if none exist send false as response*/
 
 	vector<string> path2G;
@@ -293,4 +282,18 @@ string checkKeyWord(auto& path2)
 		return string("false");
 	}
 
+}
+
+
+void floor_3() //Joao
+{ 
+  // Initate nCurses display
+  initscr();
+  while( running== true ) {
+
+    //keyPosition();
+    update();
+    }
+  // End nCurses display
+  endwin();
 }
