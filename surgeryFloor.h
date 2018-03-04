@@ -26,7 +26,7 @@ void Room3()
 
 }
 
-void Story()
+void story()
 {
 	cout << "ENTRASTE NA STORY" << endl;
 }
@@ -59,4 +59,5 @@ void actions()
 void keywordChecker()
 {
 	//function to check for keywords related to the possible actions in this floor
+	return;
 }
