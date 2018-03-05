@@ -1,29 +1,35 @@
 //when you leave a room set currentRoom to -1
-//5 salas
+//5 rooms
 
 using namespace std;
 
 int currentRoom=-1;
 
-void checkRoom()
-{
-	//ver as coordenadas e alterar o currentRoom para a room onde o user está caso ele esteja numa room.
-
-}
-
 void Room1()
 {
-
+	mvprintw(10, 70, "ROOM 1");
+	currentRoom=1;
 }
 
 void Room2()
 {
-
+	mvprintw(10, 70, "ROOM 2");
+	currentRoom=1;
 }
 
 void Room3()
 {
 
+}
+
+void checkRoom(int x, int y)
+{
+	//check the coordinates and alter the currentRoom variable.
+	if((y>=2 && y<=4) && (x>=15 && x<=24))
+		Room1();
+
+	if((y>=2  && y<=4) && (x>=44 && x<=54))
+		Room2();
 }
 
 void story()

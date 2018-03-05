@@ -79,7 +79,6 @@ char playerInfo2vector(auto& user){
 
 void removeCharacter(){//Joao
 	/*ask for username and password , if axist delete the data from that user */
-
 		cout<<"Username \t";
 		cin>>user;
 		cout<<"Password \t";
@@ -278,6 +277,9 @@ int main() //Joao
 		string pw;
 		string ans;
 
+		cout<<"\u2550";
+		mvprintw(5,5, "\u2550" );
+
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
@@ -288,7 +290,6 @@ int main() //Joao
 
 		cout<<endl;
 		cout<<"		   Text Adventure "<<endl;
-
 		cout<<"		 ________________"<<endl;
 		cout<<"		!                !"<<endl;
 		cout<<"		!                !"<<endl;
