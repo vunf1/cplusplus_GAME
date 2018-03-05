@@ -1,14 +1,12 @@
-# :exclamation: Major update ncurses new library, now support unicode and ascii code 
-
-# C++ :sunny: Game Text Adventure CONSOLE-MODE
+# C++ :sunny: Game Text Adventure CONSOLE-MODE :four_leaf_clover:
 ### Manual c++ -> https://github.com/fffaraz/awesome-cpp 
-## Need TO install on linux:
 
+## Need TO install on linux:
 
 ###### :exclamation: Running random scripts off the internet is generally a bad idea!
  __Install C++ compiler/librarys on linux using a script__ Script provided by David Croft (Coventry University Tutor)
  >  __wget https://git.io/vF0E1 -O - | sudo bash__  (Script) <br>
-:cop: __sudo apt-get install libncursesw5-dev__  :exclamation: (Curses Library with Unicode/ASCII) <br>
+:cop: __sudo apt-get install libncursesw5-dev__  :exclamation: (Curses Library with Unicode/ASCII small support) <br>
 :cop: __sudo apt install libsqlite3-dev__   (SQLite Library)
 
 ## :exclamation: REMEMBER TO BE ON THE CORRECT FOLDER FRIST :stuck_out_tongue_winking_eye:
@@ -37,6 +35,15 @@ __"sudo chmod -R 755"__
 
 
 
+### :bust_in_silhouette: Github commands:
+###### config your console with yout github account
+> git config --global user.email "<uni email>"
+> git config --global user.name "<uni email with out @uni.coventry.ac.uk>"
+---
+> git add <name file to add (your file(s) )
+> git commit -m "<text, try write something about you have done(Good pratice)>"
+git push
+
 
 
 ### BUGS FOUND
@@ -44,8 +51,7 @@ __"sudo chmod -R 755"__
 
 
 > - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR,BETWEEN,etc)
-> - [x] Fast SOLUTION -> Use transform2Quote function (bad pratice!)
-> - [ ] After input a 'possibleRoute' show at position and did press ENTER again
+> - [x] Fast SOLUTION -> Use transform2Quote/Inserto into string function (bad pratice!)
 
 
 
@@ -57,9 +63,10 @@ __"sudo chmod -R 755"__
 
 ###### Ideia for game-dev
 > - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
-> - [ ] :exclamation:__Game Name__
-> - [ ] :exclamation:__Game History__
+> - [ ] :exclamation:__Game Name__ *Mariya & Iqra*
+> - [ ] :exclamation:__Game History__ *Luke*
 > - [x] Simple Design
+> - [ ] __Better Design__
 > - [x] DB Creaction
 > - [x] DB Items
 > - [x] Connection to DB
@@ -73,21 +80,36 @@ __"sudo chmod -R 755"__
 > - [x] Player info travel between cpp&&headers 
 
 > - [x] Game - GAME IDEIA  ()
-> - [ ] __Game - Children     (Floor 3)__
-> - [ ] __Game - Surgery      (Floor 2)__
-> - [ ] __Game - Psychiatric  (Floor 1)__
-> - [ ] __Game - Lobby        (Floor 0)__
+> - [ ] :herb: __Game - Children     (Floor 3)__ :boom: *Joao*
+> - [ ] MAP(ROOMS)   
+> - [ ] STORY   
+> - [ ] STORY MAPPED 
+> - [ ] :herb: __Game - Surgery      (Floor 2)__ :boom: *Diogo*
+> - [ ] MAP(ROOMS)   
+> - [ ] STORY  
+> - [ ] STORY MAPPED 
+> - [ ] :herb: __Game - Psychiatric  (Floor 1)__ :boom: *Luke*
+> - [ ] MAP(ROOMS)   
+> - [ ] STORY   
+> - [ ] STORY MAPPED 
+> - [ ] :herb: __Game - Lobby        (Floor 0)__ :boom: *Diogo*
+> - [ ] MAP(ROOMS)   
+> - [ ] STORY   
+> - [ ] STORY MAPPED 
 > - [x] Game - After found key do the maze to finish the game
-> - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ 
+> - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ :boom: *Bartek*
 > - [x] Game - Congratz after finish maze with Player Info 
-> - [ ] Game - __Basement     (Floor -1)__
-> - [ ] Game - __Credit area__
-> - [ ] Game - __Review all stuff(Check comments on code)__
+> - [ ] :herb:  __Game - Basement     (Floor -1)__ :boom: *Mariya*
+> - [ ] MAP(ROOMS)   
+> - [ ] STORY   
+> - [ ] STORY MAPPED 
+> - [ ] :herb: Game - __Credit area__ :boom: *Iqra*
+> - [ ] :herb: Game - __Review all stuff(Check comments on code)__
 
 :exclamation: :exclamation: Important for IPP/Viva :computer:
-> - [ ] :warning: __Flow Diagram(Code)__
-> - [ ] :warning: __ER Diagram(DB)__
-> - [ ] Screenshots of runtime game
+> - [ ] :warning: __Flow Diagram(Code)__ :japanese_goblin: Individual
+> - [ ] :warning: __ER Diagram(DB)__ :japanese_goblin: Individual
+> - [ ] Screenshots of runtime game :japanese_goblin: Individual
 
 ### EXTRA 
 
