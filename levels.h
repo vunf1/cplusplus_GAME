@@ -5,7 +5,7 @@
 #include <cstring>
 #include <string>
 #include <ncurses.h>
-//#include "surgeryFloor.h"
+#include "maps/surgeryFloor.h"
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
 // REMEMBER c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
@@ -14,7 +14,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=3;
+int coorZ=2; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
@@ -25,8 +25,8 @@ char lobby[13][63] =
     " ____________________________________________________________ ",
     "|                                                            |",
     "|                                                            |",
-    "|             lobby                                          |",
     "|                                                            |",
+    "|            lobby                                           |",
     "|                                                            |",
     "|                                                            |",
     "|                                                            |",
@@ -57,10 +57,10 @@ char lobby[13][63] =
 
     "                                                              ",
     " ____________________________________________________________ ",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|            Surgery                                         |",
+    "|             |          |                 |          |      |",
+    "|             |          |                 |          |      |",
+    "|             |          |                 |          |      |",
+    "|             |====  ====|                 |====  ====|      |",
     "|                                                            |",
     "|                                                            |",
     "|                                                            |",
@@ -103,7 +103,7 @@ char lobby[13][63] =
     "|____________________________________________________________|"
 };
 
-short int playerX = 2; // sets player starting position
+short int playerX = 1; // sets player starting position
 short int playerY = 2; // sets player starting position
 short int x,y;
 
@@ -111,15 +111,32 @@ void drawMap(auto& map)//Joao
 {
   /*Print map on console*/
     getmaxyx(stdscr,y,x);
+
+    map[playerY][playerX]='x';
+    mvprintw(0,x/3,"Welcome to third floor"); //iqra contributed in the spelling changes of this code line
+
     noecho();
+
     mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line
+
+
+
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
       move(i+2,x/5);
       addstr(map[i]);
       addstr("\n");
+
+
     }
+    checkRoom(playerX, playerY);
+}
+
+void drawRooms(auto& map)
+{
+
+
 }
 
 
@@ -155,7 +172,6 @@ bool getUserInput(auto& map)//Joao && Diogo
         {
           map[playerY][playerX] = ' ';
           playerY--;
-          map[playerY][playerX] = 'x';
         }
       break;
 
@@ -164,7 +180,6 @@ bool getUserInput(auto& map)//Joao && Diogo
         {
           map[playerY][playerX] = ' ';
           playerY++;
-          map[playerY][playerX] = 'x';
         }
       break;
 
@@ -173,7 +188,6 @@ bool getUserInput(auto& map)//Joao && Diogo
         {
           map[playerY][playerX] = ' ';
           playerX++;
-          map[playerY][playerX] = 'x';
         }
       break;
 
@@ -182,7 +196,6 @@ bool getUserInput(auto& map)//Joao && Diogo
         {
           map[playerY][playerX] = ' ';
           playerX--;
-          map[playerY][playerX] = 'x';
         }
       break;
     }
@@ -224,6 +237,7 @@ void update()//Joao && Diogo
     case 2:
       drawMap(surgery);
       getUserInput(surgery);
+      //story();
       refresh();
       clear();
       break;
