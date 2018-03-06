@@ -112,7 +112,7 @@ void drawMap(auto& map)//Joao
   /*Print map on console*/
     getmaxyx(stdscr,y,x);
     noecho();
-    mvprintw(0,x/3,"Welcome to floor %s floor",coorZ.c_str()); //iqra contributed in the spelling changes of this code line
+    mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
@@ -246,7 +246,7 @@ void endGame(){//Joao
     mvprintw(0,x/4," ======================================");
     mvprintw(1,x/4," @       YOU  FINISHED  THIS          @");
     mvprintw(2,x/4," @                LEVEL               @");
-    mvprintw(3,x/4,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
+    mvprintw(3,x/4,"        CONGRATULATIONS %s             ",detailInfo[0].c_str()	);
     mvprintw(4,x/4," @     YOU WILL RECEIVE 20 POINTS    @");
     mvprintw(5,x/4," @             AND LEVEL UP           @");
     mvprintw(6,x/4," ======================================");
