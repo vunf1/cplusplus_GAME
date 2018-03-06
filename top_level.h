@@ -1,4 +1,4 @@
-/* FUTURE USE : ORGANIZE FUNCTION IN IT*/
+/* SAMPLE FILE*/
 #include <ncursesw/ncurses.h>//LOAD ncurses library
 #include <iterator>
 #include <algorithm>

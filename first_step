@@ -1,7 +1,7 @@
 all:
 	reset
 	
-	wget https://git.io/vF0E1 -O - | sudo bash && sudo apt-get install libncursesw5-dev -y && sudo apt install libsqlite3-dev -y && sudo apt update -y
+	wget https://git.io/vF0E1 -O - | sudo bash && sudo apt-get install libncursesw5-dev -y && sudo apt install libsqlite3-dev -y && sudo apt update -y && sudo apt-get install libgtk-3-dev -y && clear
 	@echo "All instaled now insert make into console and compile the c++ algorithm"
  
 .SILENT:

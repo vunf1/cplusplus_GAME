@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#include "colors.h"
 using namespace std;
 //GLOBAL Variables
 string user;
@@ -17,6 +18,7 @@ sqlite::sqlite db("dbPlayer");
 
 
 vector<string> detailInfo; /*Global vector - user information*/
+
 
 void pressAnyToContinue(){//Joao
 	cout<<endl;
@@ -54,7 +56,12 @@ char playerInfo2vector(auto& user){
  * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
 [1]LEVEL
-[2]SCORE*/
+[2]SCORE
+
+
+
+This file is static futher updates during the game call again this function to update status
+*/
 
 
         auto cur = db.get_statement();
@@ -72,40 +79,9 @@ char playerInfo2vector(auto& user){
 
 
 #include "model.h"
-//#include "final_level_maze.h"
 #include "levels.h"
-//#include "top_level.h"
+//#include "final_level_maze.h"
 
-
-void removeCharacter(){//Joao
-	/*ask for username and password , if axist delete the data from that user */
-		cout<<"Username \t";
-		cin>>user;
-		cout<<"Password \t";
-		cin>>password;
-
-
-		if (checkUP(user,password)==true){
-   
-		    auto checkQ = db.get_statement();
-		    checkQ->set_sql("Delete from player Where id=?;");
-		    checkQ->prepare();
-		    checkQ->bind(1,user);
-
-			if(checkQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Account removed successfully *"<<endl;
-				cout<<"********************************"<<endl;
-				
-			}
-
-		}else{
-
-			cout<<"Invalid username or password"<<endl;
-			cout<<"try again"<<endl;
-			removeCharacter();
-		}
-}
 
 
 char modifyUser(string user){//Joao
@@ -185,7 +161,7 @@ void modifyPassword(string pass,string user){//Joao
 }
 
 
-void modifyOptions(string user,string password){
+void modifyOptions(string user,string password){//Joao
 
 			int op;
 			cout<<endl;
@@ -277,25 +253,14 @@ int main() //Joao
 		string pw;
 		string ans;
 
-\
-		cout<<"\u2550";
-		mvprintw(5,5, "\u2550" );
-
-
-		cout<<"username"<<endl;
-		cin>>us;
-		playerInfo2vector(us);
-
-		floor_3();
-		return 0;
 
 
 		cout<<endl;
-		cout<<"		   Text Adventure "<<endl;
+		cout<<BLUE_TEXT("		   Text Adventure ")<<endl;
 		cout<<"		 ________________"<<endl;
 		cout<<"		!                !"<<endl;
 		cout<<"		!                !"<<endl;
-		cout<<"		!   1- Start     !"<<endl;
+		cout<<YELLOW_TEXT("		!   ")CYAN_TEXT("1- Start")YELLOW_TEXT("     !")<<endl;
 		cout<<"		!   2- Score     !"<<endl;
 		cout<<"		!   3- More      !"<<endl;
 		cout<<"		!   4- Quit      !"<<endl;

@@ -12,7 +12,9 @@ using namespace std;
 
 
 bool itemTurnedON(auto& user,auto& item){//Joao
-/* Update Database entity where are the items(attributes) of the players and set that attribute to 1 , means have now that item and cant grab it again */
+/* Update entity where are the item(attribute) of the players and set that attribute to 1 , means have now that item and cant grab it again 
+
+NOT handle the response, you handle when call it*/
 
 	auto itemQ = db.get_statement();
 
@@ -41,9 +43,10 @@ bool haveItem(auto& user,auto& item){//Joao
 }
 
 
+
 bool checkUP(auto& user,auto& password){//Joao
-	
-	/*check if username and password exist on db*/
+/*check if username and password exist on db*/
+
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("SELECT count(*) FROM player WHERE id="+transformToQuote(user)+" and password=? ;");
 		    checkQ->prepare();
@@ -54,6 +57,36 @@ bool checkUP(auto& user,auto& password){//Joao
 			return checkQ->get_int(0);
 }
 
+
+void removeCharacter(){//Joao
+	/*ask for username and password , if axist delete the data from that user */
+		cout<<"Username \t";
+		cin>>user;
+		cout<<"Password \t";
+		cin>>password;
+
+
+		if (checkUP(user,password)==true){
+   
+		    auto checkQ = db.get_statement();
+		    checkQ->set_sql("Delete from player Where id=?;");
+		    checkQ->prepare();
+		    checkQ->bind(1,user);
+
+			if(checkQ->step()== SQLITE_OK ){
+				cout<<"********************************"<<endl;
+				cout<<"* Account removed successfully *"<<endl;
+				cout<<"********************************"<<endl;
+				
+			}
+
+		}else{
+
+			cout<<"Invalid username or password"<<endl;
+			cout<<"try again"<<endl;
+			removeCharacter();
+		}
+}
 
 bool addScore(string user,int score){//Joao
 	/* Take username and +score to add to the player actual score*/
@@ -83,7 +116,7 @@ bool addScore(string user,int score){//Joao
 
 
 bool upLevel(string user,int levelUP){//Joao
-	/* Level up x times(levelUP) to the player user*/
+	/* Level up x times(levelUP) on user*/
 	
 		int plusLevel;
 
@@ -148,6 +181,7 @@ char checkDB(){//Joao
 
 
 char rankingScore(){//Joao
+	/*Ranking of all users of the game and display inside a personalized table*/
 	int j,i;
 
     try
@@ -165,7 +199,9 @@ char rankingScore(){//Joao
         //cout<<numberOFacc<<endl;
         /*For create a table with 1 2 3 4 5 as place for players ideia to improve*/
 
+        cout<<"	Ranking "<<endl;
 
+        cout<<"| POSITION | NICKNAME "<<endl;
         cout<<"************************"<<endl;
 
 
@@ -180,8 +216,6 @@ char rankingScore(){//Joao
            	cout<<setfill('-')<<setw(28)<<"-"<<endl;
         }
 
-        cout<<"| POSITION | NICKNAME "<<endl;
-        cout<<"	Ranking "<<endl;
         cout<<"************************"<<endl; 
     }
     catch( sqlite::exception e )      // catch all sql issues
@@ -193,6 +227,7 @@ char rankingScore(){//Joao
 
 
 bool checkUser(string user){//Joao
+	/*check user username on DB*/
 
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where id=?;");
@@ -207,6 +242,7 @@ bool checkUser(string user){//Joao
 }
 
 bool checkPW(string password){//Joao
+	/*NOT IN ?USE PROTOTYPE because bind() dont work*/
  	    
 	    auto checkQ = db.get_statement();
 	    checkQ->set_sql("SELECT COUNT(*) from player Where password=?;");
@@ -222,7 +258,7 @@ bool checkPW(string password){//Joao
 
 
 char createCharacter(){//Joao
-
+/*Create user account on DB, check if username exist and lenght of pw(<=8)*/
 	bool check;
 	try{
 
@@ -303,7 +339,8 @@ char createCharacter(){//Joao
 }
 
 
-char playerInfo(string user){
+char playerInfo(string user){//Joao
+	/*Find a spefic player and display him into console*/
 
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  where id=? ;");
@@ -323,7 +360,7 @@ char playerInfo(string user){
 }
 
 void alterPass(string password,string user){//Joao
-   
+   /*Update user password on DB*/
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET password = ? WHERE id=?;");
 		    checkQ->prepare();
@@ -340,6 +377,7 @@ void alterPass(string password,string user){//Joao
 
 
  void alterUser(string user,string username){//Joao
+ 	/*Update user username on DB*/
   
 		    auto checkQ = db.get_statement();
 		    checkQ->set_sql("UPDATE player SET id = "+transformToQuote(username)+" WHERE id="+transformToQuote(user)+";");

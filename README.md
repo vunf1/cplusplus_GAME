@@ -38,9 +38,9 @@ __"sudo chmod -R 755"__
 ### :bust_in_silhouette: Github commands:
 ###### config your console with yout github account
 > git config --global user.email "<uni email>"
-> git config --global user.name "<uni email with out @uni.coventry.ac.uk>"
+> git config --global user.name "<uni email without @uni.coventry.ac.uk>"
 ---
-> git add <name file to add (your file(s) )
+> git add <name file to add (your file(s) ) <br>
 > git commit -m "<text, try write something about you have done(Good pratice)>"
 git push
 
@@ -72,6 +72,7 @@ git push
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
+> - [ ] __Ranking DESIGN NEED IMPROVE__
 > - [x] Organize functions , create better algorithm, kinda like MVC design 
 > - [x] addScore(user,score2add)
 > - [x] upLevel(user,xLevels)
@@ -97,7 +98,7 @@ git push
 > - [ ] STORY   
 > - [ ] STORY MAPPED 
 > - [x] Game - After found key do the maze to finish the game
-> - [ ] __Game - Algorithm for maze creation (MAYBE, to be diferent each time start an final level)__ :boom: *Bartek*
+> - [ ] __Game - Algorithm for maze creation (to be diferent each time start an final level)__ :boom: *Bartek*
 > - [x] Game - Congratz after finish maze with Player Info 
 > - [ ] :herb:  __Game - Basement     (Floor -1)__ :boom: *Mariya*
 > - [ ] MAP(ROOMS)   
@@ -110,6 +111,9 @@ git push
 > - [ ] :warning: __Flow Diagram(Code)__ :japanese_goblin: Individual
 > - [ ] :warning: __ER Diagram(DB)__ :japanese_goblin: Individual
 > - [ ] Screenshots of runtime game :japanese_goblin: Individual
+
+### ESSENCIAL(To achive high mark)
+- [ ] GUI *Joao*
 
 ### EXTRA 
 
