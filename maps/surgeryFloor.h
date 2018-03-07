@@ -5,19 +5,19 @@ using namespace std;
 
 int currentRoom=-1;
 
-void Room1()
+void Surgery_room1()
 {
 	mvprintw(10, 70, "ROOM 1");
 	currentRoom=1;
 }
 
-void Room2()
+void Surgery_room2()
 {
 	mvprintw(10, 70, "ROOM 2");
 	currentRoom=1;
 }
 
-void Room3()
+void Surgery_room3()
 {
 
 }
@@ -26,10 +26,10 @@ void checkRoom(int x, int y)
 {
 	//check the coordinates and alter the currentRoom variable.
 	if((y>=2 && y<=4) && (x>=15 && x<=24))
-		Room1();
+		Surgery_room1();
 
 	if((y>=2  && y<=4) && (x>=44 && x<=54))
-		Room2();
+		Surgery_room2();
 }
 
 void story()
