@@ -18,6 +18,32 @@ int coorZ=2; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
+
+
+
+void keycode(){//Joao
+  /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
+
+    noecho(); //dont show on the printw the key pressed
+    raw(); //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
+    int key;
+    //27 is the keycode for ESC 
+    printw("Press any key to know the keycode ");
+    while((key=wgetch(stdscr))!=27){
+
+        mvprintw(0,0,"Keycode %d and the character inputed is %c",key,key);//%d for decimal keycode and %c for character key
+
+        mvprintw(1,0,"Press any key to know the keycode ");
+        refresh();
+    }
+
+
+}
+
+
+
+
+
 char lobby[13][63] =
 {  //draws a  map with an array in order to create the lobby floor
 
@@ -113,8 +139,6 @@ void drawMap(auto& map)//Joao
     getmaxyx(stdscr,y,x);
 
     map[playerY][playerX]='x';
-    mvprintw(0,x/3,"Welcome to third floor"); //iqra contributed in the spelling changes of this code line
-
     noecho();
 
     mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line

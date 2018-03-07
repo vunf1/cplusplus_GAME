@@ -202,9 +202,9 @@ char rankingScore(){//Joao
         cout<<"	Ranking "<<endl;
 
         cout<<"| POSITION | NICKNAME "<<endl;
-        cout<<"************************"<<endl;
+        cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl;
 
-
+        
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
         cur->prepare();

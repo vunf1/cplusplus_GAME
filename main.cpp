@@ -21,10 +21,8 @@ vector<string> detailInfo; /*Global vector - user information*/
 
 
 void pressAnyToContinue(){//Joao
-	cout<<endl;
-	cout << "Press ENTER to continue.";
-	cin.clear();
-	cin.ignore(INT_MAX, '\n');
+	
+  
 }
 
 
@@ -253,19 +251,22 @@ int main() //Joao
 		string pw;
 		string ans;
 
-
+		cin>>us;
+		playerInfo2vector(us);
+		floor_3();
+		return 0;
 
 		cout<<endl;
-		cout<<BLUE_TEXT("		   Text Adventure ")<<endl;
-		cout<<"		 ________________"<<endl;
-		cout<<"		!                !"<<endl;
-		cout<<"		!                !"<<endl;
-		cout<<YELLOW_TEXT("		!   ")CYAN_TEXT("1- Start")YELLOW_TEXT("     !")<<endl;
-		cout<<"		!   2- Score     !"<<endl;
-		cout<<"		!   3- More      !"<<endl;
-		cout<<"		!   4- Quit      !"<<endl;
-		cout<<"		!                !"<<endl;
-		cout<<"		!________________!"<<endl;
+		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;
+		cout<<YELLOW_TEXT("		▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")<<endl;
+		cout<<YELLOW_TEXT("		█                █")<<endl;
+		cout<<YELLOW_TEXT("		█                █")<<endl;
+		cout<<YELLOW_TEXT("		█   ")CYAN_TEXT("1 - Start")YELLOW_TEXT("    █")<<endl;
+		cout<<YELLOW_TEXT("		█   ")BLUE_TEXT("2 - Score")YELLOW_TEXT("    █")<<endl;
+		cout<<YELLOW_TEXT("		█   ")GREEN_TEXT("3 - More")YELLOW_TEXT("     █")<<endl;
+		cout<<YELLOW_TEXT("		█   ")RED_TEXT("4 - Quit")YELLOW_TEXT("     █")<<endl;
+		cout<<YELLOW_TEXT("		█                █")<<endl;
+		cout<<YELLOW_TEXT("		█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█")<<endl;
 		cout<<endl;
 		cout<<"Choose an option. \t";
 		cin>>op;
