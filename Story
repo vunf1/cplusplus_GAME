@@ -98,6 +98,31 @@ Walking around the corner
 
 As you walk around the corner and follow the wall of the room you discover another large room down the end of the floor, by the looks of the sign above the double doors its appears to be the main surgery amphitheater. To your left you find out that the other room is a waiting area for patients or relatives of patients. 
 
+[clear]
+
+Amphitheatre
+
+You decide to walk towards the amphitheatre, you push the doors open slowly. You make sure to be careful and keep an eye out for anything suspicious. As you fully enter the room you find out that the room seems to be a semicircle with the operating table being the focus of the room. The surrounding area around it consisted of some seats and cabinets filled with various surgical instruments and medicine.
+
+[clear]
+
+Searching the room further
+
+You walk down towards the operating table, you glance around to see anything of interest. After a moment of searching you find a scalpel on the table and some bandages. After checking for anything else you decide to head back out of the room.
+
+[clear]
+
+Exiting this floor
+
+Convinced that you have searched everything on this floor, you decide to head back to the stairs to get to the next floor down. Opening the door to the stairs you proceed to head down the flight of stairs.
+
+[clear]
+
+Entering the First Floor
+
+As you enter this floor the first thing that pops out to you is the emptiness before you. Straight ahead is what seems to be a Doctors Office and to the left is a wall with double doors at the center. You can hear odd noises coming from the area beyond the door.
+
+[clear]
 
 
 

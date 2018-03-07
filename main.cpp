@@ -251,10 +251,11 @@ int main() //Joao
 		string pw;
 		string ans;
 
+		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
+
 		floor_3();
-		return 0;
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;

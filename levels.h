@@ -143,18 +143,14 @@ void drawMap(auto& map)//Joao
 
     mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line
 
-
-
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
       move(i+2,x/5);
       addstr(map[i]);
       addstr("\n");
-
-
     }
-    checkRoom(playerX, playerY);
+  checkRoom(playerX, playerY);
 }
 
 void drawRooms(auto& map)
@@ -259,9 +255,9 @@ void update()//Joao && Diogo
       break;
 
     case 2:
+      keyPosition();
       drawMap(surgery);
       getUserInput(surgery);
-      //story();
       refresh();
       clear();
       break;
