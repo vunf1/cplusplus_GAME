@@ -14,7 +14,7 @@ void Surgery_room1()
 void Surgery_room2()
 {
 	mvprintw(10, 70, "ROOM 2");
-	currentRoom=1;
+	currentRoom=2;
 }
 
 void Surgery_room3()

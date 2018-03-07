@@ -253,6 +253,11 @@ int main() //Joao
 		string pw;
 		string ans;
 
+		cout<<"username"<<endl;
+		cin>>us;
+		playerInfo2vector(us);
+
+		floor_3();
 
 
 		cout<<endl;
