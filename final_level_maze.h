@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include "libsqlite3/libsqlite.hpp" //DB Library SQLite3
 
 #include <string> // String Library
 #include <string.h>// string functions
@@ -138,22 +139,19 @@ char map[12][41] =  //draws a  map with an array in order to create the maze
 // 
 void drawMap()//Joao
 {
-  int counter=109;
     getmaxyx(stdscr,y,x);
     noecho();
     mvprintw(0,x/3,"Welcome to final level");
     mvprintw(1,x/5,"Reach the end of the maze to finish the game");
-               
-    
+    /*
   for (int i = 0; i < 12; i++) {
     // addstr is nCurses equiv
     // of cout or print
-    mvaddch(2,x/5,counter | A_ALTCHARSET);
     move(i+2,x/5);
     addstr(map[i]);
     addstr("\n");
     }
-    
+    */
 }
 
 
@@ -211,12 +209,12 @@ void update()//Joao
   refresh();
   clear();
 }
-void end4Game(){//Joao
+void endGame(auto& info){//Joao
 
     mvprintw(0,x/4," ======================================");
     mvprintw(1,x/4," @         YOU  FINISH  THE           @");
     mvprintw(2,x/4," @              GAME                  @");
-    mvprintw(3,x/4,"    CONGRATULATIONS %s                 ",detailInfo[0].c_str());
+    mvprintw(3,x/4,"    CONGRATULATIONS %s                 ",info[0].c_str());
     mvprintw(4,x/4," @    YOU WILL RECEIVE 100 POINTS     @");
     mvprintw(5,x/4," @         AND LEVEL UP               @");
     mvprintw(6,x/4," ======================================");
@@ -249,7 +247,7 @@ void Game() //Joao
     if((playerY==10&&playerX==3)||(playerY==10&&playerX==2)){
         
         
-        end4Game();
+        endGame();
         running=false;
     }
 

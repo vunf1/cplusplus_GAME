@@ -77,8 +77,8 @@ This file is static futher updates during the game call again this function to u
 
 
 #include "model.h"
-#include "levels.h"
-//#include "final_level_maze.h"
+//#include "levels.h"
+#include "test/final_level_maze.h"
 
 
 
@@ -255,7 +255,7 @@ int main() //Joao
 		cin>>us;
 		playerInfo2vector(us);
 
-		floor_3();
+		Game();
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;
@@ -319,7 +319,7 @@ int main() //Joao
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
-								floor_3();
+								//floor_3();
 									
 			
 							break;}

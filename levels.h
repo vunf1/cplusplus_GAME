@@ -323,6 +323,7 @@ void floor_3() //Joao
 { 
   // Initate nCurses display
   initscr();
+  curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 
     //keyPosition();
