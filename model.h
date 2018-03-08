@@ -211,9 +211,13 @@ char rankingScore(){//Joao
 
         cout<<"----------------------- "<<endl;
         while(cur->step()){
-
-        	cout << cur->get_text(0) <<setfill(' ')<< setw(5) <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        	string name = cur->get_text(0);
+        	if(name.length()>8)//verify
+        		cout<<setfill(' ') << cur->get_text(0) << "\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        	else
+        		cout<<setfill(' ') << cur->get_text(0) << "\t\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
            	cout<<setfill('-')<<setw(28)<<"-"<<endl;
+           	
         }
 
         cout<<"************************"<<endl; 

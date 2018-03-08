@@ -17,9 +17,10 @@ void Surgery_room2()
 	currentRoom=2;
 }
 
-void Surgery_room3()
+void Surgery_toilet()
 {
-
+	mvprintw(10, 70, "TOILET");
+	currentRoom=3;
 }
 
 void checkRoom(int x, int y)
@@ -30,6 +31,9 @@ void checkRoom(int x, int y)
 
 	if((y>=2  && y<=4) && (x>=44 && x<=54))
 		Surgery_room2();
+
+	if((x>=28 && x<=37) && (y>=10 && y<=11))
+		Surgery_toilet();
 }
 
 void story()

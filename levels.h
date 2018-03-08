@@ -5,6 +5,7 @@
 #include <cstring>
 #include <string>
 #include <ncurses.h>
+#include <locale.h>
 #include "maps/surgeryFloor.h"
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
@@ -52,6 +53,7 @@ char lobby[13][63] =
     "|____________________________________________________________|"
 };
 
+  //toilet, development room, amphitheatre,
   char surgery[13][63] =
 {  //draws a  map with an array in order to create the surgery floor
 
@@ -62,11 +64,11 @@ char lobby[13][63] =
     "|             |          |                 |          |      |",
     "|             |====  ====|                 |====  ====|      |",
     "|                                                            |",
+    "|                                                         ___|",
     "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|____________________________________________________________|"
+    "|       /  \\                |====  ====|                  ___|",
+    "|      |    |               |          |                     |",
+    "|_______\\__/________________|__________|_____________________|"
 };
 
   char psychiatric[13][63] =
@@ -121,6 +123,8 @@ void drawMap(auto& map)//Joao
     // addstr is nCurses equiv
       // of cout or printw
       move(i+2,x/5);
+      setlocale(LC_ALL, "");
+
       addstr(map[i]);
       addstr("\n");
     }
@@ -132,7 +136,6 @@ void drawRooms(auto& map)
 
 
 }
-
 
 void storyONboard(){//Joao
 
