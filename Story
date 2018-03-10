@@ -124,6 +124,27 @@ As you enter this floor the first thing that pops out to you is the emptiness be
 
 [clear]
 
+Doctor’s Office
+
+As you walk into the office, you look around. From the quick glance you can’t seem to see anything of interest, upon looking further you decide to leave the room and head back.
+
+[clear]
+
+Heading through the double doors
+
+As you push open the doors, you can immediately tell what ward this floor is. To your left and right are cells with soft padded walls and floors. This was clearly the Psychiatric ward of the hospital, where they kept people with mental issues who were a danger to themselves or people around them.
+
+[clear]
+
+Patient
+
+You come across a shambling figure, the movements of it erratic as it walked towards you. After closer inspection you can make out that the figure is actually a bald man who was wrapped up in a straight jacket.
+
+[clear]
+
+Approaching the Patient
+
+Hesitantly you approach the person  
 
 
 
