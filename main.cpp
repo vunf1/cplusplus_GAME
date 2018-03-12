@@ -77,8 +77,8 @@ This file is static futher updates during the game call again this function to u
 
 
 #include "model.h"
-//#include "levels.h"
-#include "test/final_level_maze.h"
+#include "levels.h"
+//#include "test/final_level_maze.h"
 
 
 
@@ -207,10 +207,8 @@ void modifyOptions(string user,string password){//Joao
 						break;
 				}
 }
-
-
 int modifyAccount()
-{//Joao
+{//Joao 
 
 		//bool OK;
 		cout<<"Username \t";
@@ -251,9 +249,10 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		//cout<<"username"<<endl;
-		//cin>>us;
-		//playerInfo2vector(us);
+		cout<<"username"<<endl;
+		cin>>us;
+		playerInfo2vector(us);
+		floor_3();
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;

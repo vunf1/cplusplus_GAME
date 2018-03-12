@@ -41,33 +41,33 @@ void story()
 	cout << "ENTRASTE NA STORY" << endl;
 }
 
-void actions()
+void actions(int action)
 {
-	switch(currentRoom)
+	switch(action)
 	{
 		case 0:
+			cout << "saíste" << endl;
 			break;
 
 		case 1:
+			cout << "test" << endl;
 			break;
-
-		case 2:
-			break;
-
-		case 3:
-			break;
-
-		case 4:
-			break;
-
-		case -1: //in case you are not inside a room, still thinking if this will be usefull
-			break;
-
 	}
 }
 
-void keywordChecker()
+void keywordChecker(string sentence)
 {
-	//function to check for keywords related to the possible actions in this floor
-	return;
+	//Function to check what the user has written and act according to it
+
+	transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
+	//cout << sentence << endl;
+
+	while(true)
+    {
+        if (string::npos != sentence.find("exit"))
+        {
+        	actions(0);
+            break;
+        }
+    }
 }

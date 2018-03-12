@@ -226,6 +226,10 @@ bool getUserInput(auto& map)//Joao && Diogo
   else
   {
     //If the input is not one of the arrows.
+    playerX--;
+    string sentence;
+    getline(cin, sentence);
+    //keywordChecker(sentence);
 
   }
 }
