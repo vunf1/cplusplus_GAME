@@ -15,11 +15,11 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=2; //set to surgery for testing purposes
+int coorZ=1; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
-
+vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Children")};
 
 
 void keycode(){//Joao
@@ -102,16 +102,16 @@ char lobby[13][63] =
 
     "                                                              ",
     " ____________________________________________________________ ",
+    "|              |                        |    |         |     |",
+    "|              |                        |    |               |",
+    "|              |                        |    |=========|     |",
+    "|=====   ======|                        |                    |",
     "|                                                            |",
     "|                                                            |",
-    "|                                                            |",
-    "|            psychiatric                                     |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|____________________________________________________________|"
+    "|===  =======  =======  =====  =====  ==|                 ---|",
+    "|        |        |       |      |      |                    |",
+    "|        |        |       |      |      |                 ---|",
+    "|________|________|_______|______|______|____________________|"
 };
 
   char basement[13][63] =
@@ -143,7 +143,7 @@ void drawMap(auto& map)//Joao
     map[playerY][playerX]='x';
     noecho();
 
-    mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line
+    mvprintw(0,x/3,"Welcome to %s ",floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
 
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
@@ -338,7 +338,7 @@ void floor_3() //Joao
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 
-    //keyPosition();
+    keyPosition();
     update();
     }
   // End nCurses display
