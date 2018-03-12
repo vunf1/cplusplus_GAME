@@ -144,7 +144,20 @@ You come across a shambling figure, the movements of it erratic as it walked tow
 
 Approaching the Patient
 
-Hesitantly you approach the person  
+Hesitantly you approach the person who looks up and stares at you as you approach, you steel your nerves and give a cautious wave. As you near him, he stares into your eyes as you begin to hear him mumbling over and over again.
+
+“Danger! Danger! Water! So hot! It burns! Boiling constantly!”
+
+You halt your approach and nervously and move to slip around the man who continues to stare at you but makes no move to follow you, however he continues to mumble the same thing.
+
+[clear]
+
+Boiler Room (With Advice)
+
+You approach the room in the corner of the room, spotting a sign that labelled the room as the Boiler Room. Nearing the door you hesitate as you remember the ramblings of the patient, it's clear that there is a high possibility of this room being dangerous. Do you still want to enter?
+
+[clear]
+ 
 
 
 
