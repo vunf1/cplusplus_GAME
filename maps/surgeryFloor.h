@@ -46,7 +46,7 @@ void actions(int action)
 	switch(action)
 	{
 		case 0:
-			cout << "saíste" << endl;
+			exit(0);
 			break;
 
 		case 1:
@@ -62,12 +62,6 @@ void keywordChecker(string sentence)
 	transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
 	//cout << sentence << endl;
 
-	while(true)
-    {
         if (string::npos != sentence.find("exit"))
-        {
         	actions(0);
-            break;
-        }
-    }
 }

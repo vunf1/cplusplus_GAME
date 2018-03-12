@@ -149,7 +149,6 @@ void drawMap(auto& map)//Joao
     // addstr is nCurses equiv
       // of cout or printw
       move(i+2,x/5);
-      setlocale(LC_ALL, "");
 
       addstr(map[i]);
       addstr("\n");
@@ -226,10 +225,16 @@ bool getUserInput(auto& map)//Joao && Diogo
   else
   {
     //If the input is not one of the arrows.
-    playerX--;
-    string sentence;
-    getline(cin, sentence);
-    //keywordChecker(sentence);
+    echo();
+
+    char sentence[25];
+
+    move(13+4, 3); 
+    printw("Insert your command: \n");
+
+    scanw("%s", sentence);
+
+    keywordChecker(sentence);
 
   }
 }
