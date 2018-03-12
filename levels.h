@@ -15,7 +15,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=2; //set to surgery for testing purposes
+int coorZ=1; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
@@ -108,9 +108,9 @@ char lobby[13][63] =
     "|=====   ======|                        |                    |",
     "|                                                            |",
     "|                                                            |",
-    "|===  =======  =======  =====  =====  ==|                    |",
+    "|===  =======  =======  =====  =====  ==|                 ---|",
     "|        |        |       |      |      |                    |",
-    "|        |        |       |      |      |                    |",
+    "|        |        |       |      |      |                 ---|",
     "|________|________|_______|______|______|____________________|"
 };
 
@@ -333,7 +333,7 @@ void floor_3() //Joao
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 
-    //keyPosition();
+    keyPosition();
     update();
     }
   // End nCurses display
