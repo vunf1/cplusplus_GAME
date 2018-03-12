@@ -19,7 +19,7 @@ int coorZ=2; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
-
+vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Children")};
 
 
 void keycode(){//Joao
@@ -143,7 +143,7 @@ void drawMap(auto& map)//Joao
     map[playerY][playerX]='x';
     noecho();
 
-    mvprintw(0,x/3,"Welcome to floor %i ",coorZ); //iqra contributed in the spelling changes of this code line
+    mvprintw(0,x/3,"Welcome to %s ",floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
 
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
