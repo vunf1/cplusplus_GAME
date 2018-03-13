@@ -205,26 +205,21 @@ char rankingScore(){//Joao
         cout<<"| POSITION | NICKNAME | SCORE "<<endl;
         cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl;
 
-        
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  ORDER BY score DESC; ");
         cur->prepare();
 
-        cout<<"----------------------- "<<endl;
+        cout<<"---------------------------- "<<endl;
         while(cur->step()){
         	string name = cur->get_text(0);
-        	if(name.length()>8)//verify
-        		{
-        	        		cout<<numberOFacc<<" "<<setfill(' ') << cur->get_text(0) << "\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
-        	           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
-        		        	numberOFacc++;}
-        	else{
-        	        		cout<<numberOFacc<<" "<<setfill(' ') << cur->get_text(0) << "\t\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
-        	           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
-        	           	numberOFacc++;}
+        	string score = cur->get_text(3);
+
+        	cout<<numberOFacc<<". " << cur->get_text(0) << setfill(' ')<< setw(15-name.length()) <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        	cout<<setfill('-')<<setw(28)<<"-"<<endl;
+        	numberOFacc++;
         }
 
-        cout<<"************************"<<endl; 
+        cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl; 
     }
     catch( sqlite::exception e )      // catch all sql issues
     {

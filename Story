@@ -158,6 +158,17 @@ You approach the room in the corner of the room, spotting a sign that labelled t
 
 [clear]
  
+Boiler Room (Without Advice)
+
+You approach the room in the corner of the room, spotting a sign that labelled the room as the Boiler Room.
+
+[clear]
+
+Boiler Room Trap
+
+You enter the boiler room, glancing around wearily at the various pipes and valves that ran throughout the room. You venture further into the room, trying to find anything of use. However when you reach the far side of the room you hear a horrible hissing and grating sound, turning round you see one of the pipes was trembling under the strain. You let out a curse as you run back to the door, however the pipe cracks and a burst of super hot steam catches you across the side burning the skin on your arm causing you to cry out in pain. However you manage to stumble to the door and fall out of the room, panting heavily.
+
+[clear]
 
 
 

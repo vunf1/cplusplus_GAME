@@ -48,11 +48,32 @@ void actions(int action)
 	switch(action)
 	{
 		case 0:
-			exit(0);
+			running=false; 
 			break;
 
 		case 1:
-			cout << "test" << endl;
+			switch(currentRoom)
+			{
+				case 1:
+					//code here
+					move(90, 03)
+				break;
+
+				case 2:
+					//code here
+				break;
+
+				case 3:
+					//code here
+				break;
+
+				case -1:
+					//code here
+				break;
+
+				default:
+					break;
+			}
 			break;
 	}
 }
@@ -66,4 +87,7 @@ void keywordChecker(string sentence)
 
         if (string::npos != sentence.find("exit"))
         	actions(0);
+
+        if (string::npos != sentence.find("look"))
+        	actions(1);
 }
