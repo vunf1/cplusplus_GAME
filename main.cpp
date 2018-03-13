@@ -248,12 +248,12 @@ int main() //Joao
 		string us;
 		string pw;
 		string ans;
-
+		/*
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
 
-		floor_3();
+		floor_3();*/
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;

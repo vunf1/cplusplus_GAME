@@ -144,7 +144,7 @@ void drawMap(auto& map)//Joao
 
     map[playerY][playerX]='x';
     noecho();
-
+    raw();
     mvprintw(0,x/3,"Welcome to %i Floor (%s) ",coorZ,floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
 
   for (int i = 0; i < 13; i++) {
@@ -216,6 +216,7 @@ bool getUserInput(auto& map)//Joao && Diogo
     echo();
     if(coorZ==3){//Joao
     	//Keyword Handle for floor 3
+    	cbreak();
 	    char sentence[255];
 
 	    //move(13+4, 3); 
@@ -305,6 +306,7 @@ void update()//Joao && Diogo
       break;
 
     case 3:
+    	raw();
       drawMap(childrenWard);
       storyONboard();
       getUserInput(childrenWard);
@@ -322,14 +324,14 @@ void endFloor(){//Joao
     
 	noecho();
     getmaxyx(stdscr,y,x);
-    /*
+    
     start_color();
     init_pair(1, use_default_colors(), COLOR_CYAN);
 
-    attron(COLOR_PAIR(1));*/
+    attron(COLOR_PAIR(1));
     mvprintw(3,x/5,"                                       ");
 
-    //attroff(COLOR_PAIR(1));
+    attroff(COLOR_PAIR(1));
 
     mvprintw(4,x/5,"            YOU  FINISHED              ");
     mvprintw(5,x/5,"            %s FLOOR                 ",floorNames[coorZ+1].c_str());
@@ -337,9 +339,9 @@ void endFloor(){//Joao
     mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
     mvprintw(8,x/5,"              AND LEVEL UP             ");
 
-    //attron(COLOR_PAIR(1));
+    attron(COLOR_PAIR(1));
     mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
-    //attroff(COLOR_PAIR(1));
+    attroff(COLOR_PAIR(1));
 
     addScore(detailInfo[0],20);
     upLevel(detailInfo[0],1);
@@ -390,12 +392,11 @@ void INTRO(){
 void floor_3() //Joao
 {
 
-
   // Initate nCurses display
 	
   initscr();
 
-
+  endFloor();
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 

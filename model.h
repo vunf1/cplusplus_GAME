@@ -74,9 +74,10 @@ void removeCharacter(){//Joao
 		    checkQ->bind(1,user);
 
 			if(checkQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Account removed successfully *"<<endl;
-				cout<<"********************************"<<endl;
+				
+cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Account ")RED_TEXT("removed")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				
 			}
 
@@ -291,13 +292,13 @@ char createCharacter(){//Joao
 	    while(check==1)
 	    {
 
-				cout<<"**************************"<<endl;
-				cout<<"*	ERROR            *"<<endl;
-				cout<<"*  ------------------    *"<<endl;
-				cout<<"* Username in use        *"<<endl;
-				cout<<"*        SORRY           *"<<endl;
-				cout<<"**************************"<<endl;
-
+				
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★	 ")RED_TEXT("ERROR")YELLOW_TEXT("           ★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT(" ------------------ ")YELLOW_TEXT("   ★")<<endl;
+				cout<<YELLOW_TEXT("★   ")WHITE_TEXT("Username in use")YELLOW_TEXT("      ★")<<endl;
+				cout<<YELLOW_TEXT("★        ")WHITE_TEXT("SORRY")YELLOW_TEXT("           ★")<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				cout<<"Input an Username that not exist already	\t";
 				cin>>user;
 				check=checkUser(user);
@@ -323,9 +324,11 @@ char createCharacter(){//Joao
 			insertQ->bind( 2, password );
 			*/	
 			if(insertQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Account created successfully *"<<endl;
-				cout<<"********************************"<<endl;
+				
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Account ")GREEN_TEXT("created")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+
 				
 			}
 
@@ -350,7 +353,7 @@ char playerInfo(string user){//Joao
         cur->set_sql( "SELECT * from player  where id=? ;");
         cur->prepare();
         cur->bind(1,user);
-        cout<<"************************"<<endl;
+        cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 
         cout<<"NICKNAME    LEVEL    SCORE "<<endl;
 
@@ -360,7 +363,7 @@ char playerInfo(string user){//Joao
         cout << endl;
         }
 
-        cout<<"************************"<<endl;
+        cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 }
 
 void alterPass(string password,string user){//Joao
@@ -372,9 +375,10 @@ void alterPass(string password,string user){//Joao
 			checkQ->bind( 2, user);
 
 			if(checkQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Password update successfully *"<<endl;
-				cout<<"********************************"<<endl;
+				
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Password ")CYAN_TEXT("update")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				
 			}
 }
@@ -388,8 +392,8 @@ void alterPass(string password,string user){//Joao
 		    checkQ->prepare();
 
 			if(checkQ->step()== SQLITE_OK ){
-				cout<<"********************************"<<endl;
-				cout<<"* Account update  successfully *"<<endl;
-				cout<<"********************************"<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Password ")CYAN_TEXT("update")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 			}
  }
