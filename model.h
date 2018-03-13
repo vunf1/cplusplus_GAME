@@ -188,7 +188,7 @@ char rankingScore(){//Joao
     try
     {
 	    // open database
-	    int numberOFacc;
+	    int numberOFacc=1;
 
 	    /* COUNT NUMBER OS ACC IN DB*/
         auto count = db.get_statement();
@@ -196,13 +196,13 @@ char rankingScore(){//Joao
         	"from player ;");
         count->prepare();
         count->step();
-        numberOFacc=count->get_int(0);
+        //numberOFacc=count->get_int(0);
         //cout<<numberOFacc<<endl;
         /*For create a table with 1 2 3 4 5 as place for players ideia to improve*/
 
         cout<<"	Ranking "<<endl;
 
-        cout<<"| POSITION | NICKNAME "<<endl;
+        cout<<"| POSITION | NICKNAME | SCORE "<<endl;
         cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl;
 
         
@@ -214,11 +214,14 @@ char rankingScore(){//Joao
         while(cur->step()){
         	string name = cur->get_text(0);
         	if(name.length()>8)//verify
-        		cout<<setfill(' ') << cur->get_text(0) << "\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
-        	else
-        		cout<<setfill(' ') << cur->get_text(0) << "\t\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
-           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
-           	
+        		{
+        	        		cout<<numberOFacc<<" "<<setfill(' ') << cur->get_text(0) << "\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        	           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
+        		        	numberOFacc++;}
+        	else{
+        	        		cout<<numberOFacc<<" "<<setfill(' ') << cur->get_text(0) << "\t\t" <<cur->get_text(3)<<setw(10)<< cur->get_text(2) << setw(20)<< endl;
+        	           	cout<<setfill('-')<<setw(28)<<"-"<<endl;
+        	           	numberOFacc++;}
         }
 
         cout<<"************************"<<endl; 
