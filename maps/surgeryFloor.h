@@ -56,7 +56,7 @@ void actions(int action)
 			{
 				case 1:
 					//code here
-					move(90, 03)
+					move(90, 03);
 				break;
 
 				case 2:
@@ -72,7 +72,7 @@ void actions(int action)
 				break;
 
 				default:
-					break;
+				break;
 			}
 			break;
 	}

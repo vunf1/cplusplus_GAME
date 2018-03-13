@@ -3,10 +3,13 @@
 #include <string> // String Library
 #include <string.h>// string functions
 #include <climits> // for INT_MAX limits that can fix possible bugs from User Input
+#include <limits>
 #include <vector>
 #include <stdio.h>
 #include <ctype.h>
 #include <ncurses.h>
+#include <termios.h>
+
 #include "colors.h"
 using namespace std;
 //GLOBAL Variables
@@ -19,16 +22,40 @@ sqlite::sqlite db("dbPlayer");
 
 vector<string> detailInfo; /*Global vector - user information*/
 
+void hideInput()
+{
+    termios tty;
 
-void pressAnyToContinue(){//Joao
-	cout<<"Press ENTER to continue ...";
-	cin.ignore();
-	cin.clear();
-	cin.get();
-  
+    tcgetattr(0, &tty);
+
+    /* we want to disable echo */
+    tty.c_lflag &= ~ECHO;
+
+    tcsetattr(0, TCSANOW, &tty);
+}
+
+void showInput()
+{
+   termios tty;
+
+    tcgetattr(0, &tty);
+
+    /* we want to reenable echo */
+    tty.c_lflag |= ECHO;
+
+    tcsetattr(0, TCSANOW, &tty);
 }
 
 
+void pressAnyToContinue(){//Joao
+	cout<<"Press ENTER to continue ...";
+	hideInput();
+
+
+	cin.clear();
+	cin.get();
+	cin.ignore(INT_MAX,'\n');
+}
 
 
 
@@ -330,6 +357,8 @@ int main() //Joao
 				clearCon();
 				rankingScore();
 				pressAnyToContinue();
+				clearCon();
+				showInput();
 				main();
 				break;
 			case 3:{
@@ -436,3 +465,4 @@ int main() //Joao
 		}
 	return 0;
 }
+
