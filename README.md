@@ -51,7 +51,7 @@ git push
 
 
 > - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR,BETWEEN,etc)
-> - [x] Fast SOLUTION -> Use transform2Quote/Inserto into string function (bad pratice!)
+> - [x] Fast SOLUTION -> Use transform2Quote/Insert into string function (bad pratice!)
 
 
 
@@ -63,10 +63,10 @@ git push
 
 ###### Ideia for game-dev
 > - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
-> - [ ] :exclamation:__Game Name__ *Mariya & Iqra*
-> - [ ] :exclamation:__Game History__ *Luke*
+> - [x] :exclamation:__Game Name__ *Mariya & Iqra*
+> - [x] :exclamation:__Game History__ *Luke*
 > - [x] Simple Design
-> - [ ] __Better Design__
+> - [x] __Better Design__
 > - [x] DB Creaction
 > - [x] DB Items
 > - [x] Connection to DB
@@ -117,7 +117,7 @@ git push
 
 ### EXTRA 
 
-- [ ] Improve Design (COLORS,etc.)
+- [x] Improve Design (COLORS,etc.)
 
 
 

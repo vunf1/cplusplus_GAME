@@ -317,7 +317,7 @@ void update()//Joao && Diogo
 }
 
 
-void endGame(){//Joao
+void endFloor(){//Joao
 
     
 	noecho();
