@@ -26,14 +26,16 @@ void Surgery_toilet()
 void checkRoom(int x, int y)
 {
 	//check the coordinates and alter the currentRoom variable.
-	if((y>=2 && y<=4) && (x>=15 && x<=24))
-		Surgery_room1();
-
-	if((y>=2  && y<=4) && (x>=44 && x<=54))
-		Surgery_room2();
-
-	if((x>=28 && x<=37) && (y>=10 && y<=11))
-		Surgery_toilet();
+	if(coorZ==2){	
+			if((y>=2 && y<=4) && (x>=15 && x<=24))
+				Surgery_room1();
+	
+			if((y>=2  && y<=4) && (x>=44 && x<=54))
+				Surgery_room2();
+	
+			if((x>=28 && x<=37) && (y>=10 && y<=11))
+				Surgery_toilet();
+		}
 }
 
 void story()

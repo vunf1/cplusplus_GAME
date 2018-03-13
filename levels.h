@@ -6,7 +6,6 @@
 #include <string>
 #include <ncurses.h>
 #include <locale.h>
-#include "maps/surgeryFloor.h"
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
 // REMEMBER c++ is static language , with that i mean all functions need to have a struct frist can't load last but last can load frist
@@ -15,13 +14,19 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=1; //set to surgery for testing purposes
+int coorZ=3; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
-vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Children")};
+short int playerX = 3; // sets player starting position
+short int playerY = 2; // sets player starting position
+short int x,y;
+
+vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Pediatrics")};
 
 
+#include "maps/surgeryFloor.h"
+#include "maps/childrenWard.h"
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
@@ -45,38 +50,22 @@ void keycode(){//Joao
 
 
 
-char lobby[13][63] =
-{  //draws a  map with an array in order to create the lobby floor
-
-    "                                                              ",
-    " ____________________________________________________________ ",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|            lobby                                           |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|____________________________________________________________|"
-};
 
   char childrenWard[13][63] =
 {  //draws a  map with an array in order to create the childrenWard floor
 
     "                                                              ",
     " ____________________________________________________________ ",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|         childrenWard                                       |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|____________________________________________________________|"
+    "| |          |           |          |                  |     |",
+    "| |          |           |                             |     |",
+    "| |          |           |          |                  |     |",
+    "| |**  *************   **            ******************      |",
+    "| |                                                          |",
+    "| |                                          ====/  \\        |",
+    "|+++  ++ ++  +++                                             |",
+    "|       +       +             ******** *     ====\\  /        |",
+    "|       +       +            (          )             |   |  |",
+    "|_______+_______+____________(__________)_____________|___|__|"
 };
 
   //toilet, development room, amphitheatre,
@@ -114,6 +103,23 @@ char lobby[13][63] =
     "|________|________|_______|______|______|____________________|"
 };
 
+char lobby[13][63] =
+{  //draws a  map with an array in order to create the lobby floor
+
+    "                                                              ",
+    " ____________________________________________________________ ",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|            lobby                                           |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|                                                            |",
+    "|____________________________________________________________|"
+};
+
   char basement[13][63] =
 {  //draws a  map with an array in order to create the basement floor
 
@@ -131,10 +137,6 @@ char lobby[13][63] =
     "|____________________________________________________________|"
 };
 
-short int playerX = 1; // sets player starting position
-short int playerY = 2; // sets player starting position
-short int x,y;
-
 void drawMap(auto& map)//Joao 
 {
   /*Print map on console*/
@@ -143,12 +145,12 @@ void drawMap(auto& map)//Joao
     map[playerY][playerX]='x';
     noecho();
 
-    mvprintw(0,x/3,"Welcome to %s ",floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
+    mvprintw(0,x/3,"Welcome to %i Floor (%s) ",coorZ,floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
 
   for (int i = 0; i < 13; i++) {
     // addstr is nCurses equiv
       // of cout or printw
-      move(i+2,x/5);
+      move(i+2,x/7);
 
       addstr(map[i]);
       addstr("\n");
@@ -156,21 +158,7 @@ void drawMap(auto& map)//Joao
   checkRoom(playerX, playerY);
 }
 
-void drawRooms(auto& map)
-{
 
-
-}
-
-void storyONboard(){//Joao
-
-  getmaxyx(stdscr,y,x);
-  if(playerX==34 && playerY==7){
-
-  mvprintw(15,0,"You walk over and enter the room across from you, inside you are met with a creepy sight.\n Countless damaged dolls stare back at you with lifeless eyes, all of them in different stages of decay and wear and tear.\n Suppressing a shiver you walk further inside and glance around.");
-  mvprintw(19,x/5,"Y =  What will you do? Search the room more closely or leave?");
-  }
-}
 
 
 void keyPosition(){//Joao
@@ -195,7 +183,7 @@ bool getUserInput(auto& map)//Joao && Diogo
           map[playerY][playerX] = ' ';
           playerY--;
         }
-      break;
+      	break;
 
       case 'B':
         if (map[playerY+1][playerX] == ' ') 
@@ -203,7 +191,7 @@ bool getUserInput(auto& map)//Joao && Diogo
           map[playerY][playerX] = ' ';
           playerY++;
         }
-      break;
+      	break;
 
       case 'C':
         if (map[playerY][playerX+1] == ' ')
@@ -211,7 +199,7 @@ bool getUserInput(auto& map)//Joao && Diogo
           map[playerY][playerX] = ' ';
           playerX++;
         }
-      break;
+      	break;
 
       case 'D':
         if (map[playerY][playerX-1] == ' ') 
@@ -219,22 +207,64 @@ bool getUserInput(auto& map)//Joao && Diogo
           map[playerY][playerX] = ' ';
           playerX--;
         }
-      break;
+      	break;
     }
   }
   else
   {
     //If the input is not one of the arrows.
     echo();
+    if(coorZ==3){//Joao
+    	//Keyword Handle for floor 3
+	    char sentence[255];
 
-    char sentence[25];
+	    //move(13+4, 3); 
+	    mvprintw(14,0,"Insert your command: \n");
 
-    move(13+4, 3); 
-    printw("Insert your command: \n");
+	    scanw("%s", sentence);
 
-    scanw("%s", sentence);
+	    keywordChecker4children(sentence);
 
-    keywordChecker(sentence);
+    }
+
+    if(coorZ==2){//Diogo
+
+    	//Keyword Handle for floor 2
+	    char sentence[255];
+
+	    move(13+4, 3); 
+	    printw("Insert your command: \n");
+
+	    scanw("%s", sentence);
+
+	    keywordChecker(sentence);
+    	
+
+
+    }
+
+
+
+
+    if(coorZ== 1){//Luke
+
+    	//Keyword Handle for floor 1
+
+    	
+    }
+    if(coorZ== 0){//Diogo
+
+    	//Keyword Handle for floor 0
+
+    	
+    }
+    if(coorZ== -1){//Mariya & Iqra
+
+    	//Keyword Handle for floor -1
+
+    	
+    }
+
 
   }
 }
@@ -289,23 +319,43 @@ void update()//Joao && Diogo
 
 void endGame(){//Joao
 
-    mvprintw(0,x/4," ======================================");
-    mvprintw(1,x/4," @       YOU  FINISHED  THIS          @");
-    mvprintw(2,x/4," @                LEVEL               @");
-    mvprintw(3,x/4,"        CONGRATULATIONS %s             ",detailInfo[0].c_str()	);
-    mvprintw(4,x/4," @     YOU WILL RECEIVE 20 POINTS    @");
-    mvprintw(5,x/4," @             AND LEVEL UP           @");
-    mvprintw(6,x/4," ======================================");
+    
+	noecho();
+    getmaxyx(stdscr,y,x);
+    /*
+    start_color();
+    init_pair(1, use_default_colors(), COLOR_CYAN);
+
+    attron(COLOR_PAIR(1));*/
+    mvprintw(3,x/5,"                                       ");
+
+    //attroff(COLOR_PAIR(1));
+
+    mvprintw(4,x/5,"            YOU  FINISHED              ");
+    mvprintw(5,x/5,"            %s FLOOR                 ",floorNames[coorZ+1].c_str());
+    mvprintw(6,x/5,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
+    mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
+    mvprintw(8,x/5,"              AND LEVEL UP             ");
+
+    //attron(COLOR_PAIR(1));
+    mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
+    //attroff(COLOR_PAIR(1));
+
+    addScore(detailInfo[0],20);
+    upLevel(detailInfo[0],1);
+
     getch();
+    refresh();
+    clear();
 }
 
 
-
+/*
 string checkKeyWord(auto& path2)
 {//Joao
 
 	/*Accept the user input all line and convert into a vector to compare to other vector were are the possible paths/commands to use on the game if none exist send false as response*/
-
+/*
 	vector<string> path2G;
 	counter=0;
 
@@ -328,19 +378,30 @@ string checkKeyWord(auto& path2)
 		return string("false");
 	}
 
+}*/
+
+
+void INTRO(){
+
+
 }
 
 
 void floor_3() //Joao
-{ 
+{
+
+
   // Initate nCurses display
+	
   initscr();
+
+
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 
     keyPosition();
     update();
     }
-  // End nCurses display
   endwin();
+  // End nCurses display
 }

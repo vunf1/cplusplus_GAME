@@ -11,5 +11,4 @@
 #define CYAN_TEXT(x) "\033[36;1m" x "\033[0m"
 #define WHITE_TEXT(x) "\033[37;1m" x "\033[0m"
 
-
 #endif // COLOR_H

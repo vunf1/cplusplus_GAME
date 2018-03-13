@@ -163,15 +163,15 @@ void modifyOptions(string user,string password){//Joao
 
 			int op;
 			cout<<endl;
-			cout<<"		   Modify Options"          <<endl;
+			cout<<"		      Modify Options"          <<endl;
 
-			cout<<"		 __________________________"<<endl;
-			cout<<"		!                          !"<<endl;
-			cout<<"		!                          !"<<endl;
-			cout<<"		!   1- Modify Username     !"<<endl;
-			cout<<"		!   2- Modify Password     !"<<endl;
-			cout<<"		!                          !"<<endl;
-			cout<<"		!__________________________!"<<endl;
+			cout<<"		▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄"<<endl;
+			cout<<"		█                         █"<<endl;
+			cout<<"		█                         █"<<endl;
+			cout<<WHITE_TEXT("		█   ")CYAN_TEXT("1- Modify Username")WHITE_TEXT("    █")<<endl;
+			cout<<WHITE_TEXT("		█   ")YELLOW_TEXT("2- Modify Password")WHITE_TEXT("    █")<<endl;
+			cout<<"		█                         █"<<endl;
+			cout<<"		█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"<<endl;
 			cout<<endl;
 			cout<<"Choose a number \t";
 			cin>>op;
@@ -252,6 +252,7 @@ int main() //Joao
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
+
 		floor_3();
 
 		cout<<endl;
@@ -316,7 +317,8 @@ int main() //Joao
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
-								//floor_3();
+								floor_3();
+								main();
 									
 			
 							break;}
@@ -331,17 +333,17 @@ int main() //Joao
 			
 							clearCon();
 							cout<<endl;
-							cout<<"	   More Options - Character Creation"<<endl;
-							cout<<"		 ________________"<<endl;
-							cout<<"		!                !"<<endl;
-							cout<<"		!                !"<<endl;
-							cout<<"		!   1- Create    !"<<endl;
-							cout<<"		!   2- Modify    !"<<endl;
-							cout<<"		!   3- Delete    !"<<endl;
-							cout<<"		!   4- Find      !"<<endl;
-							cout<<"		!   5- Go Back   !"<<endl;
-							cout<<"		!                !"<<endl;
-							cout<<"		!________________!"<<endl;
+							cout<<RED_TEXT("	   More Options - Character Creation")<<endl;
+							cout<<WHITE_TEXT("		▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")<<endl;
+							cout<<WHITE_TEXT("		█                █")<<endl;
+							cout<<WHITE_TEXT("		█                █")<<endl;
+							cout<<WHITE_TEXT("		█")GREEN_TEXT("   1- Create")WHITE_TEXT("    █")<<endl;
+							cout<<WHITE_TEXT("		█")MAGENTA_TEXT("   2- Modify")WHITE_TEXT("    █")<<endl;
+							cout<<WHITE_TEXT("		█")RED_TEXT("   3- Delete")WHITE_TEXT("    █")<<endl;
+							cout<<WHITE_TEXT("		█")WHITE_TEXT("   4- Find")WHITE_TEXT("      █")<<endl;
+							cout<<WHITE_TEXT("		█") CYAN_TEXT("   5- Go Back")WHITE_TEXT("   █")<<endl;
+							cout<<WHITE_TEXT("		█                █")<<endl;
+							cout<<WHITE_TEXT("		█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█")<<endl;
 							cout<<endl;
 							cout<<"Choose an option \t";
 							cin>>op2;

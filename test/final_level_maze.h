@@ -14,6 +14,7 @@ using namespace std;
 
 
 
+
 //detailInfo<char> listItens;
 
 void keycode(){//Joao
@@ -134,6 +135,11 @@ char map[12][41] =  //draws a  map with an array in order to create the maze
     "|  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|",
     "<>                                      "
 };
+void keyPosition(){//Joao
+
+  mvprintw(14,0,"X = %i ",x);
+  mvprintw(14,8,"Y = %i ",y);
+}
 // Draw Map
 // 
 void drawMap()//Joao
