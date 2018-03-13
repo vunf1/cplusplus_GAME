@@ -30,7 +30,7 @@ void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
     noecho(); //dont show on the printw the key pressed
-    raw(); //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
+     //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
     int key;
     //27 is the keycode for ESC 
     printw("Press any key to know the keycode ");
@@ -143,7 +143,7 @@ void drawMap(auto& map)//Joao
 
     map[playerY][playerX]='x';
     noecho();
-    raw();
+    
     mvprintw(0,x/3,"Welcome to %i Floor (%s) ",coorZ,floorNames[coorZ+1].c_str()); //iqra contributed in the spelling changes of this code line
 
   for (int i = 0; i < 13; i++) {
@@ -305,7 +305,7 @@ void update()//Joao && Diogo
       break;
 
     case 3:
-    	raw();
+    	
       drawMap(childrenWard);
       storyONboard();
       getUserInput(childrenWard);
