@@ -219,7 +219,7 @@ char rankingScore(){//Joao
         	numberOFacc++;
         }
 
-        cout<<"************************"<<endl; 
+        cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl; 
     }
     catch( sqlite::exception e )      // catch all sql issues
     {

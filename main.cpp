@@ -6,7 +6,7 @@
 #include <vector>
 #include <stdio.h>
 #include <ctype.h>
-
+#include <ncurses.h>
 #include "colors.h"
 using namespace std;
 //GLOBAL Variables
@@ -21,7 +21,10 @@ vector<string> detailInfo; /*Global vector - user information*/
 
 
 void pressAnyToContinue(){//Joao
-	
+	cout<<"Press ENTER to continue ...";
+	cin.ignore();
+	cin.clear();
+	cin.get();
   
 }
 

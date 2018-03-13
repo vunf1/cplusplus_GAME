@@ -4,7 +4,6 @@
 #include <iterator>//for split string into words separelaty to compare with a vector
 #include <cstring>
 #include <string>
-#include <ncurses.h>
 #include <locale.h>
 
 /* Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up */
@@ -14,7 +13,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=3; //set to surgery for testing purposes
+int coorZ=2; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
