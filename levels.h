@@ -393,7 +393,7 @@ void floor_3() //Joao
 {
 
   // Initate nCurses display
-	
+	running=true;
   initscr();
 
   endFloor();
