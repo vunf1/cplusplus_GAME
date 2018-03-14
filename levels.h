@@ -13,7 +13,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=2; //set to surgery for testing purposes
+int coorZ=1; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
@@ -26,6 +26,7 @@ vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatri
 
 #include "maps/surgeryFloor.h"
 #include "maps/childrenWard.h"
+#include "maps/psychiatricWard.h"
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
@@ -288,9 +289,10 @@ void update()//Joao && Diogo
       refresh();
       clear();
       break;
-
+        
     case 1:
       drawMap(psychiatric);
+      checkArea();
       getUserInput(psychiatric);
       refresh();
       clear();
@@ -395,7 +397,7 @@ void floor_3() //Joao
 	running=true;
   initscr();
 
-  endFloor();
+  //endFloor();
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   while( running== true ) {
 

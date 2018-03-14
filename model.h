@@ -113,6 +113,8 @@ bool addScore(string user,int score){//Joao
         add->bind(1,addPoints);
         add->bind(2,user);
         add->step();
+    
+        playerInfo2vector(detailInfo[0]); 
 }
 
 
