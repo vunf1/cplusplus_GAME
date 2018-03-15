@@ -16,7 +16,6 @@ int coorY=0;
 int coorZ=3; //set to surgery for testing purposes
 bool counter;
 bool running=true;
-int curRoom=0;
 
 short int playerX = 3; // sets player starting position
 short int playerY = 2; // sets player starting position
@@ -25,9 +24,47 @@ short int x,y;
 vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Pediatrics")};
 
 
-#include "maps/childrenWard.h"
+
+
+
+void endFloor(){//Joao
+
+    clear();
+    refresh();
+	noecho();
+    getmaxyx(stdscr,y,x);
+    
+
+    attron(COLOR_PAIR(coorZ));
+    mvprintw(3,x/5,"                                       ");
+
+    attroff(COLOR_PAIR(coorZ));
+
+    mvprintw(4,x/5," \a           YOU  FINISHED              ");
+    mvprintw(5,x/5,"            %s FLOOR                 ",floorNames[coorZ+1].c_str());
+    mvprintw(6,x/5,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
+    mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
+    mvprintw(8,x/5,"              AND LEVEL UP             ");
+
+    attron(COLOR_PAIR(coorZ));
+    mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
+    attroff(COLOR_PAIR(coorZ));
+
+    addScore(detailInfo[0],20);
+    upLevel(detailInfo[0],1);
+
+    getch();
+    refresh();
+    clear();
+}
+
+
+
+
+
 #include "maps/psychiatricWard.h"
 #include "maps/surgeryFloor.h"
+#include "maps/childrenWard.h"
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
@@ -163,8 +200,8 @@ void drawMap(auto& map)//Joao
 
 
 void keyPosition(){//Joao
-  mvprintw(1,0,"X = %i %i",playerX,curRoom);
-  mvprintw(1,8,"  Y = %i ",playerY);
+  mvprintw(1,15,"X = %i %i",playerX,currentRoom);
+  mvprintw(1,25,"  Y = %i ",playerY);
 }
 
 
@@ -215,9 +252,6 @@ string getUserInput(auto& map)//Joao && Diogo
   {
     //If the input is not one of the arrows.
     echo();
-    if(coorZ==3){//Joao
-    	//Keyword Handle for floor 3
-
     	getmaxyx(stdscr,y,x);
 	    string sentence;
 
@@ -226,33 +260,54 @@ string getUserInput(auto& map)//Joao && Diogo
 		attroff(COLOR_PAIR(5));
 	   	   sentence=get_line();
 	   	   transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
-		   	   if(keywordChecker4children(sentence)=="look"){//show itens on that room
-		   	   	mvprintw(17,0,"OKOKOKOK");
+    if(coorZ==3){//Joao
+    	//Keyword Handle for floor 3
 
-
-
-
-
-
-
+	   	   refresh();
+		   	   if(keywordChecker4children(sentence)==string("look")){//show itens on that room
+		   	   //done
+		   	   		game.itensLook(currentRoom,coorZ);
 		   	   }
+
+
+
+		   	   if(keywordChecker4children(sentence)==string("take")){//show itens on that room
+		   	   //done
+
+		   	   		game.takeItem(currentRoom,coorZ);
+		   	   }
+
+
+
 		   	   if(keywordChecker4children(sentence)=="exit"){
+		   	   	//exit go to main menu
 		   	    running=false;
 		   	   }
 
 
-				if(keywordChecker4children(sentence)=="help"){
+				if(keywordChecker4children(sentence)==string("help")){
 					//"help" handle function
+					//Done
 					game.helpBoard();
 					
 		   	   }
-		   	   if(keywordChecker4children(sentence)=="false"){
-		   	    mvprintw(16,0,"Invalid input , no key word found, input help to know more about game keywords");
+
+				if(keywordChecker4children(sentence)==string("check")){
+					//"help" handle function
+					
+					game.checkBoard();
+					
+		   	   }
+				if(keywordChecker4children(sentence)==string("down")){
+					//"help" handle function
+					
+					game.finishFloor();
+					
 		   	   }
     }
 
     if(coorZ==2){//Diogo
-
+/*
     	//Keyword Handle for floor 2
 	    string sentence;
       //string sentence;
@@ -268,7 +323,7 @@ string getUserInput(auto& map)//Joao && Diogo
 
       cout << sentence << endl;
 
-	    checkForActions(sentence);
+	    checkForActions(sentence);*/
     }
 
 
@@ -336,6 +391,7 @@ void update()//Joao && Diogo
     case 3:
     	
       drawMap(childrenWard);
+      currentRoom=0;
       storyONboard();
       getUserInput(childrenWard);
       refresh();
@@ -346,36 +402,6 @@ void update()//Joao && Diogo
   
 }
 
-
-void endFloor(){//Joao
-
-    
-	noecho();
-    getmaxyx(stdscr,y,x);
-    
-
-    attron(COLOR_PAIR(coorZ));
-    mvprintw(3,x/5,"                                       ");
-
-    attroff(COLOR_PAIR(coorZ));
-
-    mvprintw(4,x/5," \a           YOU  FINISHED              ");
-    mvprintw(5,x/5,"            %s FLOOR                 ",floorNames[coorZ+1].c_str());
-    mvprintw(6,x/5,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
-    mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
-    mvprintw(8,x/5,"              AND LEVEL UP             ");
-
-    attron(COLOR_PAIR(coorZ));
-    mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
-    attroff(COLOR_PAIR(coorZ));
-
-    addScore(detailInfo[0],20);
-    upLevel(detailInfo[0],1);
-
-    getch();
-    refresh();
-    clear();
-}
 
 
 /*
@@ -429,10 +455,10 @@ noecho();
 		mvprintw((y/8)+4,(x/10)+10,"check - Show your item status");
 		mvprintw((y/8)+5,(x/10)+10,"help - Show more keywords");
 	attron(COLOR_PAIR(2));
-		mvprintw((y/8)+7,(x/10),"WARNNING - To input insert any key less arrow and trigger ");
-		mvprintw((y/8)+8,(x/10),"the comand input. First key will not be accept, type again");
-		mvprintw((y/8)+9,(x/10),"IF you do a spelling error press enter and type again     ");
-		mvprintw((y/8)+10,(x/10),"backspace and delete keys not avaiable.                   ");
+		mvprintw((y/8)+7,(x/10),"WARNING - To input insert any key less arrow or PRESS ENTER and trigger ");
+		mvprintw((y/8)+8,(x/10),"          the comand input. First key will not be accept, type again    ");
+		mvprintw((y/8)+9,(x/10),"          IF you do a spelling error press enter and type again         ");
+		mvprintw((y/8)+10,(x/10),"          backspace and delete keys not avaiable.                       ");
 	attroff(COLOR_PAIR(2));
 		mvprintw((y/8)+12,(x/2)-20,"Press any key to continue ...");
 
@@ -457,7 +483,7 @@ void floor_3() //Joao
     init_pair(3, use_default_colors(), COLOR_CYAN);
     init_pair(2, use_default_colors(), COLOR_RED);
     init_pair(1, use_default_colors(), COLOR_GREEN);
-    init_pair(0, COLOR_WHITE, COLOR_BLACK);
+    init_pair(0, use_default_colors(), COLOR_RED);
     init_pair(4, COLOR_BLACK, COLOR_MAGENTA);
     init_pair(5, COLOR_GREEN, use_default_colors());
 /*

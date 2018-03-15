@@ -11,6 +11,42 @@ using namespace std;
 #include <typeinfo>
 
 
+
+char playerItemBoard(auto& user){
+/*SAVE PLAYER INFO INTO VECTOR:
+ * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
+[0]NICKNAME
+[1]LEVEL
+[2]SCORE
+
+
+
+This file is static futher updates during the game call again this function to update status
+*/
+
+        playerItem.clear();
+        auto cur = db.get_statement();
+        cur->set_sql( "SELECT * from playerHasitem  where PlayerID=? ");
+        cur->prepare();
+        cur->bind(1,user);
+
+        while(cur->step()){
+
+        	playerItem.emplace_back(cur->get_text(1)) ;
+        	playerItem.emplace_back(cur->get_text(2)) ;
+        	playerItem.emplace_back(cur->get_text(3)) ;
+        	playerItem.emplace_back(cur->get_text(4)) ;
+        	playerItem.emplace_back(cur->get_text(5)) ;
+        	playerItem.emplace_back(cur->get_text(6)) ;
+        	playerItem.emplace_back(cur->get_text(7)) ;
+        	playerItem.emplace_back(cur->get_text(8)) ;
+        	playerItem.emplace_back(cur->get_text(9)) ;
+        	playerItem.emplace_back(cur->get_text(10)) ;
+        }
+}
+
+
+
 bool itemTurnedON(auto& user,auto& item){//Joao
 /* Update entity where are the item(attribute*) of the players and set that attribute to 1 , means have now that item and cant grab it again 
 
@@ -18,7 +54,7 @@ NOT handle the response, you handle when call it*/
 
 	auto itemQ = db.get_statement();
 
-	itemQ->set_sql("UPDATE playerHasitem set "+string(item)+" = 1 WHERE playerID=?  ;");
+	itemQ->set_sql("UPDATE playerHasitem set "+string(item)+" = 1 WHERE PlayerID=?  ;");
 	itemQ->prepare();
 	itemQ->bind(1, user);
 	//itemQ->bind(1, user);
@@ -34,7 +70,7 @@ bool haveItem(auto& user,auto& item){//Joao
 
 	auto itemQ = db.get_statement();
 
-	itemQ->set_sql("SELECT "+string(item)+" FROM playerHasitem WHERE playerID=?  ;");
+	itemQ->set_sql("SELECT "+string(item)+" FROM playerHasitem WHERE PlayerID=?  ;");
 	itemQ->prepare();
 	itemQ->bind(1, user);
 	//itemQ->bind(1, user);
