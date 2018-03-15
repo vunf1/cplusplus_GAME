@@ -91,7 +91,7 @@ char playerInfo2vector(auto& user){
 This file is static futher updates during the game call again this function to update status
 */
 
-
+        detailInfo.clear();
         auto cur = db.get_statement();
         cur->set_sql( "SELECT * from player  where id=? ");
         cur->prepare();
