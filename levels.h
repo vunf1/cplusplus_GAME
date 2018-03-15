@@ -13,7 +13,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=1; //set to surgery for testing purposes
+int coorZ=3; //set to surgery for testing purposes
 bool counter;
 bool running=true;
 
@@ -62,8 +62,8 @@ void keycode(){//Joao
     "| |**  *************   **            ******************      |",
     "| |                                                          |",
     "| |                                          ====/  \\        |",
-    "|+++  ++ ++  +++                                             |",
-    "|       +       +             ******** *     ====\\  /        |",
+    "|+++__++ ++  +++                                             |",
+    "|       +       +             ********_*     ====\\  /        |",
     "|       +       +            (          )             |   |  |",
     "|_______+_______+____________(__________)_____________|___|__|"
 };
@@ -168,13 +168,14 @@ void keyPosition(){//Joao
 }
 
 
-bool getUserInput(auto& map)//Joao && Diogo
+string getUserInput(auto& map)//Joao && Diogo
 {
 	/*Accept arrow from user as input and move player thorw the map other input grab kwyword and perform same tasks*/
   if(getch() == '\033')
   {
     getch();
     noecho();
+
     switch(getch())
     {
       case 'A':
@@ -216,16 +217,29 @@ bool getUserInput(auto& map)//Joao && Diogo
     echo();
     if(coorZ==3){//Joao
     	//Keyword Handle for floor 3
-    	cbreak();
-	    char sentence[255];
 
-	    //move(13+4, 3); 
-	    mvprintw(14,0,"Insert your command: \n");
+	    string sentence;
 
-	    scanw("%s", sentence);
+	   	   mvprintw(14,0,"Insert your command: \n");
+	   	   sentence=get_line();
+	   	   transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
+	   	   if(keywordChecker4children(sentence)=="look"){//show itens on that room
+	   	   	mvprintw(17,0,"OKOKOKOK");
+	   	   }
+	   	   if(keywordChecker4children(sentence)=="exit"){
+	   	    running=false;
+	   	   }
 
-	    keywordChecker4children(sentence);
 
+			if(keywordChecker4children(sentence)=="help"){
+				refresh();
+	   	    	mvprintw(5,0,"Game KeyWords");
+	   	    	mvprintw(6,0,"Help");
+	   	    	getch();
+	   	   }
+	   	   if(keywordChecker4children(sentence)=="false"){
+	   	    mvprintw(16,0,"Invalid input , no key word found, input help to know more about game keywords");
+	   	   }
     }
 
     if(coorZ==2){//Diogo
@@ -327,22 +341,22 @@ void endFloor(){//Joao
     getmaxyx(stdscr,y,x);
     
     start_color();
-    init_pair(1, use_default_colors(), COLOR_CYAN);
+    init_pair(3, use_default_colors(), COLOR_CYAN);
 
-    attron(COLOR_PAIR(1));
+    attron(COLOR_PAIR(coorZ));
     mvprintw(3,x/5,"                                       ");
 
-    attroff(COLOR_PAIR(1));
+    attroff(COLOR_PAIR(coorZ));
 
-    mvprintw(4,x/5,"            YOU  FINISHED              ");
+    mvprintw(4,x/5," \a           YOU  FINISHED              ");
     mvprintw(5,x/5,"            %s FLOOR                 ",floorNames[coorZ+1].c_str());
     mvprintw(6,x/5,"        CONGRATULATIONS %s             ",detailInfo[0].c_str());
     mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
     mvprintw(8,x/5,"              AND LEVEL UP             ");
 
-    attron(COLOR_PAIR(1));
+    attron(COLOR_PAIR(3));
     mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
-    attroff(COLOR_PAIR(1));
+    attroff(COLOR_PAIR(coorZ));
 
     addScore(detailInfo[0],20);
     upLevel(detailInfo[0],1);
@@ -396,9 +410,27 @@ void floor_3() //Joao
   // Initate nCurses display
 	running=true;
   initscr();
+/*
+while(true){
+//keycode();
+	    string sentence;
+	   
+	   	   //move(13+4, 3); 
+	   	   mvprintw(14,0,"Insert your command: \n");
+	   	   sentence=get_line();
+
+	   	   mvprintw(16,0,"%s",sentence.c_str());
+	   	  // mvprintw(17,0,"%s",keywordChecker4children(sentence).c_str());
+	   	   if(keywordChecker4children(sentence)=="look"){
+	   	   	mvprintw(17,0,"OKOKOKOK");
+	   	   }
+
+
+}*/
 
   //endFloor();
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
+  
   while( running== true ) {
 
     keyPosition();

@@ -92,20 +92,56 @@ void storyONboard(){//Joao
   }
 }
 
-bool actions4children(int action)
-{//Joao && Diogo
-	switch(action)
-	{
-		case 0:
-			return running=false;
-			break;
 
-		case 1:
-			cout << "test" << endl;
-			break;
+string get_line()
+ {//Joao
+ 	// [ ] Bug Found , backspace dont do the work
+    	string result;
+      while(true)
+      {
+        int c = getch();
+        if(c == ERR || c == '\n') {
+
+    		erase();
+        	return result;}
+        else {result += c;} 
+      }
+ }
+
+string keywordChecker4children(auto& path2)
+{//Joao
+
+	/*Accept the user input all line and convert into a vector to compare to other vector were are the possible paths/commands to use on the game if none exist send false as response*/
+
+	vector<string> path2G;
+	counter=0;
+
+	istringstream iss(path2);
+	    copy(istream_iterator<string>(iss),istream_iterator<string>(),     back_inserter(path2G));
+
+	vector<string> possiblePath={string("look"),string("exit"),string("take"),string("check"),string("help"),string("down")};
+
+
+	for(int x=0; x <= 5;x++)
+	{
+		if(find(path2G.begin(), path2G.end(), possiblePath[x]) != path2G.end())
+		{
+			counter=1;
+			return possiblePath[x].c_str();
+		}
+
+	}
+	if(counter==0){
+		return string("false");
 	}
 }
 
+
+
+
+
+
+/*
 void keywordChecker4children(string sentence)
 {//Diogo && Joao
 	//Function to check what the user has written and act according to it
@@ -115,4 +151,10 @@ void keywordChecker4children(string sentence)
 
         if (string::npos != sentence.find("exit")){
                 	actions4children(0);}
+        if (string::npos != sentence.find("look"))
+        {
+                	actions4children(1);
+
+                }
 }
+*/

@@ -278,12 +278,12 @@ int main() //Joao
 		string us;
 		string pw;
 		string ans;
-		/*
+
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
 
-		floor_3();*/
+		floor_3();
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;
@@ -322,8 +322,10 @@ int main() //Joao
 
 							cout<<"Username\t";
 							cin>>us;
+							hideInput();
 							cout<<"Password\t";
 							cin>>pw;
+							showInput();
 			
 							
 							while(checkUP(us,pw)!=true)
@@ -338,8 +340,10 @@ int main() //Joao
 			
 								cout<<"Username\t";
 								cin>>us;
+								hideInput();
 								cout<<"Password\t";
 								cin>>pw;
+								showInput();
 								checkUP(us,pw);
 							}
 								playerInfo2vector(us);
@@ -394,34 +398,36 @@ int main() //Joao
 										clearCon();
 										createCharacter();
 										pressAnyToContinue();
+										main();
 										
 										break;
 									case 2:
 										clearCon();
 										modifyAccount();
 										pressAnyToContinue();
-										
+										main();
 										break;
 									case 3:
 
 										clearCon();
 										removeCharacter();
 										pressAnyToContinue();
-										
+										clearCon();
+										main();
 										break;
 									case 4:
 
 										clearCon();
 										findPlayer();
 										pressAnyToContinue();
+										clearCon();
+										main();
 										
 										break;
 									case 5:
 
 										clearCon();
 										main();
-										pressAnyToContinue();
-										
 										break;
 									default:
 										clearCon();
@@ -437,26 +443,6 @@ int main() //Joao
 
 				clearCon();
 				break;
-			case 5://TEST REMOVE
-
-					cout<<"Username\t";
-					cin>>us;
-					cout<<"Password\t";
-					cin>>pw;
-					checkUP(us,pw);	
-				break;
-			case 6://TEST REMOVE
-			{	
-				string usern;
-				string passw;
-				cout<<"Username ";
-				cin>>usern;
-				cout<<"Username ";
-				cin>>passw;
-				checkUP(usern,passw);
-
-				break;
-			}
 			default:
 				cout<<endl;
 				cout<<"Invalid Number! Try Again"<<endl;
