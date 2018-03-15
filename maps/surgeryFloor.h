@@ -56,7 +56,9 @@ void actions(int action)
 			{
 				case 1:
 					//code here
-					move(90, 03);
+					move(20, 03);
+					printw("This room feels rather empty, someone probably robbed this building before.");
+					exit(0);
 				break;
 
 				case 2:
@@ -78,16 +80,46 @@ void actions(int action)
 	}
 }
 
-void keywordChecker(string sentence)
+bool keyWordChecker(string sentence, string word)//Diogo
 {
-	//Function to check what the user has written and act according to it
+	//Function to check if a certain word is present inside a string.
+	int wordSize = word.size();
 
-	transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
-	//cout << sentence << endl;
+	for(int idx=0, count=0; idx<sentence.size(); idx++)
+	{
+		cout << sentence[idx] << endl;
 
-        if (string::npos != sentence.find("exit"))
-        	actions(0);
+		if(sentence[idx] == word[count])
+		{
+			count++;
+			if(count == wordSize)
+				return true;
+		}
+		else
+			count=0;
+	}
 
-        if (string::npos != sentence.find("look"))
-        	actions(1);
+	return false;
 }
+
+void checkForActions(string sentence)
+{
+	bool trigger = false;
+
+	for(int idx=0; idx<2/*number of actions available*/; idx++)
+	{
+		switch(idx)
+		{
+			case 0:
+				trigger=keyWordChecker(sentence, "exit");
+				if(trigger==true)
+					actions(0);
+			break;
+
+			case 1:
+			trigger=keyWordChecker(sentence, "look");
+			break;
+		}
+	}
+}
+

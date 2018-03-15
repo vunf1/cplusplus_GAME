@@ -230,17 +230,22 @@ bool getUserInput(auto& map)//Joao && Diogo
     if(coorZ==2){//Diogo
 
     	//Keyword Handle for floor 2
-	    char sentence[255];
+	    string sentence;
+      //string sentence;
 
 	    move(13+4, 3); 
 	    printw("Insert your command: \n");
+      getline(cin, sentence);
+      //scanw("%s", sentence);
 
-	    scanw("%s", sentence);
+      //move(13+6, 3);
+      //showInput();
+	    //fgets(sentence, 256, stdin);
 
-	    keywordChecker(sentence);
-    	
+      cout << sentence << endl;
+      cout << sentence << endl;
 
-
+	    checkForActions(sentence);
     }
 
 
