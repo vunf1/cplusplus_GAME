@@ -16,6 +16,7 @@ int coorY=0;
 int coorZ=3; //set to surgery for testing purposes
 bool counter;
 bool running=true;
+int curRoom=0;
 
 short int playerX = 3; // sets player starting position
 short int playerY = 2; // sets player starting position
@@ -24,14 +25,14 @@ short int x,y;
 vector<string> floorNames={string("Basement"),string("Lobby"),string("Psychiatric"),string("Surgery"),string("Pediatrics")};
 
 
-#include "maps/surgeryFloor.h"
 #include "maps/childrenWard.h"
 #include "maps/psychiatricWard.h"
+#include "maps/surgeryFloor.h"
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
     noecho(); //dont show on the printw the key pressed
-     //instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
+     //raw(); instead of wait he direct inject (theory), good for arrow keys,TRUE arrow keys shutdown the program
     int key;
     //27 is the keycode for ESC 
     printw("Press any key to know the keycode ");
@@ -162,9 +163,8 @@ void drawMap(auto& map)//Joao
 
 
 void keyPosition(){//Joao
-
-  mvprintw(1,0,"X = %i ",playerX);
-  mvprintw(1,8,"Y = %i ",playerY);
+  mvprintw(1,0,"X = %i %i",playerX,curRoom);
+  mvprintw(1,8,"  Y = %i ",playerY);
 }
 
 
@@ -218,28 +218,37 @@ string getUserInput(auto& map)//Joao && Diogo
     if(coorZ==3){//Joao
     	//Keyword Handle for floor 3
 
+    	getmaxyx(stdscr,y,x);
 	    string sentence;
 
-	   	   mvprintw(14,0,"Insert your command: \n");
+		attron(COLOR_PAIR(5));
+	   	   mvprintw(14,(x/8)+2,"Insert your command: ");
+		attroff(COLOR_PAIR(5));
 	   	   sentence=get_line();
 	   	   transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
-	   	   if(keywordChecker4children(sentence)=="look"){//show itens on that room
-	   	   	mvprintw(17,0,"OKOKOKOK");
-	   	   }
-	   	   if(keywordChecker4children(sentence)=="exit"){
-	   	    running=false;
-	   	   }
+		   	   if(keywordChecker4children(sentence)=="look"){//show itens on that room
+		   	   	mvprintw(17,0,"OKOKOKOK");
 
 
-			if(keywordChecker4children(sentence)=="help"){
-				refresh();
-	   	    	mvprintw(5,0,"Game KeyWords");
-	   	    	mvprintw(6,0,"Help");
-	   	    	getch();
-	   	   }
-	   	   if(keywordChecker4children(sentence)=="false"){
-	   	    mvprintw(16,0,"Invalid input , no key word found, input help to know more about game keywords");
-	   	   }
+
+
+
+
+
+		   	   }
+		   	   if(keywordChecker4children(sentence)=="exit"){
+		   	    running=false;
+		   	   }
+
+
+				if(keywordChecker4children(sentence)=="help"){
+					//"help" handle function
+					game.helpBoard();
+					
+		   	   }
+		   	   if(keywordChecker4children(sentence)=="false"){
+		   	    mvprintw(16,0,"Invalid input , no key word found, input help to know more about game keywords");
+		   	   }
     }
 
     if(coorZ==2){//Diogo
@@ -257,7 +266,6 @@ string getUserInput(auto& map)//Joao && Diogo
       //showInput();
 	    //fgets(sentence, 256, stdin);
 
-      cout << sentence << endl;
       cout << sentence << endl;
 
 	    checkForActions(sentence);
@@ -345,8 +353,6 @@ void endFloor(){//Joao
 	noecho();
     getmaxyx(stdscr,y,x);
     
-    start_color();
-    init_pair(3, use_default_colors(), COLOR_CYAN);
 
     attron(COLOR_PAIR(coorZ));
     mvprintw(3,x/5,"                                       ");
@@ -359,7 +365,7 @@ void endFloor(){//Joao
     mvprintw(7,x/5,"       YOU WILL RECEIVE 20 POINTS      ");
     mvprintw(8,x/5,"              AND LEVEL UP             ");
 
-    attron(COLOR_PAIR(3));
+    attron(COLOR_PAIR(coorZ));
     mvprintw(10,x/5,"        PRESS ENTER TO CONTINUE...     ");
     attroff(COLOR_PAIR(coorZ));
 
@@ -403,7 +409,38 @@ string checkKeyWord(auto& path2)
 }*/
 
 
-void INTRO(){
+void INTRO(){//Joao
+
+getmaxyx(stdscr,y,x);
+refresh();
+noecho();
+		mvprintw(y/10,(x/8)+13,"Welcome");
+	attron(COLOR_PAIR(3));
+		mvprintw((y/10),(x/8)+21,"%s",detailInfo[0].c_str());
+	attroff(COLOR_PAIR(3));
+
+		mvprintw(y/10,(x/8)+21+detailInfo[0].length()," to ASAP Game");
+
+
+
+		mvprintw((y/8)+1,(x/10),"Hi, before you start i will do a review about what can you do:");
+		mvprintw((y/8)+2,(x/10)+10,"look - Find item on the rooms");
+		mvprintw((y/8)+3,(x/10)+10,"take - Grab item on the rooms");
+		mvprintw((y/8)+4,(x/10)+10,"check - Show your item status");
+		mvprintw((y/8)+5,(x/10)+10,"help - Show more keywords");
+	attron(COLOR_PAIR(2));
+		mvprintw((y/8)+7,(x/10),"WARNNING - To input insert any key less arrow and trigger ");
+		mvprintw((y/8)+8,(x/10),"the comand input. First key will not be accept, type again");
+		mvprintw((y/8)+9,(x/10),"IF you do a spelling error press enter and type again     ");
+		mvprintw((y/8)+10,(x/10),"backspace and delete keys not avaiable.                   ");
+	attroff(COLOR_PAIR(2));
+		mvprintw((y/8)+12,(x/2)-20,"Press any key to continue ...");
+
+getch();
+clear();
+refresh();
+//echo();
+
 
 
 }
@@ -412,9 +449,17 @@ void INTRO(){
 void floor_3() //Joao
 {
 
-  // Initate nCurses display
 	running=true;
   initscr();
+
+    start_color();
+
+    init_pair(3, use_default_colors(), COLOR_CYAN);
+    init_pair(2, use_default_colors(), COLOR_RED);
+    init_pair(1, use_default_colors(), COLOR_GREEN);
+    init_pair(0, COLOR_WHITE, COLOR_BLACK);
+    init_pair(4, COLOR_BLACK, COLOR_MAGENTA);
+    init_pair(5, COLOR_GREEN, use_default_colors());
 /*
 while(true){
 //keycode();
@@ -434,6 +479,8 @@ while(true){
 }*/
 
   //endFloor();
+    INTRO();
+    game.startUP();
   curs_set(0); //Cursor visibility , 0 none - 1 visible - 2 barely visible
   
   while( running== true ) {

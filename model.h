@@ -12,7 +12,7 @@ using namespace std;
 
 
 bool itemTurnedON(auto& user,auto& item){//Joao
-/* Update entity where are the item(attribute) of the players and set that attribute to 1 , means have now that item and cant grab it again 
+/* Update entity where are the item(attribute*) of the players and set that attribute to 1 , means have now that item and cant grab it again 
 
 NOT handle the response, you handle when call it*/
 
@@ -149,7 +149,7 @@ char grabItensfloor(int floor){//Joao
 
 		//TESTING
         auto cur = db.get_statement();
-        cur->set_sql( "SELECT * from itens where floor=?; ");
+        cur->set_sql( "SELECT item from itens where floor=?; ");
         cur->prepare();
         cur->bind(1,floor);
         while( cur->step() ){
