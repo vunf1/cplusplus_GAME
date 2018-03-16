@@ -9,7 +9,7 @@ bool print=false;
 void BasementRoom1()
 {
     mvprintw(0, 0, "Trash");
-    if(hasItem(detailInfo[0],"Key")==true){} else{turnOnItem(detailInfo[0],"Key")};
+    if(haveItem(detailInfo[0],"Key")==true){} else{itemTurnedON(detailInfo[0],"Key")};
 }
 
 void BasementRoom2()
@@ -23,7 +23,7 @@ void BasementRoom2()
 void BasementRoom3()
 {
     mvprintw(0,0, "Incinerator");
-    if(hasItem(detailInfo[0],"Thumb")==true){} else{turnOnItem(detailInfo[0],"Thumb")};
+    if(haveItem(detailInfo[0],"Thumb")==true){} else{itemTurnedON(detailInfo[0],"Thumb")};
 }
 
 void BasementRoom4()
