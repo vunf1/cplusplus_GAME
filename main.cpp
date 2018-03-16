@@ -124,15 +124,17 @@ char modifyUser(string user){//Joao
 		cout<<"The new username you input is the actual"<<endl;
 		cout<<"You want to keep it? (y/n)"<<endl;
 		cin>>ans;
-		switch(ans){
-
-			case 'y':
+		switch(ans)
+		{
 			case 'Y':
-				break;
-			case 'n':
+			case 'y':
+			break;
+
 			case 'N':
+			case 'n':
 				modifyUser(user);
 				break;
+
 			default:
 				cout<<"Wrong answer try again"<<endl;
 				modifyUser(user);

@@ -13,9 +13,10 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=3; //set to surgery for testing purposes
+int coorZ=2;
 bool counter;
 bool running=true;
+
 
 short int playerX = 3; // sets player starting position
 short int playerY = 2; // sets player starting position
@@ -248,17 +249,9 @@ string getUserInput(auto& map)//Joao && Diogo
 	    string sentence;
       //string sentence;
 
-	    move(13+4, 3); 
+	    move(14, 0); 
 	    printw("Insert your command: \n");
-      getline(cin, sentence);
-      //scanw("%s", sentence);
-
-      //move(13+6, 3);
-      //showInput();
-	    //fgets(sentence, 256, stdin);
-
-      cout << sentence << endl;
-      cout << sentence << endl;
+      sentence=get_line();
 
 	    checkForActions(sentence);
     }
@@ -318,8 +311,8 @@ void update()//Joao && Diogo
       break;
 
     case 2:
-      keyPosition();
       drawMap(surgery);
+      mvprintw(17,0,"This room feels rather empty, someone probably robbed this building before.");
       getUserInput(surgery);
       refresh();
       clear();
