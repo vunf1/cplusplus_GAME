@@ -6,66 +6,32 @@ using namespace std;
 int currentRoom;
 bool print=false;
 
-void basementRoom1()
+void BasementRoom1()
 {
-    mvprintw(0, 0, "Doctor's Office");
+    mvprintw(0, 0, "Trash");
     
 }
 
-void PsychiatricRoom2()
+void BasementRoom2()
 {
-    mvprintw(0,0, "Double Doors");
+    mvprintw(0,0, "You have found ");
+    addScore(detailInfo[0],+5); 
     
+    mvprintw(16,0, "You gained 5 points and you have %i",stoi(detailInfo[2]));
 }
 
-void PsychiatricRoom3()
+void BasementRoom3()
 {
-    mvprintw(0,0, "First Cell");
+    mvprintw(0,0, "Incinerator");
     		
 }
 
-void PsychiatricRoom4()
+void BasementRoom4()
 {
-    mvprintw(0,0, "Second Cell");
-    
+    mvprintw(0,0, "Exit Chest: Enter the chest room for a chance to finish the game and leave");
+    void drawMap()
 }
 
-void PsychiatricRoom5()
-{
-    mvprintw(0,0, "Third Cell");
-    
-    
-}
-
-void PsychiatricRoom6()
-{
-    mvprintw(0,0, "Fourth Cell");
-    
-    
-}
-
-void PsychiatricRoom7()
-{
-    mvprintw(0,0, "Fifth Cell");
-    
-    
-}
-
-void PsychiatricRoom8()
-{
-    
-    
-    mvprintw(0,0, "Boiler Room");
-    addScore(detailInfo[0],-5); 
-    
-    mvprintw(16,0, "You Lost 5 points and you have %i",stoi(detailInfo[2]));
-}
-
-void PsychiatricRoom9()
-{
-    mvprintw(2,70, "Stairs");
-    
-}
 
 //All the trigger points for the Story are above
 
@@ -74,17 +40,17 @@ void checkArea()
     if(coorZ==1)
     {
         if(playerY>=2 && playerY<=4 && playerX>=46 && playerX<=55){
-				PsychiatricRoom1();}
+				BasementRoom3();}
 	
 	    if(playerY>=9  && playerY<=9 && playerX>=58 && playerX<=60){
-				PsychiatricRoom9();}
+				BasementRoom1();}
 	
 		if(playerX==40 && playerY>=6 && playerY<=7){
-				PsychiatricRoom2();
+				BasementRoom2();
         }
         if(playerX>=34 && playerX<=39 && playerY>=8 && playerY<=10)
 		{		
-            PsychiatricRoom3();
+            BasementRoom4();
         }
         if(playerX>=27 && playerX<=32 && playerY>=8 && playerY<=10)
 		{		
