@@ -22,6 +22,8 @@ sqlite::sqlite db("dbPlayer");
 
 vector<string> detailInfo; /*Global vector - user information*/
 
+vector<string> playerItem;
+
 void hideInput()
 {
     termios tty;
@@ -284,7 +286,7 @@ int main() //Joao
 		cout<<"username"<<endl;
 		cin>>us;
 		playerInfo2vector(us);
-
+		playerItemBoard(us);
 		floor_3();
 
 		cout<<endl;
