@@ -13,7 +13,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=2;
+int coorZ=0;
 bool counter;
 bool running=true;
 
@@ -32,7 +32,7 @@ void endFloor(){//Joao
 
     clear();
     refresh();
-	noecho();
+	  noecho();
     getmaxyx(stdscr,y,x);
     
 
@@ -66,6 +66,8 @@ void endFloor(){//Joao
 #include "maps/psychiatricWard.h"
 #include "maps/surgeryFloor.h"
 #include "maps/childrenWard.h"
+#include "maps/lobbyFloor.h"
+
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
 
@@ -118,9 +120,9 @@ void keycode(){//Joao
     "|             |          |                 |          |      |",
     "|             |====  ====|                 |====  ====|      |",
     "|                                                            |",
-    "|                                                         ___|",
-    "|                                                            |",
-    "|       /  \\                |====  ====|                  ___|",
+    "|                                                          ==|",
+    "|                                                          / |",
+    "|       /  \\                |====  ====|                   ==|",
     "|      |    |               |          |                     |",
     "|_______\\__/________________|__________|_____________________|"
 };
@@ -146,17 +148,17 @@ char lobby[13][63] =
 {  //draws a  map with an array in order to create the lobby floor
 
     "                                                              ",
-    " ____________________________________________________________ ",
+    " ___________________________/\\/\\/\\/\\__________________________",
+    "|                                                            |",
+    "|                                                         ___|",
+    "|                                                            |",
+    "|                                                         ___|",
     "|                                                            |",
     "|                                                            |",
-    "|                                                            |",
-    "|            lobby                                           |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|                                                            |",
-    "|____________________________________________________________|"
+    "|--------------------------        --------------------------|",
+    "|                         |        |                         |",
+    "|                         \\        /                         |", //llifts
+    "|_________________________|========|_________________________|"
 };
 
   char basement[13][63] =
@@ -252,7 +254,7 @@ string getUserInput(auto& map)//Joao && Diogo
   else
   {
     //If the input is not one of the arrows.
-    echo();
+     echo();
     	getmaxyx(stdscr,y,x);
 	    string sentence;
 
@@ -308,20 +310,127 @@ string getUserInput(auto& map)//Joao && Diogo
     }
 
     if(coorZ==2){//Diogo
-/*
-    	//Keyword Handle for floor 2
+      echo();
+      getmaxyx(stdscr,y,x);
+
 	    string sentence;
-      //string sentence;
 
-	    move(14, 0); 
-	    printw("Insert your command: \n");
+	   
+      attron(COLOR_PAIR(5));
+      mvprintw(14,(x/8)+2,"Insert your command: ");
+      attroff(COLOR_PAIR(5));
+
       sentence=get_line();
+      refresh();
 
-	    checkForActions(sentence);*/
+      for(int idx=0; idx<3; idx++)
+      {
+        bool trigger=false;
+        switch(idx)
+        {
+          case 0:
+          trigger = keyWordChecker(sentence, "exit");
+          if(trigger)
+            running=false;
+          break;
+
+          case 1:
+          trigger = keyWordChecker(sentence, "look");
+          if(trigger)
+            switch(currentRoom)
+            {
+              case 1:
+                refresh();
+
+                attron(COLOR_PAIR(2));
+                mvprintw(y/8,(x/3),"There are no items on this room");
+                attroff(COLOR_PAIR(2));
+
+                attron(COLOR_PAIR(0));
+                mvprintw((y/8)+1,(x/2)-5,"Try other room");
+                attroff(COLOR_PAIR(0));
+
+                getch();
+                clear();
+              break;
+
+              case 2:
+                refresh();
+
+                attron(COLOR_PAIR(2));
+                mvprintw(y/8,(x/3),"There are no items on this room");
+                attroff(COLOR_PAIR(2));
+
+                attron(COLOR_PAIR(0));
+                mvprintw((y/8)+1,(x/2)-5,"Try other room");
+                attroff(COLOR_PAIR(0));
+
+                getch();
+                clear();
+              break;
+
+              case 3:
+                refresh();
+
+                attron(COLOR_PAIR(2));
+                mvprintw(y/8,(x/3),"There are no items on this room");
+                attroff(COLOR_PAIR(2));
+
+                attron(COLOR_PAIR(0));
+                mvprintw((y/8)+1,(x/2)-5,"Try other room");
+                attroff(COLOR_PAIR(0));
+
+                getch();
+                clear();
+              break;
+
+              case 4:
+                refresh();
+
+                attron(COLOR_PAIR(3));
+                mvprintw(y/8,(x/3)+4,"You can see something in the corner of the room");
+                attroff(COLOR_PAIR(3));
+
+
+                attron(COLOR_PAIR(2));
+                mvprintw((y/8)+1,(x/3)-9,"It's a lever!");
+                attroff(COLOR_PAIR(2));
+                mvprintw((y/8)+1,(x/3),"    - Would you like to pull the lever? (y/n)");
+                char answer;
+                answer = getch();
+                if(answer=='Y' && answer == 'y')
+                  lever=true;
+
+                getch();
+                clear();
+              break;
+
+              case -1:
+                refresh();
+
+                attron(COLOR_PAIR(3));
+                mvprintw(y/8,x/6,"Nothing to see on the hallway! Try entering the rooms.");
+                attroff(COLOR_PAIR(3));
+
+                getch();
+                clear();
+              break;
+
+              default:
+              break;
+              }
+            break;
+
+            case 2:
+            trigger = keyWordChecker(sentence, "down");
+              if(trigger)
+                if(lever==true)
+                  coorZ=1;
+
+            break;
+        }
+      }
     }
-
-
-
 
     if(coorZ== 1){//Luke
 
@@ -330,9 +439,60 @@ string getUserInput(auto& map)//Joao && Diogo
     	
     }
     if(coorZ== 0){//Diogo
+      echo();
+      getmaxyx(stdscr,y,x);
 
-    	//Keyword Handle for floor 0
+      string sentence;
 
+     
+      attron(COLOR_PAIR(5));
+      mvprintw(14,(x/8)+2,"Insert your command: ");
+      attroff(COLOR_PAIR(5));
+
+      sentence=get_line();
+      refresh();
+
+      for(int idx=0; idx<3; idx++)
+      {
+        bool trigger=false;
+        switch(idx)
+        {
+          case 0:
+          trigger = keyWordChecker(sentence, "exit");
+          if(trigger)
+            running=false;
+          break;
+
+          case 1:
+          trigger = keyWordChecker(sentence, "look");
+          if(trigger)
+            switch(currentRoom)
+            {
+              case -1:
+                refresh();
+
+                attron(COLOR_PAIR(3));
+                mvprintw(y/8,x/6,"Nothing to see on the hallway! Try entering the rooms.");
+                attroff(COLOR_PAIR(3));
+
+                getch();
+                clear();
+              break;
+
+              default:
+              break;
+              }
+            break;
+
+            case 2:
+            trigger = keyWordChecker(sentence, "open");
+              if(trigger)
+                if(lever==true)
+                  coorZ=1;
+
+            break;
+        }
+      }
     	
     }
     if(coorZ== -1){//Mariya & Iqra
@@ -376,7 +536,6 @@ void update()//Joao && Diogo
 
     case 2:
       drawMap(surgery);
-      mvprintw(17,0,"This room feels rather empty, someone probably robbed this building before.");
       getUserInput(surgery);
       refresh();
       clear();
@@ -385,7 +544,6 @@ void update()//Joao && Diogo
     case 3:
     	
       drawMap(childrenWard);
-      currentRoom=0;
       storyONboard();
       getUserInput(childrenWard);
       refresh();

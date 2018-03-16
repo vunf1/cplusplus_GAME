@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int currentRoom;
-bool print=false;
+int currentRoom=-1;
+bool lever=false;
 
 void Surgery_room1()
 {
@@ -24,13 +24,20 @@ void Surgery_toilet()
 	currentRoom=3;
 }
 
+void Surgery_storage()
+{
+	mvprintw(0, 0, "Storage Room         ");
+	currentRoom=4;
+}
+
+
 void Surgery_floor()
 {
 	mvprintw(0, 0, "Surgery Floor Hallway");
 	currentRoom=-1;
 }
 
-bool kbhit()
+bool kbhit()// Function to detect if there is any keyboad input.
 {
     int ch = getch();
 
@@ -63,49 +70,21 @@ void checkRoom(int x, int y)
 				Surgery_toilet();
 				return;
 			}
+
+			if((x>=8 && x<=11) && (y>=9 && y<=10))
+			{
+				Surgery_storage();
+				return;
+			}
 			Surgery_floor();
 		}
-}
 
-void actions(int action) //PRINTW IS NOT WORKING HERE FOR SOME REASON. NTBF
-{
-	switch(action)
-	{
-		case 0:
-			running=false; 
-			break;
-
-		case 1:
-			switch(currentRoom)
-			{
-				case 1:
-					//mvprintw(16,0,"This room feels rather empty, someone probably robbed this building before.");
-				break;
-
-				case 2:
-					mvprintw(16, 0, "Near the top left corner of the room you see something, you should probably take a few steps over there if you want to find out what it is.");
-					while(!kbhit())
-					{}
-					//exit(0);
-					//add coord check to see if user steps on the correct place and ask him if he wants to grab the item.
-				break;
-
-				case 3:
-					//code here
-				break;
-
-				case -1:
-					//code here
-					mvprintw(14,0,"This room feels rather empty, someone probably robbed this building before.");
-					pressAnyToContinue();
-				break;
-
-				default:
-				break;
-			}
-			break;
+	if(coorZ==0){
+		lobby_hallway();
 	}
+
 }
+
 
 bool keyWordChecker(string sentence, string word)//Diogo
 {
@@ -123,32 +102,5 @@ bool keyWordChecker(string sentence, string word)//Diogo
 		else
 			count=0;
 	}
-
 	return false;
 }
-
-void checkForActions(string sentence)//Diogo
-{
-	//Function to determine which actions should be confirmed by searching the sentence
-	//that the user sent as input with the keyWordChecker function.
-	bool trigger = false;
-
-	for(int idx=0; idx<2/*number of actions available*/; idx++)
-	{
-		switch(idx)
-		{
-			case 0:
-				trigger=keyWordChecker(sentence, "exit");
-				if(trigger==true)
-					actions(0);
-			break;
-
-			case 1:
-				trigger=keyWordChecker(sentence, "look");
-				if(trigger==true)
-					actions(1);
-			break;
-		}
-	}
-}
-

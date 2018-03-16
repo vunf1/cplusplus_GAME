@@ -24,7 +24,7 @@ vector<string> detailInfo; /*Global vector - user information*/
 
 vector<string> playerItem;
 
-void hideInput()
+void hideInput()//Diogo
 {
     termios tty;
 
@@ -36,7 +36,7 @@ void hideInput()
     tcsetattr(0, TCSANOW, &tty);
 }
 
-void showInput()
+void showInput()//Diogo
 {
    termios tty;
 
