@@ -45,7 +45,7 @@ void checkArea()
         if(playerY>=2 && playerY<=4 && playerX>=46 && playerX<=55){
 				BasementRoom3();}
 	
-	    if(playerY>=9  && playerY<=9 && playerX>=58 && playerX<=60){
+	    if(playerX>=1 && playerX<=14 && playerY>=2 && playerY<=5){
 				BasementRoom1();}
 	
 		if(playerX==40 && playerY>=6 && playerY<=7){
