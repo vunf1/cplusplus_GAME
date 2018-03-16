@@ -32,7 +32,7 @@ void BasementRoom4()
     addScore(detailInfo[0],+7); 
     
     mvprintw(16,0, "You gained 7 points and you have %i",stoi(detailInfo[2]));
-    void drawMap()
+    void drawMap();
 }
 
 
