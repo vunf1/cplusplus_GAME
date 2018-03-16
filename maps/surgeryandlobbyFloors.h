@@ -1,15 +1,21 @@
 //when you leave a room set currentRoom to -1
 //5 rooms
 
+
 using namespace std;
 
-int currentRoom=-1;
 bool lever=false;
 
 void Surgery_room1()
 {
 	mvprintw(0, 0, "Surgery Room 1       ");
 	currentRoom=1;
+}
+
+void lobby_hallway()
+{
+	mvprintw(0, 0, "Lobby Hallway        ");
+	currentRoom=-1;
 }
 
 void Surgery_room2()

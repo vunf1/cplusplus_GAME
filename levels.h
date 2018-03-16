@@ -16,7 +16,7 @@ int coorY=0;
 int coorZ=3;
 bool counter;
 bool running=true;
-
+int currentRoom=-1;
 
 short int playerX = 3; // sets player starting position
 short int playerY = 2; // sets player starting position
@@ -64,9 +64,8 @@ void endFloor(){//Joao
 
 
 #include "maps/psychiatricWard.h"
-#include "maps/surgeryFloor.h"
 #include "maps/childrenWard.h"
-#include "maps/lobbyFloor.h"
+#include "maps/surgeryandlobbyFloors.h"
 
 void keycode(){//Joao
   /*TEST porpose - SHOW KEY pressed by user (decimal/string value)*/
