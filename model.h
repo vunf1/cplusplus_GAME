@@ -12,7 +12,7 @@ using namespace std;
 
 
 
-char playerItemBoard(auto& user){
+char playerItemBoard(auto& user){//Joao
 /*SAVE PLAYER INFO INTO VECTOR:
  * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
@@ -307,22 +307,6 @@ char createCharacter(){//Joao
 
 		cout<<"Input Username 	\t";
 		cin>>user;
-		/*
-		if(user=="quit"||"Quit"||"QUit"||"QUIt"||"QUIT"||"quiT"||"quIT"||"qUIT"){
-			cout<<"That word is reserved for quit the game"<<endl;
-			cout<<"If you want to exit from this, type again 'quit'"<<endl;
-
-			cout<<"Input Username 	\t";
-			cin>>user;
-
-				if(user=="quit"||"Quit"||"QUit"||"QUIt"||"QUIT"||"quiT"||"quIT"||"qUIT"){
-					return 0;
-				}
-
-
-		}*/
-
-	    //cout<<checkQ->get_int(0)<<endl;
 	    check=checkUser(user);
 
 	    while(check==1)
