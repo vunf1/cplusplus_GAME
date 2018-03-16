@@ -1,7 +1,7 @@
 
 
 
-struct storyFunctions{
+struct storyFunctions{//Joao
 public:
 
 	void startUP(){
@@ -25,9 +25,7 @@ public:
 
 
 		mvprintw(y/10+6,(x/8)+21,"...");
-		/*
-The first things you can pick out is that you are in a room in what seems to be an old hospital bed from the old pieces of equipment that lay abandoned nearby.
- With a groan you slowly pull yourself out of the bed as you stand up. You try hard to think back to how you could have possibly ended up here, but all your mind does is draw blanks repeatedly. You frown, its as if your mind has been wiped clean. You can’t remember anything… After a moment you decide that you need to get the hell out of this place, with a quick glance through the small gaps of the boarded up window you can discern that you are at the top floor of this building.*/
+		
 		
 		wgetch(stdscr);
 
@@ -48,11 +46,26 @@ The first things you can pick out is that you are in a room in what seems to be 
 	}
 
 
+	void invalidInput(){//Joao
+		/*Table to show player Items like an inventory*/
+								clear();
+								refresh();
+								//line 0
+				    				attron(COLOR_PAIR(5));
+					   	    	mvprintw((y/5)-1,(x/2)-5,"Hi %s ",detailInfo[0].c_str());
+				    				attroff(COLOR_PAIR(5));
+				    				attron(COLOR_PAIR(1));
+					   	    	mvprintw((y/5),(x/3),"Invalid input");
+				    				attroff(COLOR_PAIR(1));
+					   	    	mvprintw((y/5)+1,(x/3),"type help for know key words");
+				    				getch();
+								clear();
+
+}
 
 	void checkBoard(){//Joao
 		/*Table to show player Items like an inventory*/
-		playerItemBoard(detailInfo[0]);
-		playerInfo2vector(detailInfo[0]);
+								clear();
 								refresh();
 								//line 0
 				    				attron(COLOR_PAIR(5));
@@ -128,20 +141,14 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 
 
-
-
 		}
 
 
 
 
 
-
-
-
-
 	void helpBoard(){//Joao
-
+								clear();
 								refresh();
 								//line 0
 				    				attron(COLOR_PAIR(3));
@@ -150,37 +157,37 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 								//line 1
 				    				attron(COLOR_PAIR(2));
-					   	    	mvprintw((y/5)+1,(x/3)-8,"exit");
+					   	    	mvprintw((y/5)+1,(x/3)-8,"exit ");
 				    				attroff(COLOR_PAIR(2));
 					   	    	mvprintw((y/5)+1,(x/3)-3,"- Exit the game , go main menu");
 
 								//line 2
 				    				attron(COLOR_PAIR(1));
-					   	    	mvprintw((y/5)+2,(x/3)-8,"help");
+					   	    	mvprintw((y/5)+2,(x/3)-8,"help ");
 				    				attroff(COLOR_PAIR(1));
 					   	    	mvprintw((y/5)+2,(x/3)-3,"- show game words");
 
 					   	    	//line 3
 									attron(COLOR_PAIR(0));
-								mvprintw((y/5)+3,(x/3)-8,"look");
+								mvprintw((y/5)+3,(x/3)-8,"look ");
 				    				attroff(COLOR_PAIR(0));
 					   	    	mvprintw((y/5)+3,(x/3)-3,"- show items on each room, player position important");
 
 
 					   	    	//line 4
 					   	    		attron(COLOR_PAIR(4));
-					   	    	mvprintw((y/5)+4,(x/3)-8,"take");
+					   	    	mvprintw((y/5)+4,(x/3)-8," take ");
 				    				attroff(COLOR_PAIR(4));
 					   	    	mvprintw((y/5)+4,(x/3)-3,"- take item if exist in that room");
 
 					   	    	//line 5
 					   	    		attron(COLOR_PAIR(3));
-					   	    	mvprintw((y/5)+5,(x/3)-8,"check");
+					   	    	mvprintw((y/5)+5,(x/3)-8," check ");
 				    				attroff(COLOR_PAIR(3));
 					   	    	mvprintw((y/5)+5,(x/3)-3,"- show the itens you have");
 					   	    	//line 6
 					   	    		attron(COLOR_PAIR(3));
-					   	    	mvprintw((y/5)+5,(x/3)-8,"down");
+					   	    	mvprintw((y/5)+5,(x/3)-8,"down ");
 				    				attroff(COLOR_PAIR(3));
 					   	    	mvprintw((y/5)+5,(x/3)-3,"- go to next floor");
 								getch();
@@ -192,7 +199,7 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 		}
 
-void itensLook(int room,int floor){
+void itensLook(int room,int floor){//Joao
 
 
 	switch(floor){
@@ -326,7 +333,7 @@ void itensLook(int room,int floor){
 
 
 
-void takeItem(int room,int floor){
+void takeItem(int room,int floor){//Joao
 switch(floor){
 
 		case 3:
@@ -478,7 +485,7 @@ switch(floor){
 					   	    	mvprintw(y/8,(x/3),"You grab the item");
 				    				attroff(COLOR_PAIR(4));
 					   	    	mvprintw((y/8)+1,(x/3)+3,"ID Card (+5)");
-					   	    	mvprintw((y/8)+2,(x/3),"Now you can go thow the stairs");
+					   	    	mvprintw((y/8)+2,(x/3),"Now you can use the stairs");
 					   	    	mvprintw((y/8)+3,(x/3),"and dont lose any score");
 
 							getch();
@@ -494,6 +501,7 @@ switch(floor){
 
 							getch();
 							clear();
+                        
 
 
 						}		
@@ -506,7 +514,7 @@ switch(floor){
 
 	}
 
-void finishFloor(){
+void finishFloor(){//Joao
 	if(currentRoom==9){
 		if(haveItem(detailInfo[0],"ID_Card")==1){
 			endFloor();
@@ -710,23 +718,3 @@ string keywordChecker4children(auto& path2)
 	}
 }
 
-
-
-
-/*
-void keywordChecker4children(string sentence)
-{//Diogo && Joao
-	//Function to check what the user has written and act according to it
-
-	transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
-
-
-        if (string::npos != sentence.find("exit")){
-                	actions4children(0);}
-        if (string::npos != sentence.find("look"))
-        {
-                	actions4children(1);
-
-                }
-}
-*/

@@ -24,8 +24,10 @@ vector<string> detailInfo; /*Global vector - user information*/
 
 vector<string> playerItem;
 
+
 void hideInput()//Diogo
 {
+
     termios tty;
 
     tcgetattr(0, &tty);
@@ -50,6 +52,7 @@ void showInput()//Diogo
 
 
 void pressAnyToContinue(){//Joao
+	//wait for enter trigger , hide future type
 	cout<<"Press ENTER to continue ...";
 	hideInput();
 
@@ -57,12 +60,13 @@ void pressAnyToContinue(){//Joao
 	cin.clear();
 	cin.get();
 	cin.ignore(INT_MAX,'\n');
+	showInput();
 }
 
 
 
 void clearCon()// Joao
-    {
+    {//clear log on console
     //system("reset");// reset log console
     system("clear");// clear actual screen log on console
     /*Create 100 lines in the console giving the ideia of clean*/
@@ -77,11 +81,13 @@ string transformToQuote( const string& var ) { // Joao
 
     To pass a string by reference, you use the data type string&.
 
-    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.*/
+    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.
+    DB ERRORS , try receive help from DAvid Croft he didnt fix so use alternative */
     return string("'") + var + string("'");
+    clearCon();
 }
 
-char playerInfo2vector(auto& user){
+char playerInfo2vector(auto& user){//Joao
 /*SAVE PLAYER INFO INTO VECTOR:
  * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
@@ -263,7 +269,7 @@ int modifyAccount()
 
 
 
-char findPlayer(){
+char findPlayer(){//Joao
 	/*ask for the nickname of the player you want to see and ten send to the function who will create a table with that player*/
 	string nick;
 
@@ -283,11 +289,7 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		cout<<"username"<<endl;
-		cin>>us;
-		playerInfo2vector(us);
-		playerItemBoard(us);
-		floor_3();
+
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;
@@ -351,7 +353,7 @@ int main() //Joao
 								checkUP(us,pw);
 							}
 								playerInfo2vector(us);
-			
+								playerItemBoard(us);
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  
