@@ -57,6 +57,7 @@ void pressAnyToContinue(){//Joao
 	cin.clear();
 	cin.get();
 	cin.ignore(INT_MAX,'\n');
+	showInput();
 }
 
 
@@ -79,6 +80,7 @@ string transformToQuote( const string& var ) { // Joao
 
     Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.*/
     return string("'") + var + string("'");
+    clearCon();
 }
 
 char playerInfo2vector(auto& user){
@@ -283,11 +285,7 @@ int main() //Joao
 		string pw;
 		string ans;
 
-		cout<<"username"<<endl;
-		cin>>us;
-		playerInfo2vector(us);
-		playerItemBoard(us);
-		floor_3();
+
 
 		cout<<endl;
 		cout<<BLUE_TEXT("		  Text Adventure ")<<endl;
@@ -351,7 +349,7 @@ int main() //Joao
 								checkUP(us,pw);
 							}
 								playerInfo2vector(us);
-			
+								playerItemBoard(us);
 							    clearCon();
 								//top_floor(detailInfo);
 								//Game(detailInfo);//To be loaded after found the key  

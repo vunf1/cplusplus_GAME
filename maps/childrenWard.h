@@ -48,11 +48,26 @@ The first things you can pick out is that you are in a room in what seems to be 
 	}
 
 
+	void invalidInput(){//Joao
+		/*Table to show player Items like an inventory*/
+								clear();
+								refresh();
+								//line 0
+				    				attron(COLOR_PAIR(5));
+					   	    	mvprintw((y/5)-1,(x/2)-5,"Hi %s ",detailInfo[0].c_str());
+				    				attroff(COLOR_PAIR(5));
+				    				attron(COLOR_PAIR(1));
+					   	    	mvprintw((y/5),(x/3),"Invalid input");
+				    				attroff(COLOR_PAIR(1));
+					   	    	mvprintw((y/5)+1,(x/3),"type help for know key words");
+				    				getch();
+								clear();
+
+}
 
 	void checkBoard(){//Joao
 		/*Table to show player Items like an inventory*/
-		playerItemBoard(detailInfo[0]);
-		playerInfo2vector(detailInfo[0]);
+								clear();
 								refresh();
 								//line 0
 				    				attron(COLOR_PAIR(5));
@@ -128,20 +143,14 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 
 
-
-
 		}
 
 
 
 
 
-
-
-
-
 	void helpBoard(){//Joao
-
+								clear();
 								refresh();
 								//line 0
 				    				attron(COLOR_PAIR(3));
@@ -150,37 +159,37 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 								//line 1
 				    				attron(COLOR_PAIR(2));
-					   	    	mvprintw((y/5)+1,(x/3)-8,"exit");
+					   	    	mvprintw((y/5)+1,(x/3)-8,"exit ");
 				    				attroff(COLOR_PAIR(2));
 					   	    	mvprintw((y/5)+1,(x/3)-3,"- Exit the game , go main menu");
 
 								//line 2
 				    				attron(COLOR_PAIR(1));
-					   	    	mvprintw((y/5)+2,(x/3)-8,"help");
+					   	    	mvprintw((y/5)+2,(x/3)-8,"help ");
 				    				attroff(COLOR_PAIR(1));
 					   	    	mvprintw((y/5)+2,(x/3)-3,"- show game words");
 
 					   	    	//line 3
 									attron(COLOR_PAIR(0));
-								mvprintw((y/5)+3,(x/3)-8,"look");
+								mvprintw((y/5)+3,(x/3)-8,"look ");
 				    				attroff(COLOR_PAIR(0));
 					   	    	mvprintw((y/5)+3,(x/3)-3,"- show items on each room, player position important");
 
 
 					   	    	//line 4
 					   	    		attron(COLOR_PAIR(4));
-					   	    	mvprintw((y/5)+4,(x/3)-8,"take");
+					   	    	mvprintw((y/5)+4,(x/3)-8," take ");
 				    				attroff(COLOR_PAIR(4));
 					   	    	mvprintw((y/5)+4,(x/3)-3,"- take item if exist in that room");
 
 					   	    	//line 5
 					   	    		attron(COLOR_PAIR(3));
-					   	    	mvprintw((y/5)+5,(x/3)-8,"check");
+					   	    	mvprintw((y/5)+5,(x/3)-8," check ");
 				    				attroff(COLOR_PAIR(3));
 					   	    	mvprintw((y/5)+5,(x/3)-3,"- show the itens you have");
 					   	    	//line 6
 					   	    		attron(COLOR_PAIR(3));
-					   	    	mvprintw((y/5)+5,(x/3)-8,"down");
+					   	    	mvprintw((y/5)+5,(x/3)-8,"down ");
 				    				attroff(COLOR_PAIR(3));
 					   	    	mvprintw((y/5)+5,(x/3)-3,"- go to next floor");
 								getch();

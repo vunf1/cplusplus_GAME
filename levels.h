@@ -13,7 +13,7 @@
 
 int coorX=0;
 int coorY=0;
-int coorZ=2;
+int coorZ=3;
 bool counter;
 bool running=true;
 
@@ -265,46 +265,57 @@ string getUserInput(auto& map)//Joao && Diogo
     	//Keyword Handle for floor 3
 
 	   	   refresh();
-		   	   if(keywordChecker4children(sentence)==string("look")){//show itens on that room
-		   	   //done
-		   	   		game.itensLook(currentRoom,coorZ);
-		   	   }
+		   	   if(keywordChecker4children(sentence)==string("look") || keywordChecker4children(sentence)==string("take") || keywordChecker4children(sentence)==string("exit") || keywordChecker4children(sentence)==string("help") || keywordChecker4children(sentence)==string("check") || keywordChecker4children(sentence)==string("down"))
+		   	   {
+
+			   	   	if(keywordChecker4children(sentence)==string("look")){
+			   	   		game.itensLook(currentRoom,coorZ);
+			   	   	};
+
+
+			   	   if(keywordChecker4children(sentence)==string("take")){//show itens on that room
+			   	   //done
+
+			   	   		game.takeItem(currentRoom,coorZ);
+			   	   };
 
 
 
-		   	   if(keywordChecker4children(sentence)==string("take")){//show itens on that room
-		   	   //done
-
-		   	   		game.takeItem(currentRoom,coorZ);
-		   	   }
-
+			   	   if(keywordChecker4children(sentence)==string("exit")){
+			   	   	//exit go to main menu
+			   	    running=false;
+			   	   };
 
 
-		   	   if(keywordChecker4children(sentence)=="exit"){
-		   	   	//exit go to main menu
-		   	    running=false;
-		   	   }
+					if(keywordChecker4children(sentence)==string("help")){
+						//"help" handle function
+						//Done
+						game.helpBoard();
+						
+			   	   };
 
 
-				if(keywordChecker4children(sentence)==string("help")){
-					//"help" handle function
-					//Done
-					game.helpBoard();
-					
-		   	   }
 
-				if(keywordChecker4children(sentence)==string("check")){
-					//"help" handle function
-					
-					game.checkBoard();
-					
-		   	   }
-				if(keywordChecker4children(sentence)==string("down")){
-					//"help" handle function
-					
-					game.finishFloor();
-					
-		   	   }
+					if(keywordChecker4children(sentence)==string("check")){
+						//"help" handle function
+						
+						game.checkBoard();
+						
+			   	   };
+					if(keywordChecker4children(sentence)==string("down")){
+						//"help" handle function
+						
+						game.finishFloor();
+						
+			   	   };
+
+
+
+
+
+
+		   	   }else{game.invalidInput();}
+
     }
 
     if(coorZ==2){//Diogo
@@ -383,7 +394,8 @@ void update()//Joao && Diogo
       break;
 
     case 3:
-    	
+    playerItemBoard(detailInfo[0]);
+    playerInfo2vector(detailInfo[0]);
       drawMap(childrenWard);
       currentRoom=0;
       storyONboard();
@@ -505,7 +517,7 @@ while(true){
   
   while( running== true ) {
 
-    keyPosition();
+    //keyPosition();
     update();
     }
   endwin();
