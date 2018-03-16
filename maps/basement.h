@@ -45,7 +45,7 @@ void checkArea()
         if(playerY>=2 && playerY<=4 && playerX>=46 && playerX<=55){
 				BasementRoom3();}
 	
-	    if(playerY>=9  && playerY<=9 && playerX>=58 && playerX<=60){
+	    if(playerX>=1 && playerX<=14 && playerY>=2 && playerY<=5){
 				BasementRoom1();}
 	
 		if(playerX==40 && playerY>=6 && playerY<=7){
@@ -66,7 +66,7 @@ void itemsLook(int room,int floor){//Joao
 
 		case 3:{
 
-			if(room==0){ //basement floor and body/maze chest
+			if(room==0 || room ==2 || room==4){ //basement floor and body/maze chest
 
 
 									refresh();
@@ -78,7 +78,7 @@ void itemsLook(int room,int floor){//Joao
 									getch();
 									clear();
 		}
-			if(room==1 ||room==4 ||room==6 ){ //ttrash and incinerator
+			if(room==1 ||room==3 ){ //trash and incinerator
 
 
 								refresh();
