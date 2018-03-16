@@ -59,7 +59,7 @@ void checkArea()
     }
 }
 
-void itemsLook(int room,int floor){//Joao
+void itemsLook(int room,int floor){
 
 
 	switch(floor){
