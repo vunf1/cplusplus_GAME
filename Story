@@ -174,6 +174,13 @@ You enter the boiler room, glancing around wearily at the various pipes and valv
 
 [clear]
 
+Basement
+
+You follow the trail of blood down the stairs, soon coming onto the opening. You wrinkle your nose in distaste as the smell assaults your senses. You look around, but the dark makes it hard to see anything.
+
+Body
+
+You continue walking until you stumble across an object laying on the ground, upon closer inspection you reel back in horror. Before you is a motionless corpse lying in a pool of blood, of which you realise that you had stepped in.
 
 
 
