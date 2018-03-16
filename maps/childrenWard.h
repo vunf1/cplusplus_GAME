@@ -485,7 +485,7 @@ switch(floor){
 					   	    	mvprintw(y/8,(x/3),"You grab the item");
 				    				attroff(COLOR_PAIR(4));
 					   	    	mvprintw((y/8)+1,(x/3)+3,"ID Card (+5)");
-					   	    	mvprintw((y/8)+2,(x/3),"Now you can go thow the stairs");
+					   	    	mvprintw((y/8)+2,(x/3),"Now you can use the stairs");
 					   	    	mvprintw((y/8)+3,(x/3),"and dont lose any score");
 
 							getch();
@@ -501,6 +501,7 @@ switch(floor){
 
 							getch();
 							clear();
+                        
 
 
 						}		

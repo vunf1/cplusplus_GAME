@@ -14,7 +14,7 @@ void BasementRoom1()
 
 void BasementRoom2()
 {
-    mvprintw(0,0, "You have found ");
+    mvprintw(0,0, "You have found a corpse which resembles Dr.Arnold, do you wish to investigate further? : ");
     addScore(detailInfo[0],+5); 
     
     mvprintw(16,0, "You gained 5 points and you have %i",stoi(detailInfo[2]));
@@ -29,6 +29,9 @@ void BasementRoom3()
 void BasementRoom4()
 {
     mvprintw(0,0, "Exit Chest: Enter the chest room for a chance to finish the game and leave");
+    addScore(detailInfo[0],+7); 
+    
+    mvprintw(16,0, "You gained 7 points and you have %i",stoi(detailInfo[2]));
     void drawMap()
 }
 
@@ -52,28 +55,44 @@ void checkArea()
 		{		
             BasementRoom4();
         }
-        if(playerX>=27 && playerX<=32 && playerY>=8 && playerY<=10)
-		{		
-            PsychiatricRoom4();
-        }
-        if(playerX>=19 && playerX<=25 && playerY>=8 && playerY<=10)
-		{	
-            PsychiatricRoom5();
-        }
-        if(playerX>=10 && playerX<=17 && playerY>=8 && playerY<=10)
-		{		
-            PsychiatricRoom6();
-        }
-        if(playerX>=1 && playerX<=8 && playerY>=8 && playerY<=10)
-		{		
-            PsychiatricRoom7();
-        }
-        if(playerX>=1 && playerX<=14 && playerY>=2 && playerY<=5)
-		{	
-            
-            PsychiatricRoom8();
-        }
+      
     }
 }
-    
+
+void itemsLook(int room,int floor){//Joao
+
+
+	switch(floor){
+
+		case 3:{
+
+			if(room==0){ //basement floor and body/maze chest
+
+
+									refresh();
+
+				    				attron(COLOR_PAIR(2));
+					   	    		mvprintw(y/8,(x/3)+4,"There are no items within your reach");
+				    				attroff(COLOR_PAIR(2));
+					   	    		mvprintw((y/8)+1,(x/3)+4,"enters a room and finds items");
+									getch();
+									clear();
+		}
+			if(room==1 ||room==4 ||room==6 ){ //ttrash and incinerator
+
+
+								refresh();
+
+				    				attron(COLOR_PAIR(2));
+					   	    		mvprintw(y/8,(x/3),"There are no items in this room");
+				    				attroff(COLOR_PAIR(2));
+
+
+				    				attron(COLOR_PAIR(0));
+					   	    	mvprintw((y/8)+1,(x/2)-5,"Try other room");
+				    				attroff(COLOR_PAIR(0));
+
+								getch();
+								clear();
+		}
    
