@@ -1,7 +1,7 @@
 
 
 
-struct storyFunctions{
+struct storyFunctions{//Joao
 public:
 
 	void startUP(){
@@ -25,9 +25,7 @@ public:
 
 
 		mvprintw(y/10+6,(x/8)+21,"...");
-		/*
-The first things you can pick out is that you are in a room in what seems to be an old hospital bed from the old pieces of equipment that lay abandoned nearby.
- With a groan you slowly pull yourself out of the bed as you stand up. You try hard to think back to how you could have possibly ended up here, but all your mind does is draw blanks repeatedly. You frown, its as if your mind has been wiped clean. You can’t remember anything… After a moment you decide that you need to get the hell out of this place, with a quick glance through the small gaps of the boarded up window you can discern that you are at the top floor of this building.*/
+		
 		
 		wgetch(stdscr);
 
@@ -201,7 +199,7 @@ The first things you can pick out is that you are in a room in what seems to be 
 
 		}
 
-void itensLook(int room,int floor){
+void itensLook(int room,int floor){//Joao
 
 
 	switch(floor){
@@ -335,7 +333,7 @@ void itensLook(int room,int floor){
 
 
 
-void takeItem(int room,int floor){
+void takeItem(int room,int floor){//Joao
 switch(floor){
 
 		case 3:
@@ -515,7 +513,7 @@ switch(floor){
 
 	}
 
-void finishFloor(){
+void finishFloor(){//Joao
 	if(currentRoom==9){
 		if(haveItem(detailInfo[0],"ID_Card")==1){
 			endFloor();
@@ -719,23 +717,3 @@ string keywordChecker4children(auto& path2)
 	}
 }
 
-
-
-
-/*
-void keywordChecker4children(string sentence)
-{//Diogo && Joao
-	//Function to check what the user has written and act according to it
-
-	transform(sentence.begin(), sentence.end(), sentence.begin(), ::tolower);
-
-
-        if (string::npos != sentence.find("exit")){
-                	actions4children(0);}
-        if (string::npos != sentence.find("look"))
-        {
-                	actions4children(1);
-
-                }
-}
-*/

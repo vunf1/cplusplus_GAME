@@ -25,7 +25,7 @@ vector<string> detailInfo; /*Global vector - user information*/
 vector<string> playerItem;
 
 void hideInput()
-{
+{//Hide input
     termios tty;
 
     tcgetattr(0, &tty);
@@ -37,7 +37,7 @@ void hideInput()
 }
 
 void showInput()
-{
+{//undo hided input
    termios tty;
 
     tcgetattr(0, &tty);
@@ -50,6 +50,7 @@ void showInput()
 
 
 void pressAnyToContinue(){//Joao
+	//wait for enter trigger , hide future type
 	cout<<"Press ENTER to continue ...";
 	hideInput();
 
@@ -63,7 +64,7 @@ void pressAnyToContinue(){//Joao
 
 
 void clearCon()// Joao
-    {
+    {//clear log on console
     //system("reset");// reset log console
     system("clear");// clear actual screen log on console
     /*Create 100 lines in the console giving the ideia of clean*/
@@ -78,12 +79,13 @@ string transformToQuote( const string& var ) { // Joao
 
     To pass a string by reference, you use the data type string&.
 
-    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.*/
+    Adding the const qualifier to a reference (or a pointer) just says that the code promises not to alter the contents of the object being referenced (or being pointed to). Using const does not mean that the object occupies a read-only area of memory.
+    DB ERRORS , try receive help from DAvid Croft he didnt fix so use alternative */
     return string("'") + var + string("'");
     clearCon();
 }
 
-char playerInfo2vector(auto& user){
+char playerInfo2vector(auto& user){//Joao
 /*SAVE PLAYER INFO INTO VECTOR:
  * THIS VECTOR IS GLOBAL EVERY FUNCTIONS HAVE ACCESS
 [0]NICKNAME
@@ -265,7 +267,7 @@ int modifyAccount()
 
 
 
-char findPlayer(){
+char findPlayer(){//Joao
 	/*ask for the nickname of the player you want to see and ten send to the function who will create a table with that player*/
 	string nick;
 
