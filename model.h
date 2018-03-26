@@ -240,7 +240,7 @@ char rankingScore(){//Joao
 
         cout<<"	Ranking "<<endl;
 
-        cout<<"| POSITION | NICKNAME | SCORE "<<endl;
+        cout<<"|P.|NICKNAME|SCORE|LEVEL"<<endl;
         cout<<YELLOW_TEXT("★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★ ★★")<<endl;
 
         auto cur = db.get_statement();
@@ -397,7 +397,7 @@ void alterPass(string password,string user){//Joao
 			if(checkQ->step()== SQLITE_OK ){
 				
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
-				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Password ")CYAN_TEXT("update")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Password ")CYAN_TEXT("updated")WHITE_TEXT(" successfully")YELLOW_TEXT("★")<<endl;
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				
 			}
@@ -413,7 +413,7 @@ void alterPass(string password,string user){//Joao
 
 			if(checkQ->step()== SQLITE_OK ){
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
-				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Password ")CYAN_TEXT("update")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Username ")CYAN_TEXT("updated")WHITE_TEXT(" successfully")YELLOW_TEXT("★")<<endl;
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 			}
  }
