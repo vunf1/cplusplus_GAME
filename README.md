@@ -62,7 +62,7 @@ git push
 
 
 ###### Ideia for game-dev
-> - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
+> - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x)(AJUSUTED TO USE ARROWS) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
 > - [x] :exclamation:__Game Name__ *Mariya & Iqra*
 > - [x] :exclamation:__Game History__ *Luke*
 > - [x] Simple Design
@@ -72,7 +72,7 @@ git push
 > - [x] Connection to DB
 > - [x] DB Options SCRUD or CRUD (Search Create Read Update Delete)
 > - [x] Ranking
-> - [ ] __Ranking DESIGN NEED IMPROVE__
+> - [x] __Ranking DESIGN NEED IMPROVE__
 > - [x] Organize functions , create better algorithm, kinda like MVC design 
 > - [x] addScore(user,score2add)
 > - [x] upLevel(user,xLevels)
@@ -81,35 +81,35 @@ git push
 > - [x] Player info travel between cpp&&headers 
 
 > - [x] Game - GAME IDEIA  ()
-> - [ ] :herb: __Game - Children     (Floor 3)__ :boom: *Joao*
-> - [ ] MAP(ROOMS)   
-> - [ ] STORY   
+> - [x] :herb: __Game - Children     (Floor 3)__ :boom: *Joao*
+> - [x] MAP(ROOMS)   
+> - [x] STORY   
+> - [x] STORY MAPPED 
+> - [x] :herb: __Game - Surgery      (Floor 2)__ :boom: *Diogo*
+> - [x] MAP(ROOMS)   
+> - [x] STORY  
 > - [ ] STORY MAPPED 
-> - [ ] :herb: __Game - Surgery      (Floor 2)__ :boom: *Diogo*
-> - [ ] MAP(ROOMS)   
-> - [ ] STORY  
+> - [x] :herb: __Game - Psychiatric  (Floor 1)__ :boom: *Luke*
+> - [x] MAP(ROOMS)   
+> - [x] STORY   
 > - [ ] STORY MAPPED 
-> - [ ] :herb: __Game - Psychiatric  (Floor 1)__ :boom: *Luke*
-> - [ ] MAP(ROOMS)   
-> - [ ] STORY   
-> - [ ] STORY MAPPED 
-> - [ ] :herb: __Game - Lobby        (Floor 0)__ :boom: *Diogo*
-> - [ ] MAP(ROOMS)   
+> - [x] :herb: __Game - Lobby        (Floor 0)__ :boom: *Diogo*
+> - [x] MAP(ROOMS)   
 > - [ ] STORY   
 > - [ ] STORY MAPPED 
 > - [x] Game - After found key do the maze to finish the game
 > - [ ] __Game - Algorithm for maze creation (to be diferent each time start an final level)__ :boom: *Bartek*
 > - [x] Game - Congratz after finish maze with Player Info 
-> - [ ] :herb:  __Game - Basement     (Floor -1)__ :boom: *Mariya*
-> - [ ] MAP(ROOMS)   
+> - [x] :herb:  __Game - Basement     (Floor -1)__ :boom: *Mariya*
+> - [x] MAP(ROOMS)   
 > - [ ] STORY   
 > - [ ] STORY MAPPED 
 > - [ ] :herb: Game - __Credit area__ :boom: *Iqra*
-> - [ ] :herb: Game - __Review all stuff(Check comments on code)__
+> - [x] :herb: Game - __Review all stuff(Check comments on code)__
 
 :exclamation: :exclamation: Important for IPP/Viva :computer:
-> - [ ] :warning: __Flow Diagram(Code)__ :japanese_goblin: Individual
-> - [ ] :warning: __ER Diagram(DB)__ :japanese_goblin: Individual
+> - [x] :warning: __Flow Diagram(Code)__ :japanese_goblin: Individual
+> - [x] :warning: __ER Diagram(DB)__ :japanese_goblin: Individual
 > - [ ] Screenshots of runtime game :japanese_goblin: Individual
 
 ### ESSENCIAL(To achive high mark)
