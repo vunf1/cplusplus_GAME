@@ -69,6 +69,7 @@ void clearCon()// Joao
     {//clear log on console
     //system("reset");// reset log console
     system("clear");// clear actual screen log on console
+  
     /*Create 100 lines in the console giving the ideia of clean*/
     //cout << string( 100, '\n' );
     }
@@ -247,8 +248,7 @@ void modifyOptions(string user,string password){//Joao
 						break;
 				}
 }
-int modifyAccount()
-{//Joao 
+int modifyAccount(){//Joao 
 
 		//bool OK;
 		cout<<"Username \t";
@@ -341,6 +341,8 @@ int main() //Joao
 								cout<<"Wish go back (y/n)?"<<endl;
 								cin>>ans;
 								if(ans=="y" ||ans=="Y" || ans=="yes" || ans=="Yes" || ans=="YEs" || ans=="YES" || ans=="yeS" || ans=="yES"){
+                  
+							    clearCon();
 									main();
 									}
 			
@@ -362,7 +364,7 @@ int main() //Joao
 									
 			
 							break;}
-			case 2:
+			case 2:{
 
 				clearCon();
 				rankingScore();
@@ -370,7 +372,7 @@ int main() //Joao
 				clearCon();
 				showInput();
 				main();
-				break;
+				break;}
 			case 3:{
 			
 							clearCon();
@@ -445,7 +447,7 @@ int main() //Joao
 
 							break;
 						}
-			case 4:
+			case 4:{
 
 				clearCon();
 				break;
@@ -453,7 +455,7 @@ int main() //Joao
 				cout<<endl;
 				cout<<"Invalid Number! Try Again"<<endl;
 				main();
-				break;
+				break;}
 		}
 	return 0;
 }

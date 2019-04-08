@@ -111,8 +111,8 @@ void removeCharacter(){//Joao
 
 			if(checkQ->step()== SQLITE_OK ){
 				
-cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
-				cout<<YELLOW_TEXT("★ ")WHITE_TEXT("Account ")RED_TEXT("removed")WHITE_TEXT(" successfully")YELLOW_TEXT(" ★")<<endl;
+        cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
+				cout<<YELLOW_TEXT("★\t")WHITE_TEXT("Account ")RED_TEXT("removed")WHITE_TEXT(" successfully")YELLOW_TEXT("\t★")<<endl;
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				
 			}
@@ -314,10 +314,10 @@ char createCharacter(){//Joao
 
 				
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
-				cout<<YELLOW_TEXT("★	 ")RED_TEXT("ERROR")YELLOW_TEXT("           ★")<<endl;
-				cout<<YELLOW_TEXT("★ ")WHITE_TEXT(" ------------------ ")YELLOW_TEXT("   ★")<<endl;
-				cout<<YELLOW_TEXT("★   ")WHITE_TEXT("Username in use")YELLOW_TEXT("      ★")<<endl;
-				cout<<YELLOW_TEXT("★        ")WHITE_TEXT("SORRY")YELLOW_TEXT("           ★")<<endl;
+				cout<<YELLOW_TEXT("★\t")RED_TEXT("ERROR")YELLOW_TEXT("\t★")<<endl;
+				cout<<YELLOW_TEXT("★\t")WHITE_TEXT(" ------------------ ")YELLOW_TEXT("\t★")<<endl;
+				cout<<YELLOW_TEXT("★\t")WHITE_TEXT("Username in use")YELLOW_TEXT("\t★")<<endl;
+				cout<<YELLOW_TEXT("★\t\t")WHITE_TEXT("SORRY")YELLOW_TEXT("\t★")<<endl;
 				cout<<YELLOW_TEXT("★★★★★★★★★★★★★★★★★★★★★★★★★★")<<endl;
 				cout<<"Input an Username that not exist already	\t";
 				cin>>user;
