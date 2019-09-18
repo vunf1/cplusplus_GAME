@@ -10,6 +10,9 @@
 #include <ncurses.h>
 #include <termios.h>
 
+#include <unistd.h>
+#include <term.h>
+
 #include "colors.h"
 using namespace std;
 //GLOBAL Variables
@@ -66,13 +69,24 @@ void pressAnyToContinue(){//Joao
 
 
 void clearCon()// Joao
-    {//clear log on console
+{
+  
+  if (!cur_term)
+    {
+    int result;
+    setupterm( NULL, STDOUT_FILENO, &result );
+    if (result <= 0) return;
+    }
+
+  putp( tigetstr( "clear" ) );
+  
+  //clear log on console
     //system("reset");// reset log console
-    system("clear");// clear actual screen log on console
+    //system("clear");// clear actual screen log on console
   
     /*Create 100 lines in the console giving the ideia of clean*/
     //cout << string( 100, '\n' );
-    }
+}
 
 
 

@@ -53,13 +53,17 @@ git push
 > - [x] REAL BUG FROM bind() -> DONT ACCEPT 2 binds() with a Operation (AND,OR,BETWEEN,etc)
 > - [x] Fast SOLUTION -> Use transform2Quote/Insert into string function (bad pratice!)
 
-
+> - [ ] Group Elements didn't connect the dots in game, impossible to reach last level and finish the game .
+> - [ ] Group Elements didn't finish they levels - second level have same done .
 
 ---
 
 
 ### TO DO LIST
 
+> - [ ] connect game level, creating better algorithm logic
+> - [ ] Try to generate auto mazes using dijkstra bfs or dfs algorithms
+> - [ ] Try to generate auto mazes using dijkstra bfs or dfs algorithms
 
 ###### Ideia for game-dev
 > - [x] Use cordenates like [x,y] on the floor and z to indicate the floor ,Player start on 0,0,0 Up and Down (Floors), North(+y) , South(-y) , West(-x) , East(+x)(AJUSUTED TO USE ARROWS) , [-1,-1,z] unvaiable in all floors, when reach [x,y,z] position, that means a room, only on door location is posible to enter and LOOK for items after find n items can go up 
